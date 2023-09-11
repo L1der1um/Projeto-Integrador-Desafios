@@ -213,7 +213,7 @@ class Software:
         #DEFINE O CAMPO DO TEXTO
         text = Text(self.tela6, height=1, width=70)
         #INSERE O LINK COMO TEXTO
-        text.insert('1.0', 'https://github.com/L1der1um/Projeto-Integrador-Desafios-Programacao')
+        text.insert('1.0', 'https://github.com/L1der1um/Projeto-Integrador-Desafios')
         #IMPOSSIBILTA A ALTERAÇÃO DO CAMPO DO LINK
         text.config(state="disabled")
         text.pack()
@@ -481,7 +481,7 @@ class Software:
     #FUNÇÃO ABRIR LINK DO GITHUB
     def abrir_github(self):
 
-        webbrowser.open('https://github.com/L1der1um/Projeto-Integrador-Desafios-Programacao')
+        webbrowser.open('https://github.com/L1der1um/Projeto-Integrador-Desafios')
 
     ############################################################################################################
     
