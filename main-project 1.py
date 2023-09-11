@@ -16,7 +16,7 @@ class Software:
     def __init__(self, root):
 
         self.root = root
-        #DEFINE O TITULO DO PROGRAMA
+        #DEFINE O TITULO DO PROGRAMAA
         root.title("PROJETO INTEGRADOR")
         #DEFINE A ESCALA DO PROGRAMA
         root.geometry("900x500")
