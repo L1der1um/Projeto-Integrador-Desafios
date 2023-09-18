@@ -8,7 +8,7 @@ import webbrowser
 #CRIANDO A CLASSE SOFTWARE
 class Software:
 
-    ############################################################################################################
+    ############################################### CONFIGURAÇÃO TKINTER ##########################################################
 
     #FUNÇÕES DA CLASSE SOFTWARE
 
@@ -27,7 +27,7 @@ class Software:
         #EXECUTA A TELA PRINCIPAL
         self.criar_tela1()
 
-    ############################################################################################################
+    ############################################ FUNÇÕES CRIAR TELA #############################################################
 
     #CRIA A TELA 1 (PRINCIPAL)
     def criar_tela1(self):
@@ -357,8 +357,8 @@ class Software:
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
-        label6 = tk.Label(self.tela8, text="F = G * (m1 * m2) / r^2")
-        label6.pack(pady=15)
+        label6_1 = tk.Label(self.tela8, text="F = G * (m1 * m2) / d^2")
+        label6_1.pack(pady=15)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -372,46 +372,38 @@ class Software:
             if not widget.get():
                 widget.insert(0, widget.placeholder)
 
-        # Criando um frame para os campos de entrada de massa1, massa2 e distância
-        frame_campos = tk.Frame(self.tela8)
-        frame_campos.pack()
-
         #TEXTO MASSA 1 CAMPO DE ENTRADA
-        label_forca = tk.Label(frame_campos, text="F =")
-        label_forca.pack(side=tk.LEFT)
+        label_massa1 = tk.Label(self.tela8, text="Massa 1 (kg):")
+        label_massa1.pack()
 
-        #TEXTO MASSA 1 CAMPO DE ENTRADA
-        label_massa1 = tk.Label(frame_campos, text="Massa 1 (kg):")
-        label_massa1.pack(side=tk.LEFT)
-
-        entry_massa1 = ttk.Entry(frame_campos, width=12)
+        entry_massa1 = ttk.Entry(self.tela8, width=12)
         entry_massa1.placeholder = "Insira a Massa 1"
         entry_massa1.insert(0, entry_massa1.placeholder)
         entry_massa1.bind("<FocusIn>", remover_placeholder)
         entry_massa1.bind("<FocusOut>", restaurar_placeholder)
-        entry_massa1.pack(side=tk.LEFT)
+        entry_massa1.pack()
 
         #TEXTO MASSA 2 CAMPO DE ENTRADA
-        label_massa2 = tk.Label(frame_campos, text="* Massa 2 (kg):")
-        label_massa2.pack(side=tk.LEFT)
+        label_massa2 = tk.Label(self.tela8, text="Massa 2 (kg):")
+        label_massa2.pack()
 
-        entry_massa2 = ttk.Entry(frame_campos, width=12)
+        entry_massa2 = ttk.Entry(self.tela8, width=12)
         entry_massa2.placeholder = "Insira a Massa 2"
         entry_massa2.insert(0, entry_massa2.placeholder)
         entry_massa2.bind("<FocusIn>", remover_placeholder)
         entry_massa2.bind("<FocusOut>", restaurar_placeholder)
-        entry_massa2.pack(side=tk.LEFT)
+        entry_massa2.pack()
 
         #TEXTO DISTANCIA CAMPO DE ENTRADA
-        label_distancia = tk.Label(frame_campos, text="/ Distância (m):")
-        label_distancia.pack(side=tk.LEFT)
+        label_distancia = tk.Label(self.tela8, text="Distância (m):")
+        label_distancia.pack()
 
-        entry_distancia = ttk.Entry(frame_campos, width=12)
+        entry_distancia = ttk.Entry(self.tela8, width=12)
         entry_distancia.placeholder = "Insira a distância"
         entry_distancia.insert(0, entry_distancia.placeholder)
         entry_distancia.bind("<FocusIn>", remover_placeholder)
         entry_distancia.bind("<FocusOut>", restaurar_placeholder)
-        entry_distancia.pack(side=tk.LEFT)
+        entry_distancia.pack()
 
         #FUNÇÃO QUE CALCULA A LEI DE MOVIMENTO DE NEWTON
         def calcular():
@@ -423,7 +415,7 @@ class Software:
                 massa2 = float(entry_massa2.get())
                 distancia = float(entry_distancia.get())
 
-                # Calcular a força usando a fórmula da gravitação universal de Newton
+                #CALCULANDO A FORÇA UTILIZANDO A FORMULA
                 constante_gravitacional = 6.67430e-11
                 forca = constante_gravitacional * (massa1 * massa2) / (distancia ** 2)
 
@@ -431,7 +423,7 @@ class Software:
                 resultado.set(f"Força: {forca:.4e} N")
 
             except ValueError:
-                resultado.set("Por favor, insira valores válidos / Preencha todos os valores")
+                resultado.set("Por favor, insira valores válidos / Preencha todos os valores.")
        
 
         #FUNÇÃO LIMPAR OS CAMPOS
@@ -460,7 +452,7 @@ class Software:
         btn_tela_anterior.pack(side='bottom', pady=20)
 
 
-    #CRIA A TELA 9 (Lei de Coulomb)
+    #CRIA A TELA 9 (Lei de Coulomb ALTERAR)
     def criar_tela9(self):
 
         self.tela9 = tk.Frame(self.root)
@@ -470,15 +462,96 @@ class Software:
         btn_tela_anterior = tk.Button(self.tela9, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=90)
 
+
     #CRIA A TELA 10 (Energia cinética)
     def criar_tela10(self):
 
         self.tela10 = tk.Frame(self.root)
         self.tela10.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela10, text="Energia cinética" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela10, text="Ec = m . v² / 2")
+        label6_1.pack(pady=15)
+
+        #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
+        def remover_placeholder(event):
+            widget = event.widget
+            if widget.get() == widget.placeholder:
+                widget.delete(0, tk.END)
+        
+        #FUNÇÃO QUE VOLTA O TEXTO DO PLACEHOLDER
+        def restaurar_placeholder(event):
+            widget = event.widget
+            if not widget.get():
+                widget.insert(0, widget.placeholder)
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_massa = tk.Label(self.tela10, text="Massa (kg):")
+        label_massa.pack()
+
+        entry_massa = ttk.Entry(self.tela10)
+        entry_massa.placeholder = "Insira a massa"
+        entry_massa.insert(0, entry_massa.placeholder)
+        entry_massa.bind("<FocusIn>", remover_placeholder)
+        entry_massa.bind("<FocusOut>", restaurar_placeholder)
+        entry_massa.pack()
+
+        #TEXTO FORÇA DO CAMPO DE ENTRADA
+        entry_velocidade = tk.Label(self.tela10, text="Velocidade (m/s):")
+        entry_velocidade.pack()
+
+        entry_velocidade = ttk.Entry(self.tela10)
+        entry_velocidade.placeholder = "Insira a força"
+        entry_velocidade.insert(0, entry_velocidade.placeholder)
+        entry_velocidade.bind("<FocusIn>", remover_placeholder)
+        entry_velocidade.bind("<FocusOut>", restaurar_placeholder)
+        entry_velocidade.pack()
+
+        # Função para calcular a energia cinética
+        def calcular():
+            try:
+                # Obter valores inseridos pelo usuário
+                massa = float(entry_massa.get())
+                velocidade = float(entry_velocidade.get())
+
+                # Calcular a energia cinética
+                energia_cinetica = 0.5 * massa * (velocidade ** 2)
+
+                # Exibir o resultado na label de resultado
+                resultado.set(f"Energia Cinética (Ec): {energia_cinetica:.2f} Joules")
+
+            except ValueError:
+                resultado.set("Por favor, insira valores válidos / Preencha todos os campos.")
+
+
+        #FUNÇÃO LIMPAR OS CAMPOS
+        def limpar_campos():
+            entry_massa.delete(0, tk.END)
+            entry_velocidade.delete(0, tk.END)
+            resultado.set("")  # Limpa o resultado
+
+        #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
+        frame1 = tk.Frame(self.tela10)
+        frame1.pack()
+        #CRIANDO BOTOES
+        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
+
+        #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
+        resultado = tk.StringVar()
+        label_resultado = tk.Label(self.tela10, textvariable=resultado)
+        label_resultado.pack()
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela10, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=90)
+        btn_tela_anterior.pack(side='bottom',pady=40)
+
 
     #CRIA A TELA 11 (Energia Potencial Gravitacional)
     def criar_tela11(self):
@@ -578,7 +651,7 @@ class Software:
         self.tela21 = tk.Frame(self.root)
         self.tela21.pack()
 
-    ############################################################################################################
+    ########################################## FUNÇÕES GERAIS ################################################################
 
     #FUNÇÃO ENCERRAR PROGRAMA
     def encerrar_programa(self):
@@ -591,7 +664,7 @@ class Software:
 
         webbrowser.open('https://github.com/L1der1um/Projeto-Integrador-Desafios')
 
-    ############################################################################################################
+    ########################################## FUNÇÕES IR PARA OUTRA TELA ################################################################
     
     #FUNÇÃO IR PARA TELA 2 (OPÇÕES)
     def ir_para_tela2(self):
@@ -726,7 +799,7 @@ class Software:
         self.criar_tela20()
         self.tela_atual = 20
 
-    ############################################################################################################
+    ########################################## FUNÇÕES VOLTAR TELA ##############################################################
 
     #FUNÇÃO VOLTAR TELA ANTERIOR
     def voltar_tela(self):
@@ -832,6 +905,7 @@ class Software:
             self.tela18.destroy()
             self.criar_tela3()
             self.tela_atual = 3
+
 ####################################################################################################################################################################################################################################################################################################################################
 
 if __name__ == "__main__":
