@@ -358,7 +358,7 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela8, text="F = G * (m1 * m2) / r^2")
-        label6.pack(pady=5)
+        label6.pack(pady=15)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -372,44 +372,53 @@ class Software:
             if not widget.get():
                 widget.insert(0, widget.placeholder)
 
-        #TEXTO MASSA 1 CAMPO DE ENTRADA
-        label_forca = tk.Label(self.tela8, text="Massa 1 (kg):")
-        label_forca.pack()
+        # Criando um frame para os campos de entrada de massa1, massa2 e distância
+        frame_campos = tk.Frame(self.tela8)
+        frame_campos.pack()
 
-        entry_massa1 = ttk.Entry(self.tela8)
+        #TEXTO MASSA 1 CAMPO DE ENTRADA
+        label_forca = tk.Label(frame_campos, text="F =")
+        label_forca.pack(side=tk.LEFT)
+
+        #TEXTO MASSA 1 CAMPO DE ENTRADA
+        label_massa1 = tk.Label(frame_campos, text="Massa 1 (kg):")
+        label_massa1.pack(side=tk.LEFT)
+
+        entry_massa1 = ttk.Entry(frame_campos, width=12)
         entry_massa1.placeholder = "Insira a Massa 1"
         entry_massa1.insert(0, entry_massa1.placeholder)
         entry_massa1.bind("<FocusIn>", remover_placeholder)
         entry_massa1.bind("<FocusOut>", restaurar_placeholder)
-        entry_massa1.pack()
+        entry_massa1.pack(side=tk.LEFT)
 
         #TEXTO MASSA 2 CAMPO DE ENTRADA
-        label_massa = tk.Label(self.tela8, text="Massa 2 (kg):")
-        label_massa.pack()
+        label_massa2 = tk.Label(frame_campos, text="* Massa 2 (kg):")
+        label_massa2.pack(side=tk.LEFT)
 
-        entry_massa2 = ttk.Entry(self.tela8)
+        entry_massa2 = ttk.Entry(frame_campos, width=12)
         entry_massa2.placeholder = "Insira a Massa 2"
         entry_massa2.insert(0, entry_massa2.placeholder)
         entry_massa2.bind("<FocusIn>", remover_placeholder)
         entry_massa2.bind("<FocusOut>", restaurar_placeholder)
-        entry_massa2.pack()
+        entry_massa2.pack(side=tk.LEFT)
 
         #TEXTO DISTANCIA CAMPO DE ENTRADA
-        label_aceleracao = tk.Label(self.tela8, text="Distância (m):")
-        label_aceleracao.pack()
+        label_distancia = tk.Label(frame_campos, text="/ Distância (m):")
+        label_distancia.pack(side=tk.LEFT)
 
-        entry_distancia = ttk.Entry(self.tela8)
+        entry_distancia = ttk.Entry(frame_campos, width=12)
         entry_distancia.placeholder = "Insira a distância"
         entry_distancia.insert(0, entry_distancia.placeholder)
         entry_distancia.bind("<FocusIn>", remover_placeholder)
         entry_distancia.bind("<FocusOut>", restaurar_placeholder)
-        entry_distancia.pack()
+        entry_distancia.pack(side=tk.LEFT)
 
         #FUNÇÃO QUE CALCULA A LEI DE MOVIMENTO DE NEWTON
         def calcular():
 
             try:
-                # Obter valores inseridos pelo usuário
+
+                #USUARIO DEVE INSERIR OS VALORES AQUI
                 massa1 = float(entry_massa1.get())
                 massa2 = float(entry_massa2.get())
                 distancia = float(entry_distancia.get())
@@ -441,10 +450,6 @@ class Software:
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
-        # Label para exibir o resultado
-        #resultado = tk.Label(self.tela8, text="", padx=10, pady=10)
-        #resultado.pack()
-
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela8, textvariable=resultado, padx=10, pady=10)
@@ -453,7 +458,6 @@ class Software:
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela8, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom', pady=20)
-
 
 
     #CRIA A TELA 9 (Lei de Coulomb)
