@@ -21,7 +21,7 @@ class Software:
         #DEFINE A ESCALA DO PROGRAMA
         root.geometry("900x500")
         #IMPOSIBILITA A REDIMENÇÃO DO PROGRAMA
-        root.resizable(False, False)
+        root.resizable(False, True)
         #DEFINE A TELA PRINCIAPL
         self.tela_atual = 1
         #EXECUTA A TELA PRINCIPAL
@@ -100,7 +100,7 @@ class Software:
         frame1.pack()
         #CRIANDO A PRIMEIRA FILEIRA DE BOTOES
         button1 = tk.Button(frame1, text="Lei de movimento de Newton\n(Segunda lei)\nF = m . a",command=self.ir_para_tela7)
-        button2 = tk.Button(frame1, text="Lei da gravitação\n Universal de Newton\nP = m .g",command=self.ir_para_tela8)
+        button2 = tk.Button(frame1, text="Lei da gravitação\n Universal de Newton\nF = G * (m1 * m2) / d^2",command=self.ir_para_tela8)
         button3 = tk.Button(frame1, text="Lei de Coulomb\n (Lei de Eletrostatica)\nF = k * (|q1 * q2|) / d²",command=self.ir_para_tela9)
         button4 = tk.Button(frame1, text="Energia cinética\nEc = m . v² / 2",command=self.ir_para_tela10)
         button1.pack(side=tk.LEFT,padx=10, pady=10)
@@ -230,7 +230,11 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela7, text="Lei de Movimento de Newton (Segunda Lei)" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=40)
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela7, text="F = m . a")
+        label6.pack(pady=5)
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela7, text="Insira zero (0) dentro do dado que você deseja calcular")
@@ -294,19 +298,19 @@ class Software:
                 if forca == 0:
 
                     forca = massa * aceleracao
-                    resultado.set(f"Força: {forca} N")
+                    resultado.set(f"Força: {format(forca, '.4f')} N")
 
                 #CALCULA A MASSA
                 elif massa == 0:
 
                     massa = forca / aceleracao
-                    resultado.set(f"Massa: {massa} kg")
+                    resultado.set(f"Massa: {format(massa, '.4f')} kg")
 
                 #CALCULA A ACELERAÇÃO
                 elif aceleracao == 0:
 
                     aceleracao = forca / massa
-                    resultado.set(f"Aceleração: {aceleracao} m/s²")
+                    resultado.set(f"Aceleração: {format(aceleracao, '.4f')} m/s²")
 
                 else:
                     #SOLICITA PARA O USUÁRIO INSERIR DOIS VALORES E UM ZERO O DADO QUE DESEJA CALCULAR
@@ -348,9 +352,109 @@ class Software:
         self.tela8 = tk.Frame(self.root)
         self.tela8.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela8, text="Lei da gravitação Universal de Newton" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela8, text="F = G * (m1 * m2) / r^2")
+        label6.pack(pady=5)
+
+        #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
+        def remover_placeholder(event):
+            widget = event.widget
+            if widget.get() == widget.placeholder:
+                widget.delete(0, tk.END)
+        
+        #FUNÇÃO QUE VOLTA O TEXTO DO PLACEHOLDER
+        def restaurar_placeholder(event):
+            widget = event.widget
+            if not widget.get():
+                widget.insert(0, widget.placeholder)
+
+        #TEXTO MASSA 1 CAMPO DE ENTRADA
+        label_forca = tk.Label(self.tela8, text="Massa 1 (kg):")
+        label_forca.pack()
+
+        entry_massa1 = ttk.Entry(self.tela8)
+        entry_massa1.placeholder = "Insira a Massa 1"
+        entry_massa1.insert(0, entry_massa1.placeholder)
+        entry_massa1.bind("<FocusIn>", remover_placeholder)
+        entry_massa1.bind("<FocusOut>", restaurar_placeholder)
+        entry_massa1.pack()
+
+        #TEXTO MASSA 2 CAMPO DE ENTRADA
+        label_massa = tk.Label(self.tela8, text="Massa 2 (kg):")
+        label_massa.pack()
+
+        entry_massa2 = ttk.Entry(self.tela8)
+        entry_massa2.placeholder = "Insira a Massa 2"
+        entry_massa2.insert(0, entry_massa2.placeholder)
+        entry_massa2.bind("<FocusIn>", remover_placeholder)
+        entry_massa2.bind("<FocusOut>", restaurar_placeholder)
+        entry_massa2.pack()
+
+        #TEXTO DISTANCIA CAMPO DE ENTRADA
+        label_aceleracao = tk.Label(self.tela8, text="Distância (m):")
+        label_aceleracao.pack()
+
+        entry_distancia = ttk.Entry(self.tela8)
+        entry_distancia.placeholder = "Insira a distância"
+        entry_distancia.insert(0, entry_distancia.placeholder)
+        entry_distancia.bind("<FocusIn>", remover_placeholder)
+        entry_distancia.bind("<FocusOut>", restaurar_placeholder)
+        entry_distancia.pack()
+
+        #FUNÇÃO QUE CALCULA A LEI DE MOVIMENTO DE NEWTON
+        def calcular():
+
+            try:
+                # Obter valores inseridos pelo usuário
+                massa1 = float(entry_massa1.get())
+                massa2 = float(entry_massa2.get())
+                distancia = float(entry_distancia.get())
+
+                # Calcular a força usando a fórmula da gravitação universal de Newton
+                constante_gravitacional = 6.67430e-11
+                forca = constante_gravitacional * (massa1 * massa2) / (distancia ** 2)
+
+                # Exibir o resultado usando a variável de controle resultado
+                resultado.set(f"Força: {forca:.4e} N")
+
+            except ValueError:
+                resultado.set("Por favor, insira valores válidos / Preencha todos os valores")
+       
+
+        #FUNÇÃO LIMPAR OS CAMPOS
+        def limpar_campos():
+            entry_massa1.delete(0, tk.END)
+            entry_massa2.delete(0, tk.END)
+            entry_distancia.delete(0, tk.END)
+            resultado.set("")  #RESETA O CAMPO
+
+        #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
+        frame1 = tk.Frame(self.tela8)
+        frame1.pack()
+        #CRIANDO BOTOES
+        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
+
+        # Label para exibir o resultado
+        #resultado = tk.Label(self.tela8, text="", padx=10, pady=10)
+        #resultado.pack()
+
+        #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
+        resultado = tk.StringVar()
+        label_resultado = tk.Label(self.tela8, textvariable=resultado, padx=10, pady=10)
+        label_resultado.pack()
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela8, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=90)
+        btn_tela_anterior.pack(side='bottom', pady=20)
+
+
 
     #CRIA A TELA 9 (Lei de Coulomb)
     def criar_tela9(self):
