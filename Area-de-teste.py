@@ -1,70 +1,69 @@
 import tkinter as tk
 from tkinter import ttk
+import math
 
-# Função para calcular a conservação da energia mecânica
-def calcular_conservacao_energia_mecanica():
+# Função para calcular o ângulo de refração de acordo com a Lei de Snell
+def calcular_angulo_refracao():
     try:
         # Obter valores inseridos pelo usuário
-        energia_cinetica_inicial = float(entry_energia_cinetica_inicial.get())
-        energia_potencial_inicial = float(entry_energia_potencial_inicial.get())
-        energia_cinetica_final = float(entry_energia_cinetica_final.get())
-        energia_potencial_final = float(entry_energia_potencial_final.get())
+        indice_refracao1 = float(entry_indice_refracao1.get())
+        indice_refracao2 = float(entry_indice_refracao2.get())
+        angulo_incidencia = float(entry_angulo_incidencia.get())
 
-        # Verificar se a conservação da energia mecânica é válida
-        energia_mecanica_inicial = energia_cinetica_inicial + energia_potencial_inicial
-        energia_mecanica_final = energia_cinetica_final + energia_potencial_final
+        # Validar se o índice de refração 2 é zero
+        if indice_refracao2 == 0:
+            resultado.set("O índice de refração 2 não pode ser zero.")
+            return
 
-        if energia_mecanica_inicial == energia_mecanica_final:
-            resultado.set("Conservação da Energia Mecânica é válida.")
-        else:
-            resultado.set("Conservação da Energia Mecânica não é válida.")
+        # Converter o ângulo de incidência para radianos (se estiver em graus)
+        angulo_incidencia_rad = math.radians(angulo_incidencia)
+
+        # Calcular o ângulo de refração usando a Lei de Snell
+        angulo_refracao_rad = math.asin((indice_refracao1 / indice_refracao2) * math.sin(angulo_incidencia_rad))
+        angulo_refracao_deg = math.degrees(angulo_refracao_rad)
+
+        # Exibir o resultado na label de resultado
+        resultado.set(f"Ângulo de Refração: {angulo_refracao_deg:.2f} graus")
 
     except ValueError:
         resultado.set("Por favor, insira valores válidos.")
 
 # Função para limpar os campos
 def limpar_campos():
-    entry_energia_cinetica_inicial.delete(0, tk.END)
-    entry_energia_potencial_inicial.delete(0, tk.END)
-    entry_energia_cinetica_final.delete(0, tk.END)
-    entry_energia_potencial_final.delete(0, tk.END)
+    entry_indice_refracao1.delete(0, tk.END)
+    entry_indice_refracao2.delete(0, tk.END)
+    entry_angulo_incidencia.delete(0, tk.END)
     resultado.set("")  # Resetar o campo de resultado
 
 # Criar a janela principal
 root = tk.Tk()
-root.title("Verificador de Conservação da Energia Mecânica")
+root.title("Calculadora da Lei de Snell")
 
 # Criar um frame para o conteúdo
 frame = ttk.Frame(root)
 frame.pack(padx=20, pady=20)
 
 # Labels e campos de entrada
-label_energia_cinetica_inicial = ttk.Label(frame, text="Energia Cinética Inicial (Joules):")
-label_energia_cinetica_inicial.pack(fill="x", padx=5, pady=5)
+label_indice_refracao1 = ttk.Label(frame, text="Índice de Refração 1:")
+label_indice_refracao1.pack(fill="x", padx=5, pady=5)
 
-entry_energia_cinetica_inicial = ttk.Entry(frame)
-entry_energia_cinetica_inicial.pack(fill="x", padx=5, pady=5)
+entry_indice_refracao1 = ttk.Entry(frame)
+entry_indice_refracao1.pack(fill="x", padx=5, pady=5)
 
-label_energia_potencial_inicial = ttk.Label(frame, text="Energia Potencial Inicial (Joules):")
-label_energia_potencial_inicial.pack(fill="x", padx=5, pady=5)
+label_indice_refracao2 = ttk.Label(frame, text="Índice de Refração 2:")
+label_indice_refracao2.pack(fill="x", padx=5, pady=5)
 
-entry_energia_potencial_inicial = ttk.Entry(frame)
-entry_energia_potencial_inicial.pack(fill="x", padx=5, pady=5)
+entry_indice_refracao2 = ttk.Entry(frame)
+entry_indice_refracao2.pack(fill="x", padx=5, pady=5)
 
-label_energia_cinetica_final = ttk.Label(frame, text="Energia Cinética Final (Joules):")
-label_energia_cinetica_final.pack(fill="x", padx=5, pady=5)
+label_angulo_incidencia = ttk.Label(frame, text="Ângulo de Incidência (graus):")
+label_angulo_incidencia.pack(fill="x", padx=5, pady=5)
 
-entry_energia_cinetica_final = ttk.Entry(frame)
-entry_energia_cinetica_final.pack(fill="x", padx=5, pady=5)
-
-label_energia_potencial_final = ttk.Label(frame, text="Energia Potencial Final (Joules):")
-label_energia_potencial_final.pack(fill="x", padx=5, pady=5)
-
-entry_energia_potencial_final = ttk.Entry(frame)
-entry_energia_potencial_final.pack(fill="x", padx=5, pady=5)
+entry_angulo_incidencia = ttk.Entry(frame)
+entry_angulo_incidencia.pack(fill="x", padx=5, pady=5)
 
 # Botões Calcular e Limpar
-btn_calcular = ttk.Button(frame, text="Verificar", command=calcular_conservacao_energia_mecanica)
+btn_calcular = ttk.Button(frame, text="Calcular", command=calcular_angulo_refracao)
 btn_calcular.pack(fill="x", padx=5, pady=10)
 
 btn_limpar = ttk.Button(frame, text="Limpar", command=limpar_campos)

@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter import ttk
 #IMPRTANTO BIBLIOTECA WEBBROWSER PARA O LINK DO GITHUB
 import webbrowser
+import math
 
 #CRIANDO A CLASSE SOFTWARE
 class Software:
@@ -452,7 +453,7 @@ class Software:
         btn_tela_anterior.pack(side='bottom', pady=20)
 
 
-    #CRIA A TELA 9 (Lei de Coulomb ALTERAR)
+    #CRIA A TELA 9 (Lei de Coulomb  ALTERAR)
     def criar_tela9(self):
 
         self.tela9 = tk.Frame(self.root)
@@ -659,7 +660,7 @@ class Software:
         btn_tela_anterior = tk.Button(self.tela11, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=35)
 
-    #CRIA A TELA 12 (Lei da conservação de Energia Mecânica)
+    #CRIA A TELA 12 (Lei da conservação de Energia Mecânica   ALTERAR)
     def criar_tela12(self):
 
         self.tela12 = tk.Frame(self.root)
@@ -669,15 +670,95 @@ class Software:
         btn_tela_anterior = tk.Button(self.tela12, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=90)
 
+
     #CRIA A TELA 13 (Lei de Hooke)
     def criar_tela13(self):
 
         self.tela13 = tk.Frame(self.root)
         self.tela13.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela13, text="Lei de Hooke" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela13, text='F = -k * x')
+        label6_1.pack(pady=15)
+
+        #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
+        def remover_placeholder(event):
+            widget = event.widget
+            if widget.get() == widget.placeholder:
+                widget.delete(0, tk.END)
+        
+        #FUNÇÃO QUE VOLTA O TEXTO DO PLACEHOLDER
+        def restaurar_placeholder(event):
+            widget = event.widget
+            if not widget.get():
+                widget.insert(0, widget.placeholder)
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_constante_elastica = tk.Label(self.tela13, text="[k] Constante Elástica (N/m):")
+        label_constante_elastica.pack()
+
+        entry_constante_elastica = ttk.Entry(self.tela13)
+        entry_constante_elastica.placeholder = "Insira a Constante Elástica"
+        entry_constante_elastica.insert(0, entry_constante_elastica.placeholder)
+        entry_constante_elastica.bind("<FocusIn>", remover_placeholder)
+        entry_constante_elastica.bind("<FocusOut>", restaurar_placeholder)
+        entry_constante_elastica.pack()
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_deformacao = tk.Label(self.tela13, text="[x] Deformação (m):")
+        label_deformacao.pack()
+
+        entry_deformacao = ttk.Entry(self.tela13)
+        entry_deformacao.placeholder = "Insira a Deformação"
+        entry_deformacao.insert(0, entry_deformacao.placeholder)
+        entry_deformacao.bind("<FocusIn>", remover_placeholder)
+        entry_deformacao.bind("<FocusOut>", restaurar_placeholder)
+        entry_deformacao.pack()
+
+        # Função para calcular a força de acordo com a Lei de Hooke
+        def calcular():
+            try:
+                # Obter valores inseridos pelo usuário
+                constante_elastica = float(entry_constante_elastica.get())
+                deformacao = float(entry_deformacao.get())
+
+                # Calcular a força usando a Lei de Hooke
+                forca = -constante_elastica * deformacao
+
+                # Exibir o resultado na label de resultado
+                resultado.set(f"Força: {forca:.2f} N")
+
+            except ValueError:
+                resultado.set("Por favor, insira valores válidos.")
+
+        #FUNÇÃO LIMPAR OS CAMPOS
+        def limpar_campos():
+            entry_constante_elastica.delete(0, tk.END)
+            entry_deformacao.delete(0, tk.END)
+            resultado.set("")  #RESETA OS CAMPOS
+
+        #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
+        frame1 = tk.Frame(self.tela13)
+        frame1.pack()
+        #CRIANDO BOTOES
+        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
+
+        #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
+        resultado = tk.StringVar()
+        label_resultado = tk.Label(self.tela13, textvariable=resultado)
+        label_resultado.pack()
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela13, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=90)
+        btn_tela_anterior.pack(side='bottom',pady=45)
+
 
     #CRIA A TELA 14 (Lei de Snell)
     def criar_tela14(self):
@@ -685,9 +766,110 @@ class Software:
         self.tela14 = tk.Frame(self.root)
         self.tela14.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela14, text="Lei de Snell" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela14, text='n1.sen(i) = n2.sen(r)')
+        label6_1.pack(pady=15)
+
+        #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
+        def remover_placeholder(event):
+            widget = event.widget
+            if widget.get() == widget.placeholder:
+                widget.delete(0, tk.END)
+        
+        #FUNÇÃO QUE VOLTA O TEXTO DO PLACEHOLDER
+        def restaurar_placeholder(event):
+            widget = event.widget
+            if not widget.get():
+                widget.insert(0, widget.placeholder)
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_indice_refracao1 = tk.Label(self.tela14, text="Índice de Refração 1:")
+        label_indice_refracao1.pack()
+
+        entry_indice_refracao1 = ttk.Entry(self.tela14)
+        entry_indice_refracao1.placeholder = "Insira a Refração 1"
+        entry_indice_refracao1.insert(0, entry_indice_refracao1.placeholder)
+        entry_indice_refracao1.bind("<FocusIn>", remover_placeholder)
+        entry_indice_refracao1.bind("<FocusOut>", restaurar_placeholder)
+        entry_indice_refracao1.pack()
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_indice_refracao2 = tk.Label(self.tela14, text="Índice de Refração 2:")
+        label_indice_refracao2.pack()
+
+        entry_indice_refracao2 = ttk.Entry(self.tela14)
+        entry_indice_refracao2.placeholder = "Insira a Refração 2"
+        entry_indice_refracao2.insert(0, entry_indice_refracao2.placeholder)
+        entry_indice_refracao2.bind("<FocusIn>", remover_placeholder)
+        entry_indice_refracao2.bind("<FocusOut>", restaurar_placeholder)
+        entry_indice_refracao2.pack()
+
+        #TEXTO FORÇA DO CAMPO DE ENTRADA
+        label_angulo_incidencia= tk.Label(self.tela14, text="Ângulo de Incidência (graus):")
+        label_angulo_incidencia.pack()
+
+        entry_angulo_incidencia = ttk.Entry(self.tela14)
+        entry_angulo_incidencia.placeholder = "Insira o Ângulo de Incidência"
+        entry_angulo_incidencia.insert(0, entry_angulo_incidencia.placeholder)
+        entry_angulo_incidencia.bind("<FocusIn>", remover_placeholder)
+        entry_angulo_incidencia.bind("<FocusOut>", restaurar_placeholder)
+        entry_angulo_incidencia.pack()
+
+        # Função para calcular o ângulo de refração de acordo com a Lei de Snell
+        def calcular():
+            try:
+                # Obter valores inseridos pelo usuário
+                indice_refracao1 = float(entry_indice_refracao1.get())
+                indice_refracao2 = float(entry_indice_refracao2.get())
+                angulo_incidencia = float(entry_angulo_incidencia.get())
+
+                # Validar se o índice de refração 2 é zero
+                if indice_refracao2 == 0:
+                    resultado.set("O índice de refração 2 não pode ser zero.")
+                    return
+
+                # Converter o ângulo de incidência para radianos (se estiver em graus)
+                angulo_incidencia_rad = math.radians(angulo_incidencia)
+
+                # Calcular o ângulo de refração usando a Lei de Snell
+                angulo_refracao_rad = math.asin((indice_refracao1 / indice_refracao2) * math.sin(angulo_incidencia_rad))
+                angulo_refracao_deg = math.degrees(angulo_refracao_rad)
+
+                # Exibir o resultado na label de resultado
+                resultado.set(f"Ângulo de Refração: {angulo_refracao_deg:.2f} graus")
+
+            except ValueError:
+
+                resultado.set("Por favor, insira valores válidos.")
+
+        #FUNÇÃO LIMPAR OS CAMPOS
+        def limpar_campos():
+            entry_indice_refracao1.delete(0, tk.END)
+            entry_indice_refracao2.delete(0, tk.END)
+            entry_angulo_incidencia.delete(0, tk.END)
+            resultado.set("")  #RESETA OS CAMPOS
+
+        #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
+        frame1 = tk.Frame(self.tela14)
+        frame1.pack()
+        #CRIANDO BOTOES
+        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
+
+        #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
+        resultado = tk.StringVar()
+        label_resultado = tk.Label(self.tela14, textvariable=resultado)
+        label_resultado.pack()
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela14, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=90)
+        btn_tela_anterior.pack(side='bottom',pady=35)
 
     #CRIA A TELA 15 (Lei de Ohm)
     def criar_tela15(self):
