@@ -70,23 +70,23 @@
                 massac = float(entry_massac.get())
                 volumec = float(entry_volumec.get())
 
-                #CALCULA A FORÇA
+                #CALCULA A DENSIDADE
                 if densidade == 0:
 
                     densidade = (massac / volumec)
-                    resultado.set(f"Velocidade média: {densidade} kg/m³")
+                    resultado.set(f"Densidade: {densidade} kg/m³")
 
-                #CALCULA A DISTÂNCIA
+                #CALCULA A MASSA
                 elif massac == 0:
 
                     massac = densidade * volumec
-                    resultado.set(f"Distância: {massac} kg")
+                    resultado.set(f"Massa: {massac} kg")
 
-                #CALCULA O volumec
+                #CALCULA O VOLUME
                 elif volumec == 0:
 
                     volumec = massac / densidade
-                    resultado.set(f"Deformação {volumec} m³")
+                    resultado.set(f"Volume: {volumec} m³")
 
                 else:
                     #SOLICITA PARA O USUÁRIO INSERIR DOIS VALORES E UM ZERO O DADO QUE DESEJA CALCULAR

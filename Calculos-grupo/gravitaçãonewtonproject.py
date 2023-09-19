@@ -78,53 +78,45 @@
         label_gconstante = tk.Label(self.tela8, text="Constante gravitacional: 6.67430 x 10^(-11)")
         label_gconstante.pack()
 
-        constanteg = 6.67430e-11
-
-                #entry_m2 = ttk.Entry(self.tela8)
-               # entry_m2.placeholder = "Insira a massa do segundo corpo: "
-               # entry_m2.insert(0,entry_m2.placeholder)
-                #entry_m2.bind("<FocusIn>", remover_placeholder)
-                #entry_m2.bind("<FocusOut>", restaurar_placeholder)
-               # entry_m2.pack()
 
         #FUNÇÃO QUE CALCULA A LEI GRAVITACIONAL DE NEWTON
-
-        import math 
 
         def calcular():
 
             try:
                 #PEGA OS DADOS INSERIDO PELO USUÁRIO
                 forcagravitacional = float(entry_forcagravitacional.get())
-                m1 = float(entry_m2.get())
+                m1 = float(entry_m1.get())
                 m2 = float(entry_m2.get())
                 distraio = float(entry_distraio.get())
+                constanteg = 6.67430e-11
 
-                #CALCULA A FORÇA
+                #CALCULA A FORÇA GRAVITACIONAL
                 if forcagravitacional == 0:
 
-                    forcagravitacional = (constanteg*m1*m2*)/(distraio ** 2)
+                    forcagravitacional = (constanteg*m1*m2)/(distraio ** 2)
                     resultado.set(f"Força Gravitacional: {forcagravitacional} N")
 
                 #CALCULA A MASSA 1
                 elif m1 == 0:
 
-                    m1 = (forcagravitacional*(dstraio**2)/(constanteg*m2))
+                    m1 = (forcagravitacional*(distraio ** 2)/(constanteg*m2))
 
                     resultado.set(f"Massa 1: {m1} kg")
 
                 #CALCULA A MASSA 2 
                 elif m2 == 0:
 
-                    m2 = (forcagravitacional*(dstraio**2)/(constanteg*m1))
+                    m2 = (forcagravitacional*(distraio**2)/(constanteg*m1))
 
                     resultado.set(f"Massa 2: {m2} kg")
 
-                #CALCULA A MASSA 2 
+                #CALCULA A DISTÂNCIA (r - raio) 
 
-                elif m2 == 0:
+                elif distraio == 0:
 
-                    distraio = math.sqrt((constanteg * m1 * m2) / forcagravitacional)
+
+                    distraio = (constanteg * m1 * m2 / forcagravitacional) ** 0.5
 
                     resultado.set(f"Distância r: {distraio} m")
 

@@ -559,9 +559,105 @@ class Software:
         self.tela11 = tk.Frame(self.root)
         self.tela11.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela11, text="Energia Potencial Gravitacional" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela11, text='EPG = m * g * h')
+        label6_1.pack(pady=15)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela11, text='Sendo que g pode variar entre 9.8, 9.81 e 10 m/s²')
+        label6_1.pack(pady=15)
+
+        #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
+        def remover_placeholder(event):
+            widget = event.widget
+            if widget.get() == widget.placeholder:
+                widget.delete(0, tk.END)
+        
+        #FUNÇÃO QUE VOLTA O TEXTO DO PLACEHOLDER
+        def restaurar_placeholder(event):
+            widget = event.widget
+            if not widget.get():
+                widget.insert(0, widget.placeholder)
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_massa = tk.Label(self.tela11, text="[m] Massa (kg):")
+        label_massa.pack()
+
+        entry_massa = ttk.Entry(self.tela11)
+        entry_massa.placeholder = "Insira a massa (kg)"
+        entry_massa.insert(0, entry_massa.placeholder)
+        entry_massa.bind("<FocusIn>", remover_placeholder)
+        entry_massa.bind("<FocusOut>", restaurar_placeholder)
+        entry_massa.pack()
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_gravidade = tk.Label(self.tela11, text="[g] Aceleração da gravidade (m/s²):")
+        label_gravidade.pack()
+
+        entry_gravidade = ttk.Entry(self.tela11)
+        entry_gravidade.placeholder = "Insira a gravidade (m/s²)"
+        entry_gravidade.insert(0, entry_gravidade.placeholder)
+        entry_gravidade.bind("<FocusIn>", remover_placeholder)
+        entry_gravidade.bind("<FocusOut>", restaurar_placeholder)
+        entry_gravidade.pack()
+
+        #TEXTO FORÇA DO CAMPO DE ENTRADA
+        label_altura = tk.Label(self.tela11, text="[h] Altura (m):")
+        label_altura.pack()
+
+        entry_altura = ttk.Entry(self.tela11)
+        entry_altura.placeholder = "Insira a altura (m)"
+        entry_altura.insert(0, entry_altura.placeholder)
+        entry_altura.bind("<FocusIn>", remover_placeholder)
+        entry_altura.bind("<FocusOut>", restaurar_placeholder)
+        entry_altura.pack()
+
+        # Função para calcular a energia potencial gravitacional
+        def calcular():
+            try:
+                # Obter valores inseridos pelo usuário
+                massa = float(entry_massa.get())
+                altura = float(entry_altura.get())
+                gravidade = float(entry_gravidade.get())
+
+                # Calcular a energia potencial gravitacional
+                energia_potencial = massa * gravidade * altura
+
+                # Exibir o resultado na label de resultado
+                resultado.set(f"Energia Potencial Gravitacional: {energia_potencial:.2f} Joules")
+
+            except ValueError:
+                resultado.set("Por favor, insira valores válidos.")
+
+
+        #FUNÇÃO LIMPAR OS CAMPOS
+        def limpar_campos():
+            entry_massa.delete(0, tk.END)
+            entry_gravidade.delete(0, tk.END)
+            entry_altura.delete(0, tk.END)
+            resultado.set("")  #RESETA OS CAMPOS
+
+        #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
+        frame1 = tk.Frame(self.tela11)
+        frame1.pack()
+        #CRIANDO BOTOES
+        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
+
+        #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
+        resultado = tk.StringVar()
+        label_resultado = tk.Label(self.tela11, textvariable=resultado)
+        label_resultado.pack()
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela11, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=90)
+        btn_tela_anterior.pack(side='bottom',pady=35)
 
     #CRIA A TELA 12 (Lei da conservação de Energia Mecânica)
     def criar_tela12(self):

@@ -70,7 +70,7 @@
                 distanciap = float(entry_distanciap.get())
                 tempo = float(entry_tempo.get())
 
-                #CALCULA A FORÇA
+                #CALCULA A VELOCIDADE MÉDIA
                 if velomedia == 0:
 
                     velomedia = (distanciap / tempo)
@@ -86,7 +86,7 @@
                 elif tempo == 0:
 
                     tempo = distanciap / velomedia
-                    resultado.set(f"Deformação {tempo} s")
+                    resultado.set(f"Tempo: {tempo} s")
 
                 else:
                     #SOLICITA PARA O USUÁRIO INSERIR DOIS VALORES E UM ZERO O DADO QUE DESEJA CALCULAR
