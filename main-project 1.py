@@ -100,7 +100,7 @@ class Software:
         frame1 = tk.Frame(self.tela3)
         frame1.pack()
         #CRIANDO A PRIMEIRA FILEIRA DE BOTOES
-        button1 = tk.Button(frame1, text="Lei de movimento de Newton\n(Segunda lei)\nF = m . a",command=self.ir_para_tela7)
+        button1 = tk.Button(frame1, text="Lei de movimento de Newton\n(Segunda lei)\nF = m * a",command=self.ir_para_tela7)
         button2 = tk.Button(frame1, text="Lei da gravitação\n Universal de Newton\nF = G * (m1 * m2) / d^2",command=self.ir_para_tela8)
         button3 = tk.Button(frame1, text="Lei de Coulomb\n (Lei de Eletrostatica)\nF = k * (|q1 * q2|) / d²",command=self.ir_para_tela9)
         button4 = tk.Button(frame1, text="Energia cinética\nEc = m . v² / 2",command=self.ir_para_tela10)
@@ -113,9 +113,9 @@ class Software:
         frame2 = tk.Frame(self.tela3)
         frame2.pack()
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
-        button5 = tk.Button(frame2, text="Energia Potencial\n Gravitacional\nEPG = m ⋅g ⋅h",command=self.ir_para_tela11)
+        button5 = tk.Button(frame2, text="Energia Potencial\n Gravitacional\nEPG = m * g * h",command=self.ir_para_tela11)
         button6 = tk.Button(frame2, text="Lei da conservação\n de Energia Mecânica\nE = K + U",command=self.ir_para_tela12)
-        button7 = tk.Button(frame2, text="Lei de Hooke\n (Lei da Elasticidade)\nF = -k . x",command=self.ir_para_tela13)
+        button7 = tk.Button(frame2, text="Lei de Hooke\n (Lei da Elasticidade)\nF = -k * x",command=self.ir_para_tela13)
         button8 = tk.Button(frame2, text="Lei de Snell\n (Lei da Refração)\nn1.sen(i) = n2.sen(r)",command=self.ir_para_tela14)
         button5.pack(side=tk.LEFT,padx=10, pady=40)
         button6.pack(side=tk.LEFT,padx=10, pady=40)
@@ -127,8 +127,8 @@ class Software:
         frame3 = tk.Frame(self.tela3)
         frame3.pack()
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
-        button9 = tk.Button(frame3, text="Lei de Ohm\n (Primeira lei)\nV = A x Ω",command=self.ir_para_tela15)
-        button10 = tk.Button(frame3, text="Distância em Movimento\n Uniforme\nS(t) = S₀ + v . t",command=self.ir_para_tela16)
+        button9 = tk.Button(frame3, text="Lei de Ohm\n (Primeira lei)\nV = I * R",command=self.ir_para_tela15)
+        button10 = tk.Button(frame3, text="Movimento Retilíneo\nUniforme\nS(t) = S₀ + v * t",command=self.ir_para_tela16)
         button11 = tk.Button(frame3, text="Velocidade média\nVm = ΔS / Δt",command=self.ir_para_tela17)
         button12 = tk.Button(frame3, text="Densidade\nd = m / v",command=self.ir_para_tela18)
         button9.pack(side=tk.LEFT,padx=10, pady=10)
@@ -660,6 +660,7 @@ class Software:
         btn_tela_anterior = tk.Button(self.tela11, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=35)
 
+
     #CRIA A TELA 12 (Lei da conservação de Energia Mecânica   ALTERAR)
     def criar_tela12(self):
 
@@ -871,25 +872,196 @@ class Software:
         btn_tela_anterior = tk.Button(self.tela14, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=35)
 
+
     #CRIA A TELA 15 (Lei de Ohm)
     def criar_tela15(self):
 
         self.tela15 = tk.Frame(self.root)
         self.tela15.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela15, text="Lei de Ohm" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela15, text='V = I x R')
+        label6_1.pack(pady=15)
+
+        #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
+        def remover_placeholder(event):
+            widget = event.widget
+            if widget.get() == widget.placeholder:
+                widget.delete(0, tk.END)
+        
+        #FUNÇÃO QUE VOLTA O TEXTO DO PLACEHOLDER
+        def restaurar_placeholder(event):
+            widget = event.widget
+            if not widget.get():
+                widget.insert(0, widget.placeholder)
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_corrente = tk.Label(self.tela15, text="Corrente (A):")
+        label_corrente.pack()
+
+        entry_corrente = ttk.Entry(self.tela15)
+        entry_corrente.placeholder = "Insira a Corrente"
+        entry_corrente.insert(0, entry_corrente.placeholder)
+        entry_corrente.bind("<FocusIn>", remover_placeholder)
+        entry_corrente.bind("<FocusOut>", restaurar_placeholder)
+        entry_corrente.pack()
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_resistencia = tk.Label(self.tela15, text="Resistência (Ω):")
+        label_resistencia.pack()
+
+        entry_resistencia = ttk.Entry(self.tela15)
+        entry_resistencia.placeholder = "Insira a Resistência"
+        entry_resistencia.insert(0, entry_resistencia.placeholder)
+        entry_resistencia.bind("<FocusIn>", remover_placeholder)
+        entry_resistencia.bind("<FocusOut>", restaurar_placeholder)
+        entry_resistencia.pack()
+
+        # Função para calcular a tensão elétrica de acordo com a Lei de Ohm
+        def calcular():
+            try:
+                # Obter valores inseridos pelo usuário
+                corrente = float(entry_corrente.get())
+                resistencia = float(entry_resistencia.get())
+
+                # Calcular a tensão elétrica usando a Lei de Ohm
+                tensao = corrente * resistencia
+
+                # Exibir o resultado na label de resultado
+                resultado.set(f"Tensão Elétrica (V): {tensao:.2f} V")
+
+            except ValueError:
+                resultado.set("Por favor, insira valores válidos.")
+
+        # Função para limpar os campos
+        def limpar_campos():
+            entry_corrente.delete(0, tk.END)
+            entry_resistencia.delete(0, tk.END)
+            resultado.set("")  # Resetar o campo de resultado
+
+        #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
+        frame1 = tk.Frame(self.tela15)
+        frame1.pack()
+        #CRIANDO BOTOES
+        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
+
+        #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
+        resultado = tk.StringVar()
+        label_resultado = tk.Label(self.tela15, textvariable=resultado)
+        label_resultado.pack()
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela15, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=90)
+        btn_tela_anterior.pack(side='bottom',pady=45)
 
-    #CRIA A TELA 16 (Distância em Movimento Uniforme)
+
+    #CRIA A TELA 16 (Movimento Retilíneo Uniforme)
     def criar_tela16(self):
 
         self.tela16 = tk.Frame(self.root)
         self.tela16.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela11, text="Movimento Retilíneo Uniforme" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela11, text='S(t) = S₀ + v . t')
+        label6_1.pack(pady=15)
+
+        #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
+        def remover_placeholder(event):
+            widget = event.widget
+            if widget.get() == widget.placeholder:
+                widget.delete(0, tk.END)
+        
+        #FUNÇÃO QUE VOLTA O TEXTO DO PLACEHOLDER
+        def restaurar_placeholder(event):
+            widget = event.widget
+            if not widget.get():
+                widget.insert(0, widget.placeholder)
+                
+        ·······
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_massa = tk.Label(self.tela11, text="[m] Massa (kg):")
+        label_massa.pack()
+
+        entry_massa = ttk.Entry(self.tela11)
+        entry_massa.placeholder = "Insira a massa (kg)"
+        entry_massa.insert(0, entry_massa.placeholder)
+        entry_massa.bind("<FocusIn>", remover_placeholder)
+        entry_massa.bind("<FocusOut>", restaurar_placeholder)
+        entry_massa.pack()
+
+        #TEXTO MASSA DO CAMPO DE ENTRADA
+        label_gravidade = tk.Label(self.tela11, text="[g] Aceleração da gravidade (m/s²):")
+        label_gravidade.pack()
+
+        entry_gravidade = ttk.Entry(self.tela11)
+        entry_gravidade.placeholder = "Insira a gravidade (m/s²)"
+        entry_gravidade.insert(0, entry_gravidade.placeholder)
+        entry_gravidade.bind("<FocusIn>", remover_placeholder)
+        entry_gravidade.bind("<FocusOut>", restaurar_placeholder)
+        entry_gravidade.pack()
+
+        #TEXTO FORÇA DO CAMPO DE ENTRADA
+        label_altura = tk.Label(self.tela11, text="[h] Altura (m):")
+        label_altura.pack()
+
+        entry_altura = ttk.Entry(self.tela11)
+        entry_altura.placeholder = "Insira a altura (m)"
+        entry_altura.insert(0, entry_altura.placeholder)
+        entry_altura.bind("<FocusIn>", remover_placeholder)
+        entry_altura.bind("<FocusOut>", restaurar_placeholder)
+        entry_altura.pack()
+
+        def calcular():
+            try:
+                # Obtenha os valores inseridos pelo usuário
+                S0 = float(entry_S0.get())
+                v = float(entry_v.get())
+                t = float(entry_t.get())
+
+                # Calcule a posição final S(t)
+                St = S0 + v * t
+
+                # Atualize as variáveis de resultado
+                resultado.set(f"Posição Final (S(t)): {St:.2f} unidades")
+
+            except ValueError:
+                resultado.set("Insira valores válidos em todas as entradas")
+
+        #FUNÇÃO LIMPAR OS CAMPOS
+        def limpar_campos():
+            entry_massa.delete(0, tk.END)
+            entry_gravidade.delete(0, tk.END)
+            entry_altura.delete(0, tk.END)
+            resultado.set("")  #RESETA OS CAMPOS
+
+        #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
+        frame1 = tk.Frame(self.tela11)
+        frame1.pack()
+        #CRIANDO BOTOES
+        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
+
+        #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
+        resultado = tk.StringVar()
+        label_resultado = tk.Label(self.tela11, textvariable=resultado)
+        label_resultado.pack()
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela16, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=90)
+        btn_tela_anterior.pack(side='bottom',pady=40)
 
     #CRIA A TELA 17 (Velocidade média)
     def criar_tela17(self):
