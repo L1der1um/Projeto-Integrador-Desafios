@@ -1142,7 +1142,6 @@ class Software:
             entry_delta_t.delete(0, tk.END)
             resultado.set("")  #RESETA OS CAMPOS
             
-
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela17)
         frame1.pack()
