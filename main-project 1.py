@@ -1254,11 +1254,13 @@ class Software:
         btn_tela_anterior = tk.Button(self.tela18, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=40)
 
+
     #CRIA A TELA 19 ()
     def criar_tela19(self):
 
         self.tela19 = tk.Frame(self.root)
         self.tela19.pack()
+
 
     #CRIA A TELA 20 ()
     def criar_tela20(self):
@@ -1266,11 +1268,175 @@ class Software:
         self.tela20 = tk.Frame(self.root)
         self.tela20.pack()
 
+
     #CRIA A TELA 21 ()
     def criar_tela21(self):
 
         self.tela21 = tk.Frame(self.root)
         self.tela21.pack()
+
+    #CRIA A TELA 22 ()
+    def criar_tela22(self):
+
+        self.tela22 = tk.Frame(self.root)
+        self.tela22.pack()
+
+    #CRIA A TELA  23()
+    def criar_tela23(self):
+
+        self.tela23 = tk.Frame(self.root)
+        self.tela23.pack()
+
+    #CRIA A TELA 24 ()
+    def criar_tela24(self):
+
+        self.tela24 = tk.Frame(self.root)
+        self.tela24.pack()
+
+    #CRIA A TELA 25 ()
+    def criar_tela25(self):
+
+        self.tela25 = tk.Frame(self.root)
+        self.tela25.pack()
+
+    #CRIA A TELA 26 ()
+    def criar_tela26(self):
+
+        self.tela26 = tk.Frame(self.root)
+        self.tela26.pack()
+
+    #CRIA A TELA 27 ()
+    def criar_tela27(self):
+
+        self.tela27 = tk.Frame(self.root)
+        self.tela27.pack()
+
+    #CRIA A TELA 28 ()
+    def criar_tela28(self):
+
+        self.tela28 = tk.Frame(self.root)
+        self.tela28.pack()
+
+    #CRIA A TELA 29 ()
+    def criar_tela29(self):
+
+        self.tela29 = tk.Frame(self.root)
+        self.tela29.pack()
+
+    #CRIA A TELA 30 ()
+    def criar_tela30(self):
+
+        self.tela30 = tk.Frame(self.root)
+        self.tela30.pack()
+
+    #CRIA A TELA 31 ()
+    def criar_tela31(self):
+
+        self.tela31 = tk.Frame(self.root)
+        self.tela31.pack()
+
+    #CRIA A TELA 32 ()
+    def criar_tela32(self):
+
+        self.tela32 = tk.Frame(self.root)
+        self.tela32.pack()
+
+    #CRIA A TELA 33 ()
+    def criar_tela33(self):
+
+        self.tela33 = tk.Frame(self.root)
+        self.tela33.pack()
+
+    #CRIA A TELA 34  ()
+    def criar_tela34(self):
+
+        self.tela34 = tk.Frame(self.root)
+        self.tela34.pack()
+
+    #CRIA A TELA 35 ()
+    def criar_tela35(self):
+
+        self.tela35 = tk.Frame(self.root)
+        self.tela35.pack()
+
+    #CRIA A TELA 36 ()
+    def criar_tela36(self):
+
+        self.tela36 = tk.Frame(self.root)
+        self.tela36.pack()
+
+    #CRIA A TELA 37 ()
+    def criar_tela37(self):
+
+        self.tela37 = tk.Frame(self.root)
+        self.tela37.pack()
+
+    #CRIA A TELA 38 ()
+    def criar_tela38(self):
+
+        self.tela38 = tk.Frame(self.root)
+        self.tela38.pack()
+
+    #CRIA A TELA 39 ()
+    def criar_tela39(self):
+
+        self.tela39 = tk.Frame(self.root)
+        self.tela39.pack()
+
+    #CRIA A TELA 40 ()
+    def criar_tela40(self):
+
+        self.tela40 = tk.Frame(self.root)
+        self.tela40.pack()
+
+    #CRIA A TELA  ()
+    def criar_tela41(self):
+
+        self.tela41 = tk.Frame(self.root)
+        self.tela41.pack()
+
+    #CRIA A TELA  ()
+    def criar_tela42(self):
+
+        self.tela42 = tk.Frame(self.root)
+        self.tela42.pack()
+
+    #CRIA A TELA  ()
+    def criar_tela43(self):
+
+        self.tela43 = tk.Frame(self.root)
+        self.tela43.pack()
+
+    #CRIA A TELA 44 ()
+    def criar_tela44(self):
+
+        self.tela44 = tk.Frame(self.root)
+        self.tela44.pack()
+
+    #CRIA A TELA 45 ()
+    def criar_tela45(self):
+
+        self.tela45 = tk.Frame(self.root)
+        self.tela45.pack()
+
+    #CRIA A TELA 46 ()
+    def criar_tela46(self):
+
+        self.tela46 = tk.Frame(self.root)
+        self.tela46.pack()
+
+    #CRIA A TELA 47 ()
+    def criar_tela47(self):
+
+        self.tela47 = tk.Frame(self.root)
+        self.tela47.pack()
+
+    #CRIA A TELA 48 ()
+    def criar_tela48(self):
+
+        self.tela48 = tk.Frame(self.root)
+        self.tela48.pack()
+
 
     ########################################## FUNÇÕES GERAIS ################################################################
 
@@ -1419,6 +1585,202 @@ class Software:
         self.tela2.destroy()
         self.criar_tela20()
         self.tela_atual = 20
+
+    #FUNÇÃO IR PARA TELA 21 ()
+    def ir_para_tela21(self):
+
+        self.tela2.destroy()
+        self.criar_tela21()
+        self.tela_atual = 21
+
+    #FUNÇÃO IR PARA TELA 22 ()
+    def ir_para_tela22(self):
+
+        self.tela2.destroy()
+        self.criar_tela22()
+        self.tela_atual = 22
+
+    #FUNÇÃO IR PARA TELA 23 ()
+    def ir_para_tela23(self):
+
+        self.tela2.destroy()
+        self.criar_tela23()
+        self.tela_atual = 23
+
+    #FUNÇÃO IR PARA TELA 24 ()
+    def ir_para_tela24(self):
+
+        self.tela2.destroy()
+        self.criar_tela24()
+        self.tela_atual = 24
+
+    #FUNÇÃO IR PARA TELA 25 ()
+    def ir_para_tela25(self):
+
+        self.tela2.destroy()
+        self.criar_tela25()
+        self.tela_atual = 25
+
+    #FUNÇÃO IR PARA TELA 26 ()
+    def ir_para_tela26(self):
+
+        self.tela2.destroy()
+        self.criar_tela26()
+        self.tela_atual = 26
+
+    #FUNÇÃO IR PARA TELA 27 ()
+    def ir_para_tela27(self):
+
+        self.tela2.destroy()
+        self.criar_tela27()
+        self.tela_atual = 27
+
+    #FUNÇÃO IR PARA TELA 28 ()
+    def ir_para_tela28(self):
+
+        self.tela2.destroy()
+        self.criar_tela28()
+        self.tela_atual = 28
+
+    #FUNÇÃO IR PARA TELA 29 ()
+    def ir_para_tela29(self):
+
+        self.tela2.destroy()
+        self.criar_tela29()
+        self.tela_atual = 29
+
+    #FUNÇÃO IR PARA TELA 30 ()
+    def ir_para_tela30(self):
+
+        self.tela2.destroy()
+        self.criar_tela30()
+        self.tela_atual = 30
+
+    #FUNÇÃO IR PARA TELA 31 ()
+    def ir_para_tela31(self):
+
+        self.tela2.destroy()
+        self.criar_tela31()
+        self.tela_atual = 31
+
+    #FUNÇÃO IR PARA TELA 32 ()
+    def ir_para_tela32(self):
+
+        self.tela2.destroy()
+        self.criar_tela32()
+        self.tela_atual = 32
+
+    #FUNÇÃO IR PARA TELA 3 ()
+    def ir_para_tela3(self):
+
+        self.tela2.destroy()
+        self.criar_tela33()
+        self.tela_atual = 33
+
+    #FUNÇÃO IR PARA TELA 34 ()
+    def ir_para_tela34(self):
+
+        self.tela2.destroy()
+        self.criar_tela34()
+        self.tela_atual = 34
+
+    #FUNÇÃO IR PARA TELA 35 ()
+    def ir_para_tela35(self):
+
+        self.tela2.destroy()
+        self.criar_tela35()
+        self.tela_atual = 35
+
+    #FUNÇÃO IR PARA TELA 36 ()
+    def ir_para_tela36(self):
+
+        self.tela2.destroy()
+        self.criar_tela36()
+        self.tela_atual = 36
+
+    #FUNÇÃO IR PARA TELA 37 ()
+    def ir_para_tela37(self):
+
+        self.tela2.destroy()
+        self.criar_tela37()
+        self.tela_atual = 37
+
+    #FUNÇÃO IR PARA TELA 38 ()
+    def ir_para_tela38(self):
+
+        self.tela2.destroy()
+        self.criar_tela38()
+        self.tela_atual = 38
+
+    #FUNÇÃO IR PARA TELA 39 ()
+    def ir_para_tela39(self):
+
+        self.tela2.destroy()
+        self.criar_tela39()
+        self.tela_atual = 39
+
+    #FUNÇÃO IR PARA TELA 40 ()
+    def ir_para_tela40(self):
+
+        self.tela2.destroy()
+        self.criar_tela40()
+        self.tela_atual = 40
+
+    #FUNÇÃO IR PARA TELA 41 ()
+    def ir_para_tela41(self):
+
+        self.tela2.destroy()
+        self.criar_tela41()
+        self.tela_atual = 41
+
+    #FUNÇÃO IR PARA TELA 42 ()
+    def ir_para_tela42(self):
+
+        self.tela2.destroy()
+        self.criar_tela42()
+        self.tela_atual = 42
+
+    #FUNÇÃO IR PARA TELA 43 ()
+    def ir_para_tela43(self):
+
+        self.tela2.destroy()
+        self.criar_tela43()
+        self.tela_atual = 43
+
+    #FUNÇÃO IR PARA TELA 44 ()
+    def ir_para_tela44(self):
+
+        self.tela2.destroy()
+        self.criar_tela44()
+        self.tela_atual = 44
+
+    #FUNÇÃO IR PARA TELA 45 ()
+    def ir_para_tela45(self):
+
+        self.tela2.destroy()
+        self.criar_tela45()
+        self.tela_atual = 45
+
+    #FUNÇÃO IR PARA TELA 46 ()
+    def ir_para_tela46(self):
+
+        self.tela2.destroy()
+        self.criar_tela46()
+        self.tela_atual = 46
+
+    #FUNÇÃO IR PARA TELA 47 ()
+    def ir_para_tela47(self):
+
+        self.tela2.destroy()
+        self.criar_tela47()
+        self.tela_atual = 47
+
+    #FUNÇÃO IR PARA TELA 48 ()
+    def ir_para_tela48(self):
+
+        self.tela2.destroy()
+        self.criar_tela48()
+        self.tela_atual = 48
 
     ########################################## FUNÇÕES VOLTAR TELA ##############################################################
 
