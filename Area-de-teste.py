@@ -1,59 +1,52 @@
 import tkinter as tk
-from tkinter import ttk
 
-def calcular():
+# Função para calcular a densidade
+def calcular_densidade():
     try:
-        # Obtenha os valores inseridos pelo usuário
-        S0 = float(entry_S0.get())
-        v = float(entry_v.get())
-        t = float(entry_t.get())
+        # Obtém os valores inseridos pelo usuário
+        massa = float(entry_massa.get())
+        volume = float(entry_volume.get())
 
-        # Calcule a posição final S(t)
-        St = S0 + v * t
+        #Validar se o índice de refração 2 é zero
+        if volume == 0:
+            resultado.set("O volume não pode ser zero (0).")
+            return
 
-        # Atualize as variáveis de resultado
-        resultado.set(f"Posição Final (S(t)): {St:.2f} unidades")
+        # Calcula a densidade
+        densidade = massa / volume
+
+        # Atualiza o valor da StringVar
+        resultado.set(f"Densidade: {densidade:.2f} kg/m³")
 
     except ValueError:
-        resultado.set("Insira valores válidos em todas as entradas")
+        resultado.set("Por favor, insira valores válidos / Preencha todos os campos.")
 
 # Cria a janela principal
 root = tk.Tk()
-root.title("Calculadora MRU")
+root.title("Calculadora de Densidade")
 
-# Cria um frame para as entradas e botão
-frame = tk.Frame(root)
-frame.pack(padx=20, pady=20)
+# Variável StringVar para o resultado
+resultado = tk.StringVar()
 
-# Labels e entradas para S0, v e t
-label_S0 = tk.Label(frame, text="Posição Inicial (S0):")
-label_S0.pack()
+# Rótulo e campo de entrada para a massa
+label_massa = tk.Label(root, text="Massa (kg):")
+label_massa.pack()
+entry_massa = tk.Entry(root)
+entry_massa.pack()
 
-entry_S0 = ttk.Entry(frame)
-entry_S0.pack()
+# Rótulo e campo de entrada para o volume
+label_volume = tk.Label(root, text="Volume (m³):")
+label_volume.pack()
+entry_volume = tk.Entry(root)
+entry_volume.pack()
 
-label_v = tk.Label(frame, text="Velocidade (v):")
-label_v.pack()
-
-entry_v = ttk.Entry(frame)
-entry_v.pack()
-
-label_t = tk.Label(frame, text="Tempo (t):")
-label_t.pack()
-
-entry_t = ttk.Entry(frame)
-entry_t.pack()
-
-# Botão de calcular
-btn_calcular = ttk.Button(frame, text="Calcular", command=calcular)
+# Botão para calcular a densidade
+btn_calcular = tk.Button(root, text="Calcular Densidade", command=calcular_densidade)
 btn_calcular.pack()
 
-# Variável de resultado
-resultado = tk.StringVar()
-resultado.set("")  # Inicialmente vazio
+# Rótulo para exibir o resultado
+resultado_label = tk.Label(root, textvariable=resultado)
+resultado_label.pack()
 
-# Label para exibir o resultado
-label_resultado = tk.Label(root, textvariable=resultado, padx=20, pady=10)
-label_resultado.pack()
-
+# Inicia o loop principal da interface gráfica
 root.mainloop()
