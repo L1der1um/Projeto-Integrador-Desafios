@@ -27,7 +27,7 @@ class Software:
         #DEFINE A ESCALA DO PROGRAMA
         root.geometry("900x500")
         #IMPOSIBILITA A REDIMENÇÃO DO PROGRAMA
-        root.resizable(False, True)
+        root.resizable(False, False)
         #DEFINE A TELA PRINCIAPL
         self.tela_atual = 1
         #EXECUTA A TELA PRINCIPAL
@@ -161,30 +161,35 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label4 = tk.Label(self.tela4, text="OBJETIVO DO PROJETO",font=('Arial', 14, 'bold'))
-        label4.pack(pady=10)
+        label4.pack(pady=30)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-            O objetivo principal deste software é de auxiliar
-        o novos alunos recem ingresados na universidade os
-        quais possuem a matéria de Fisica 1 eu sua grade
-        afim de auxiliá-los em sua aprendizagem ao longo
-        de seu curso atual na UNISO mediante a explicação
-        do contexto e utilização das principais formulas
-        desta matéria incluindo calculadora para cada uma
-        das formulas mais importantes desta matéria.
+            O objetivo deste projeto é desenvolver um software desktop que permita o usuário recém
+        ingressado na faculdade resolver problemas matemáticos mediantes as fórmulas mais utilizadas
+        na matéria de Física 1, em conjunto de explicações da utilização e o contexto de cada fórmula.
+        A opção escolhida se deve ao fato de que ao desenvolver este software um calouro pode ter um
+        melhor desenvolvimento em suas aulas práticas.
+        
+        Atualmente um novo aluno deve pesquisar por horas em livros ou na internet como resolver um
+        determinado problema em Física 1, portanto, o software permitirá ao aluno ter um melhor
+        desenvolvimento em suas aulas possibilitando-o compreender melhor o contexto das aulas.
+        Espera-se que o software contenha uma tela ao qual o usuário deve, no entanto, selecionar as
+        opções dentre elas estará o objetivo do projeto, agradecimentos e referencias, GitHub com o
+        código fonte do projeto e as principais fórmulas as quais devem, no entanto, apresentar uma
+        contextualização no que cada uma é utilizada.
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela4, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label4_1 = tk.Label(self.tela4, text=texto, justify="center", padx=10, pady=10, font=('Arial', 14))
+        label4_1.pack(pady=35)
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela4, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom')
 
 
-    #CRIA A TELA 5 (Agradecimentos e Referencias)
+    #CRIA A TELA 5 (Agradecimentos e Refêrencias)
     def criar_tela5(self):
 
         self.tela5 = tk.Frame(self.root)
@@ -192,11 +197,26 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label5 = tk.Label(self.tela5, text="AGRADECIMENTOS E REFERÊNCIAS" ,font=('Arial', 14, 'bold'))
-        label5.pack(pady=10, side='top', anchor='n')
+        label5.pack(pady=30, side='top', anchor='n')
 
         #TEXTO TELA AGRADECIMENTOS
         texto = """
-        (TEXTO)
+        Agradecimentos especiais ao orientador José Roberto Garcia por ter orientado
+        o grupo a como realizar o projeto desde seu início.
+
+        Refêrencias para a criação do projeto:
+
+        Curso Python Tkinter - Aula 1 - Criação e configuração da janela - Tutorial.
+        Disponível em: <https://youtu.be/RtrZcoVD1WM?si=OMOTKxhMTCHm8hx6>. Acesso em: 22 set. 2023.
+
+        
+        Curso Python #01 - Seja um Programador. Disponível em:
+        <https://youtu.be/S9uPNppGsGo?si=Gm1UMf9YWbZ97y3h>. Acesso em: 22 set. 2023.
+
+        
+        How to add placeholder to an Entry in tkinter? Disponível em:
+        <https://stackoverflow.com/questions/27820178/how-to-add-placeholder-to-an-entry-in-tkinter>.
+        Acesso em: 22 set. 2023.
         """
 
         #RÓTULO DO TEXTO
@@ -238,7 +258,7 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela6, text="GITHUB DO PROJETO" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=10)
+        label6.pack(pady=30)
 
         #BOTÃO PARA ABRIR O GITHUB
         button_github = tk.Button(self.tela6, text="Abrir GitHub", command=abrir_github)
