@@ -2,9 +2,14 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
-#IMPRTANTO BIBLIOTECA WEBBROWSER PARA O LINK DO GITHUB
+#IMPORTANTO BIBLIOTECA WEBBROWSER PARA O LINK DO GITHUB
 import webbrowser
+#IMPORTANTO BIBLIOTECA MATH PARA CALCULAR RESULTADOS COM SEN E COS
 import math
+#IMPORTANDO BIBLITOECA QRCODE PARA GERAR O QRCODE DO GITHUB
+import qrcode
+#IMPORTANDO BIBLIOTECA PIL PARA AUXILAR NA ABERTURA DO QRCODE NA TELA
+from PIL import ImageTk
 
 #CRIANDO A CLASSE SOFTWARE
 class Software:
@@ -37,6 +42,11 @@ class Software:
         self.tela1 = tk.Frame(self.root)
         self.tela1.pack()
 
+        #FUNÇÃO ENCERRAR PROGRAMA
+        def encerrar_programa():
+            
+            root.destroy()
+
         #MENSAGEM DE TEXTO TELA 1
         label1 = tk.Label(self.tela1, text="PROJETO INTEGRADOR - DESAFIOS DE PROGRAMAÇÃO", font=('Arial', 16, 'bold'))
         label1.pack(pady=40)
@@ -55,7 +65,7 @@ class Software:
         label2.pack()
 
         #BOTAO ENCERRAR O SOFTWARE
-        botao = tk.Button(self.tela1, text="Encerrar", command=self.encerrar_programa, bg='red', fg='white')
+        botao = tk.Button(self.tela1, text="Encerrar", command=encerrar_programa, bg='red', fg='white')
         botao.pack(pady=30, side='bottom')
 
 
@@ -204,13 +214,35 @@ class Software:
         self.tela6 = tk.Frame(self.root)
         self.tela6.pack()
 
+        #FUNÇÃO ABRIR LINK DO GITHUB
+        def abrir_github():
+
+            webbrowser.open('https://github.com/L1der1um/Projeto-Integrador-Desafios')
+
+        #FUNÇÃO EXIBIR QRCODE NA TELA
+        def mostrar_qr_code():
+
+            #DEFININDO A URL DO PROJETO
+            url = "https://github.com/L1der1um/Projeto-Integrador-Desafios"
+            #DEFININDO A CONFIGURAÇÃO DA IMAGEM
+            qr = qrcode.QRCode(box_size=3,border=3)
+            qr.add_data(url)
+            #CRIANDO NA TELA O QRCODE COM A COR PRETO E BRANCO
+            img = qr.make_image(fill_color="black", back_color="white")
+
+            #EXIBIÇÃO DA IMAGEM NA TELA
+            img = ImageTk.PhotoImage(img)
+            label = tk.Label(self.tela6, image=img)
+            label.photo = img
+            label.pack()
+
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela6, text="GITHUB DO PROJETO" ,font=('Arial', 14, 'bold'))
         label6.pack(pady=10)
 
         #BOTÃO PARA ABRIR O GITHUB
-        button_github = tk.Button(self.tela6, text="Abrir GitHub", command=self.abrir_github)
-        button_github.pack(pady=60)
+        button_github = tk.Button(self.tela6, text="Abrir GitHub", command=abrir_github)
+        button_github.pack(pady=30)
 
         #CAMPO DE TEXTO PARA INFORMAR O USUARIO PARA COPIAR O LINK
         label6_1 = tk.Label(self.tela6, text="Não consegue abrir o link? Copie ele abaixo e cole em seu navegador!",font=('Arial', 14, 'bold'))
@@ -224,9 +256,13 @@ class Software:
         text.config(state="disabled")
         text.pack()
 
+        #BOTÃO PARA EXIBIR O QRCODE NA TELA
+        gerar_qr = tk.Button(self.tela6, text="Gerar QR Code", command=mostrar_qr_code)
+        gerar_qr.pack(pady=30)
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela6, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=90)
+        btn_tela_anterior.pack(side='bottom',pady=20)
 
 
 ############################################# FUNÇÕES FORMULAS #############################################################
@@ -1237,7 +1273,7 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=40)
 
 
-######################################## TELAS CONTEXTUALIZAÇÃO E EXEMPLOS 1,2 3 #############################################################################################################################################################
+######################################## TELAS CONTEXTUALIZAÇÃO E EXEMPLOS 1, 2, 3 #############################################################################################################################################################
 
     #CRIA A TELA 19 (CONTEXTUALIZAÇÃO - Lei de Movimento de Newton (Segunda Lei))
     def criar_tela19(self):
@@ -1570,20 +1606,6 @@ class Software:
 
         self.tela48 = tk.Frame(self.root)
         self.tela48.pack()
-
-
-################################################ FUNÇÕES GERAIS ################################################################
-
-    #FUNÇÃO ENCERRAR PROGRAMA
-    def encerrar_programa(self):
-        
-        root.destroy()
-
-
-    #FUNÇÃO ABRIR LINK DO GITHUB
-    def abrir_github(self):
-
-        webbrowser.open('https://github.com/L1der1um/Projeto-Integrador-Desafios')
 
 ########################################## FUNÇÕES IR PARA OUTRA TELA ################################################################
     

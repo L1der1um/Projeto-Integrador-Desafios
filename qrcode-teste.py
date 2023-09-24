@@ -4,8 +4,8 @@ from PIL import ImageTk
 
 # Função para criar e exibir o código QR
 def show_qr_code():
-    url = "https://www.youtube.com"
-    qr = qrcode.QRCode(box_size=10,border=5)
+    url = "https://github.com/L1der1um/Projeto-Integrador-Desafios"
+    qr = qrcode.QRCode(box_size=5,border=5)
     qr.add_data(url)
     img = qr.make_image(fill_color="black", back_color="white")
 
