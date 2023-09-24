@@ -313,7 +313,22 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela7, textvariable=resultado)
-        label_resultado.pack()
+        label_resultado.pack(pady=10)
+
+        #BOTÃO VOLTAR TELA
+        btn_contexto = tk.Button(self.tela7, text="Contextualização da formula", command=self.ir_para_tela19)
+        btn_contexto.pack(pady=10)
+
+        #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
+        frame2 = tk.Frame(self.tela7)
+        frame2.pack()
+        #CRIANDO BOTOES
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela20)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela21)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela22)
+        botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela22.pack(side=tk.LEFT,padx=10, pady=10)
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela7, text="Voltar", command=self.voltar_tela)
@@ -1222,7 +1237,7 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=40)
 
 
-########################################## TELAS CONTEXTUALIZAÇÃO E EXEMPLOS #############################################################################################################################################################
+######################################## TELAS CONTEXTUALIZAÇÃO E EXEMPLOS 1,2 3 #############################################################################################################################################################
 
     #CRIA A TELA 19 (CONTEXTUALIZAÇÃO - Lei de Movimento de Newton (Segunda Lei))
     def criar_tela19(self):
@@ -1235,8 +1250,8 @@ class Software:
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
-        label6 = tk.Label(self.tela19, text="F = m . a")
-        label6.pack(pady=5)
+        label6_1 = tk.Label(self.tela19, text="F = m . a")
+        label6_1.pack(pady=25)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
@@ -1270,6 +1285,36 @@ class Software:
         self.tela20 = tk.Frame(self.root)
         self.tela20.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela20, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela20, text="F = m . a")
+        label6_1.pack(pady=25)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Qual a força exercida por um carro de 900 kg que é empurrado
+        por duas pessoas a uma aceleração de 2 m/s²)?
+
+        Resolução:
+
+        F = 900kg * 2m/s²
+
+        Multiplicando 900 por 2:
+
+        F = 1.800N
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela20, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela20, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=40)
+
 
     #CRIA A TELA 21 (EXEMPLO PRATICO 2 - Lei de Movimento de Newton (Segunda Lei))
     def criar_tela21(self):
@@ -1277,12 +1322,73 @@ class Software:
         self.tela21 = tk.Frame(self.root)
         self.tela21.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela21, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela21, text="F = m . a")
+        label6_1.pack(pady=25)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Suponhamos que você esteja em um elevador que está subindo com uma aceleração
+        de 2 m/s² e sua massa é de 75 kg. Determine a força que você irá sentir.
+
+        Resolução:
+    
+        F = 75kg * 2m/s²
+
+        Multiplicando 75 * 2:
+
+        F = 150N
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela21, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela21, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=40)
+
 
     #CRIA A TELA 22 (EXEMPLO PRATICO 3 - Lei de Movimento de Newton (Segunda Lei))
     def criar_tela22(self):
 
         self.tela22 = tk.Frame(self.root)
         self.tela22.pack()
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela22, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela22, text="F = m . a")
+        label6_1.pack(pady=25)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Suponhamos que você tenha um trem de carga com uma massa total de 90000 kg
+        e ele esteja desacelerando a uma taxa de 2,5 m/s² devido aos freios.
+        Determine a força considerando que o trem está desacelerando.
+
+        Resolução:
+
+        F = 90000kg * (-2,5m/s²)
+
+        Multiplicando 90000 por -2,5:
+
+        F = -225.000N
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela22, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela22, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=40)
 
 
     #CRIA A TELA  23(CONTEXTUALIZAÇÃO - Lei da gravitação Universal de Newton)
@@ -1479,7 +1585,7 @@ class Software:
 
         webbrowser.open('https://github.com/L1der1um/Projeto-Integrador-Desafios')
 
-    ########################################## FUNÇÕES IR PARA OUTRA TELA ################################################################
+########################################## FUNÇÕES IR PARA OUTRA TELA ################################################################
     
     #FUNÇÃO IR PARA TELA 2 (OPÇÕES)
     def ir_para_tela2(self):
@@ -1600,31 +1706,31 @@ class Software:
         self.criar_tela18()
         self.tela_atual = 18
 
-    #FUNÇÃO IR PARA TELA 19 (CONTEXUALIZAÇÃO Lei de Movimento de Newton)
+    #FUNÇÃO IR PARA TELA 19 (CONTEXUALIZAÇÃO - Lei de Movimento de Newton)
     def ir_para_tela19(self):
 
         self.tela7.destroy()
         self.criar_tela19()
         self.tela_atual = 19
 
-    #FUNÇÃO IR PARA TELA 20 ()
+    #FUNÇÃO IR PARA TELA 20 (EXEMPLO PRATICO 1 - Lei de Movimento de Newton)
     def ir_para_tela20(self):
 
-        self.tela2.destroy()
+        self.tela7.destroy()
         self.criar_tela20()
         self.tela_atual = 20
 
-    #FUNÇÃO IR PARA TELA 21 ()
+    #FUNÇÃO IR PARA TELA 21 (EXEMPLO PRATICO 2 - Lei de Movimento de Newton)
     def ir_para_tela21(self):
 
-        self.tela2.destroy()
+        self.tela7.destroy()
         self.criar_tela21()
         self.tela_atual = 21
 
-    #FUNÇÃO IR PARA TELA 22 ()
+    #FUNÇÃO IR PARA TELA 22 (EXEMPLO PRATICO 3 - Lei de Movimento de Newton)
     def ir_para_tela22(self):
 
-        self.tela2.destroy()
+        self.tela7.destroy()
         self.criar_tela22()
         self.tela_atual = 22
 
@@ -1810,7 +1916,7 @@ class Software:
         self.criar_tela48()
         self.tela_atual = 48
 
-    ########################################## FUNÇÕES VOLTAR TELA ##############################################################
+########################################## FUNÇÕES VOLTAR TELA ##############################################################
 
     #FUNÇÃO VOLTAR TELA ANTERIOR
     def voltar_tela(self):
@@ -1916,6 +2022,32 @@ class Software:
             self.tela18.destroy()
             self.criar_tela3()
             self.tela_atual = 3
+
+##################################### VOLTAR TELA CONTEXTUALIZAÇÃO E EXEMPLOS ######################################################################################################################################################################################################################################################
+
+        #SE ESTIVER NA TELA 19, VOLTA PARA 7 (Lei de Movimento de Newton)
+        elif self.tela_atual == 19:
+            self.tela19.destroy()
+            self.criar_tela7()
+            self.tela_atual = 7
+
+        #SE ESTIVER NA TELA 20, VOLTA PARA 7 (Lei de Movimento de Newton)
+        elif self.tela_atual == 20:
+            self.tela20.destroy()
+            self.criar_tela7()
+            self.tela_atual = 7
+
+        #SE ESTIVER NA TELA 21, VOLTA PARA 7 (Lei de Movimento de Newton)
+        elif self.tela_atual == 21:
+            self.tela21.destroy()
+            self.criar_tela7()
+            self.tela_atual = 7
+
+        #SE ESTIVER NA TELA 21, VOLTA PARA 7 (Lei de Movimento de Newton)
+        elif self.tela_atual == 22:
+            self.tela22.destroy()
+            self.criar_tela7()
+            self.tela_atual = 7
 
 ####################################################################################################################################################################################################################################################################################################################################
 
