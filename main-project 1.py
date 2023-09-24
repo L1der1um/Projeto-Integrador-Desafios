@@ -9,7 +9,7 @@ import math
 #CRIANDO A CLASSE SOFTWARE
 class Software:
 
-    ############################################### CONFIGURAÇÃO TKINTER ##########################################################
+#################################################### CONFIGURAÇÃO TKINTER ##########################################################
 
     #FUNÇÕES DA CLASSE SOFTWARE
 
@@ -28,7 +28,7 @@ class Software:
         #EXECUTA A TELA PRINCIPAL
         self.criar_tela1()
 
-    ############################################ FUNÇÕES CRIAR TELA #############################################################
+################################################ FUNÇÕES CRIAR TELA #############################################################
 
     #CRIA A TELA 1 (PRINCIPAL)
     def criar_tela1(self):
@@ -155,7 +155,7 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-        O objetivo principal deste software é de auxiliar
+            O objetivo principal deste software é de auxiliar
         o novos alunos recem ingresados na universidade os
         quais possuem a matéria de Fisica 1 eu sua grade
         afim de auxiliá-los em sua aprendizagem ao longo
@@ -166,7 +166,7 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela4, text=texto, justify="center", padx=10, pady=10)
+        label4_1 = tk.Label(self.tela4, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
         label4_1.pack()
 
         #BOTÃO VOLTAR TELA
@@ -229,6 +229,8 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=90)
 
 
+############################################# FUNÇÕES FORMULAS #############################################################
+
     #CRIA A TELA 7 (Lei de Movimento de Newton (Segunda Lei))
     def criar_tela7(self):
 
@@ -243,10 +245,6 @@ class Software:
         label6 = tk.Label(self.tela7, text="F = m . a")
         label6.pack(pady=5)
 
-        #TEXTO INFORMATIVO DE TELA
-        label6 = tk.Label(self.tela7, text="Insira zero (0) dentro do dado que você deseja calcular")
-        label6.pack(pady=20)
-
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
             widget = event.widget
@@ -258,17 +256,6 @@ class Software:
             widget = event.widget
             if not widget.get():
                 widget.insert(0, widget.placeholder)
-
-        #TEXTO FORÇA DO CAMPO DE ENTRADA
-        label_forca = tk.Label(self.tela7, text="Força (N):")
-        label_forca.pack()
-
-        entry_forca = ttk.Entry(self.tela7)
-        entry_forca.placeholder = "Insira a força"
-        entry_forca.insert(0, entry_forca.placeholder)
-        entry_forca.bind("<FocusIn>", remover_placeholder)
-        entry_forca.bind("<FocusOut>", restaurar_placeholder)
-        entry_forca.pack()
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_massa = tk.Label(self.tela7, text="Massa (kg):")
@@ -297,42 +284,22 @@ class Software:
 
             try:
                 #PEGA OS DADOS INSERIDO PELO USUÁRIO
-                forca = float(entry_forca.get())
                 massa = float(entry_massa.get())
                 aceleracao = float(entry_aceleracao.get())
 
-                #CALCULA A FORÇA
-                if forca == 0:
-
-                    forca = massa * aceleracao
-                    resultado.set(f"Força: {forca:.2f} N")
-
-                #CALCULA A MASSA
-                elif massa == 0:
-
-                    massa = forca / aceleracao
-                    resultado.set(f"Massa: {massa:.2f} kg")
-
-                #CALCULA A ACELERAÇÃO
-                elif aceleracao == 0:
-
-                    aceleracao = forca / massa
-                    resultado.set(f"Aceleração: {aceleracao:.2f} m/s²")
-
-                else:
-                    #SOLICITA PARA O USUÁRIO INSERIR DOIS VALORES E UM ZERO O DADO QUE DESEJA CALCULAR
-                    resultado.set("Preencha dois valores e deixe um campo com um zero (0) para calcular.")
+                forca = massa * aceleracao
+                resultado.set(f"Força: {forca:.2f} N")
 
             except ValueError:
+
                 #INFORMA ERRO DE VALOR NÃO RECONHECIDO
-                resultado.set("Insira valores numéricos válidos.")
+                resultado.set("Insira valores numéricos válidos / Preencha todos os valores")
 
         #FUNÇÃO LIMPAR OS CAMPOS
         def limpar_campos():
-            entry_forca.delete(0, tk.END)
             entry_massa.delete(0, tk.END)
             entry_aceleracao.delete(0, tk.END)
-            resultado.set("")  # Limpa o resultado
+            resultado.set("")  #LIMPA DA CAIXA DE RESULTADO
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela7)
@@ -1255,55 +1222,96 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=40)
 
 
-    #CRIA A TELA 19 ()
+########################################## TELAS CONTEXTUALIZAÇÃO E EXEMPLOS #############################################################################################################################################################
+
+    #CRIA A TELA 19 (CONTEXTUALIZAÇÃO - Lei de Movimento de Newton (Segunda Lei))
     def criar_tela19(self):
 
         self.tela19 = tk.Frame(self.root)
         self.tela19.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela19, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
 
-    #CRIA A TELA 20 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela19, text="F = m . a")
+        label6.pack(pady=5)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+            A Lei do Movimento de Newton, formulada por Isaac Newton no século XVII, é uma 
+        fórmula fundamental na física clássica pois descreve a relação entre a força aplicada 
+        a um objeto e sua subsequente aceleração. Essa lei é amplamente utilizada em diversos
+        contextos, desde a previsão do movimento dos planetas no sistema solar até o projeto
+        de espaçonaves e na compreensão dos movimentos de objetos em nosso dia a dia.
+
+            No cotidiano, a segunda lei de Newton é frequentemente aplicada na engenharia, como
+        no desenvolvimento de carros, aviões e estruturas construtivas. Ela é essencial para
+        calcular como os objetos se moverão sob diferentes influências de forças, como gravidade
+        e tração. Além disso, essa lei também é usada na astronomia para prever as órbitas dos
+        planetas e nas ciências biológicas para entender o movimento dos corpos e músculos humanos. 
+        Portanto, a Lei do Movimento de Newton representa uma ferramenta indispensável para
+        compreender e prever os movimentos em diversas áreas da ciência e engenharia.
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela19, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela19, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=40)
+
+
+    #CRIA A TELA 20 (EXEMPLO PRATICO 1 - Lei de Movimento de Newton (Segunda Lei))
     def criar_tela20(self):
 
         self.tela20 = tk.Frame(self.root)
         self.tela20.pack()
 
 
-    #CRIA A TELA 21 ()
+    #CRIA A TELA 21 (EXEMPLO PRATICO 2 - Lei de Movimento de Newton (Segunda Lei))
     def criar_tela21(self):
 
         self.tela21 = tk.Frame(self.root)
         self.tela21.pack()
 
-    #CRIA A TELA 22 ()
+
+    #CRIA A TELA 22 (EXEMPLO PRATICO 3 - Lei de Movimento de Newton (Segunda Lei))
     def criar_tela22(self):
 
         self.tela22 = tk.Frame(self.root)
         self.tela22.pack()
 
-    #CRIA A TELA  23()
+
+    #CRIA A TELA  23(CONTEXTUALIZAÇÃO - Lei da gravitação Universal de Newton)
     def criar_tela23(self):
 
         self.tela23 = tk.Frame(self.root)
         self.tela23.pack()
 
-    #CRIA A TELA 24 ()
+
+    #CRIA A TELA 24 (EXEMPLO PRATICO 1 - Lei da gravitação Universal de Newton))
     def criar_tela24(self):
 
         self.tela24 = tk.Frame(self.root)
         self.tela24.pack()
 
-    #CRIA A TELA 25 ()
+
+    #CRIA A TELA 25 (EXEMPLO PRATICO 2 - Lei da gravitação Universal de Newton))
     def criar_tela25(self):
 
         self.tela25 = tk.Frame(self.root)
         self.tela25.pack()
 
-    #CRIA A TELA 26 ()
+
+    #CRIA A TELA 26 (EXEMPLO PRATICO 3 - Lei da gravitação Universal de Newton))
     def criar_tela26(self):
 
         self.tela26 = tk.Frame(self.root)
         self.tela26.pack()
+
 
     #CRIA A TELA 27 ()
     def criar_tela27(self):
@@ -1311,11 +1319,13 @@ class Software:
         self.tela27 = tk.Frame(self.root)
         self.tela27.pack()
 
+
     #CRIA A TELA 28 ()
     def criar_tela28(self):
 
         self.tela28 = tk.Frame(self.root)
         self.tela28.pack()
+
 
     #CRIA A TELA 29 ()
     def criar_tela29(self):
@@ -1323,11 +1333,13 @@ class Software:
         self.tela29 = tk.Frame(self.root)
         self.tela29.pack()
 
+
     #CRIA A TELA 30 ()
     def criar_tela30(self):
 
         self.tela30 = tk.Frame(self.root)
         self.tela30.pack()
+
 
     #CRIA A TELA 31 ()
     def criar_tela31(self):
@@ -1335,11 +1347,13 @@ class Software:
         self.tela31 = tk.Frame(self.root)
         self.tela31.pack()
 
+
     #CRIA A TELA 32 ()
     def criar_tela32(self):
 
         self.tela32 = tk.Frame(self.root)
         self.tela32.pack()
+
 
     #CRIA A TELA 33 ()
     def criar_tela33(self):
@@ -1347,11 +1361,13 @@ class Software:
         self.tela33 = tk.Frame(self.root)
         self.tela33.pack()
 
+
     #CRIA A TELA 34  ()
     def criar_tela34(self):
 
         self.tela34 = tk.Frame(self.root)
         self.tela34.pack()
+
 
     #CRIA A TELA 35 ()
     def criar_tela35(self):
@@ -1359,11 +1375,13 @@ class Software:
         self.tela35 = tk.Frame(self.root)
         self.tela35.pack()
 
+
     #CRIA A TELA 36 ()
     def criar_tela36(self):
 
         self.tela36 = tk.Frame(self.root)
         self.tela36.pack()
+
 
     #CRIA A TELA 37 ()
     def criar_tela37(self):
@@ -1371,11 +1389,13 @@ class Software:
         self.tela37 = tk.Frame(self.root)
         self.tela37.pack()
 
+
     #CRIA A TELA 38 ()
     def criar_tela38(self):
 
         self.tela38 = tk.Frame(self.root)
         self.tela38.pack()
+
 
     #CRIA A TELA 39 ()
     def criar_tela39(self):
@@ -1383,11 +1403,13 @@ class Software:
         self.tela39 = tk.Frame(self.root)
         self.tela39.pack()
 
+
     #CRIA A TELA 40 ()
     def criar_tela40(self):
 
         self.tela40 = tk.Frame(self.root)
         self.tela40.pack()
+
 
     #CRIA A TELA  ()
     def criar_tela41(self):
@@ -1395,17 +1417,20 @@ class Software:
         self.tela41 = tk.Frame(self.root)
         self.tela41.pack()
 
+
     #CRIA A TELA  ()
     def criar_tela42(self):
 
         self.tela42 = tk.Frame(self.root)
         self.tela42.pack()
 
+
     #CRIA A TELA  ()
     def criar_tela43(self):
 
         self.tela43 = tk.Frame(self.root)
         self.tela43.pack()
+
 
     #CRIA A TELA 44 ()
     def criar_tela44(self):
@@ -1419,17 +1444,20 @@ class Software:
         self.tela45 = tk.Frame(self.root)
         self.tela45.pack()
 
+
     #CRIA A TELA 46 ()
     def criar_tela46(self):
 
         self.tela46 = tk.Frame(self.root)
         self.tela46.pack()
 
+
     #CRIA A TELA 47 ()
     def criar_tela47(self):
 
         self.tela47 = tk.Frame(self.root)
         self.tela47.pack()
+
 
     #CRIA A TELA 48 ()
     def criar_tela48(self):
@@ -1438,7 +1466,7 @@ class Software:
         self.tela48.pack()
 
 
-    ########################################## FUNÇÕES GERAIS ################################################################
+################################################ FUNÇÕES GERAIS ################################################################
 
     #FUNÇÃO ENCERRAR PROGRAMA
     def encerrar_programa(self):
@@ -1572,10 +1600,10 @@ class Software:
         self.criar_tela18()
         self.tela_atual = 18
 
-    #FUNÇÃO IR PARA TELA 19 ()
+    #FUNÇÃO IR PARA TELA 19 (CONTEXUALIZAÇÃO Lei de Movimento de Newton)
     def ir_para_tela19(self):
 
-        self.tela2.destroy()
+        self.tela7.destroy()
         self.criar_tela19()
         self.tela_atual = 19
 
@@ -1670,8 +1698,8 @@ class Software:
         self.criar_tela32()
         self.tela_atual = 32
 
-    #FUNÇÃO IR PARA TELA 3 ()
-    def ir_para_tela3(self):
+    #FUNÇÃO IR PARA TELA 33 ()
+    def ir_para_tela33(self):
 
         self.tela2.destroy()
         self.criar_tela33()
