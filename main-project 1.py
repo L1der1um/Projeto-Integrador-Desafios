@@ -1,6 +1,6 @@
 #IMPORTANDO A BIBLIOTECA TKINTER
 import tkinter as tk
-from tkinter import *
+from tkinter import Text
 from tkinter import ttk
 #IMPORTANTO BIBLIOTECA WEBBROWSER PARA O LINK DO GITHUB
 import webbrowser
@@ -114,11 +114,11 @@ class Software:
         #CRIANDO A PRIMEIRA FILEIRA DE BOTOES
         button1 = tk.Button(frame1, text="Lei de movimento de Newton\n(Segunda lei)\nF = m * a",command=self.ir_para_tela7)
         button2 = tk.Button(frame1, text="Lei da gravitação\n Universal de Newton\nF = G * (m1 * m2) / d^2",command=self.ir_para_tela8)
-        button3 = tk.Button(frame1, text="Lei de Coulomb\n (Lei de Eletrostatica)\nF = k * (|q1 * q2|) / d²",command=self.ir_para_tela9)
+        #button3 = tk.Button(frame1, text="Lei de Coulomb\n (Lei de Eletrostatica)\nF = k * (|q1 * q2|) / d²",command=self.ir_para_tela9)
         button4 = tk.Button(frame1, text="Energia cinética\nEc = m . v² / 2",command=self.ir_para_tela10)
         button1.pack(side=tk.LEFT,padx=10, pady=10)
         button2.pack(side=tk.LEFT,padx=10, pady=10)
-        button3.pack(side=tk.LEFT,padx=10, pady=10)
+        #button3.pack(side=tk.LEFT,padx=10, pady=10)
         button4.pack(side=tk.LEFT,padx=10, pady=10)
 
         #CRIANDO O FRAME DA SEGUNDA LINHA DE BOTOES
@@ -128,11 +128,11 @@ class Software:
         button5 = tk.Button(frame2, text="Energia Potencial\n Gravitacional\nEPG = m * g * h",command=self.ir_para_tela11)
         button6 = tk.Button(frame2, text="Lei da conservação\n de Energia Mecânica\nE = K + U",command=self.ir_para_tela12)
         button7 = tk.Button(frame2, text="Lei de Hooke\n (Lei da Elasticidade)\nF = -k * x",command=self.ir_para_tela13)
-        button8 = tk.Button(frame2, text="Lei de Snell\n (Lei da Refração)\nn1.sen(i) = n2.sen(r)",command=self.ir_para_tela14)
+        #button8 = tk.Button(frame2, text="Lei de Snell\n (Lei da Refração)\nn1.sen(i) = n2.sen(r)",command=self.ir_para_tela14)
         button5.pack(side=tk.LEFT,padx=10, pady=40)
         button6.pack(side=tk.LEFT,padx=10, pady=40)
         button7.pack(side=tk.LEFT,padx=10, pady=40)
-        button8.pack(side=tk.LEFT,padx=10, pady=40)
+        #button8.pack(side=tk.LEFT,padx=10, pady=40)
 
 
         #CRIANDO O FRAME DA TERCEIRA LINHA DE BOTOES
@@ -371,11 +371,11 @@ class Software:
         label_resultado = tk.Label(self.tela7, textvariable=resultado)
         label_resultado.pack(pady=10)
 
-        #BOTÃO VOLTAR TELA
+        #BOTÃO CONTEXTUALIZAÇÃO
         btn_contexto = tk.Button(self.tela7, text="Contextualização da formula", command=self.ir_para_tela19)
         btn_contexto.pack(pady=10)
 
-        #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
+        #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela7)
         frame2.pack()
         #CRIANDO BOTOES
@@ -399,11 +399,11 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela8, text="Lei da gravitação Universal de Newton" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela8, text="F = G * (m1 * m2) / d^2")
-        label6_1.pack(pady=15)
+        label6_1.pack(pady=10)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -460,12 +460,12 @@ class Software:
                 massa2 = float(entry_massa2.get())
                 distancia = float(entry_distancia.get())
 
-                #CALCULANDO A FORÇA UTILIZANDO A FORMULA
-                constante_gravitacional = 6.67430e-11
-                forca = constante_gravitacional * (massa1 * massa2) / (distancia ** 2)
+                #CALCULANDO A FORÇA UTILIZANDO A FORMULA (6.67430 x 10^-11 N(m/kg)^2)
+                constante_gravitacional = 0.0000000000667430
+                forca = (constante_gravitacional * (massa1 * massa2)) / (distancia ** 2)
 
                 # Exibir o resultado usando a variável de controle resultado
-                resultado.set(f"Força: {forca:.2f} N")
+                resultado.set(f"Força ≈ {forca} N")
 
             except ValueError:
                 resultado.set("Por favor, insira valores válidos / Preencha todos os valores.")
@@ -473,6 +473,7 @@ class Software:
 
         #FUNÇÃO LIMPAR OS CAMPOS
         def limpar_campos():
+
             entry_massa1.delete(0, tk.END)
             entry_massa2.delete(0, tk.END)
             entry_distancia.delete(0, tk.END)
@@ -492,12 +493,27 @@ class Software:
         label_resultado = tk.Label(self.tela8, textvariable=resultado, padx=10, pady=10)
         label_resultado.pack()
 
+        #BOTÃO CONTEXTUALIZAÇÃO
+        btn_contexto = tk.Button(self.tela8, text="Contextualização da formula", command=self.ir_para_tela23)
+        btn_contexto.pack(pady=10)
+
+        #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
+        frame2 = tk.Frame(self.tela8)
+        frame2.pack()
+        #CRIANDO BOTOES
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela24)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela25)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela26)
+        botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela22.pack(side=tk.LEFT,padx=10)
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela8, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom', pady=20)
+        btn_tela_anterior.pack(side='bottom', pady=10)
 
 
-    #CRIA A TELA 9 (Lei de Coulomb  ALTERAR)
+    #CRIA A TELA 9 (Lei de Coulomb - REMOVIDO)
     def criar_tela9(self):
 
         self.tela9 = tk.Frame(self.root)
@@ -516,11 +532,11 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela10, text="Energia cinética" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela10, text="Ec = m . v² / 2")
-        label6_1.pack(pady=15)
+        label6_1.pack(pady=10)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -585,17 +601,32 @@ class Software:
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
         botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
-        botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
-        botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_calcular.pack(side=tk.LEFT,padx=10)
+        botao_limpar.pack(side=tk.LEFT,padx=10, pady=15)
 
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela10, textvariable=resultado)
         label_resultado.pack()
 
+        #BOTÃO CONTEXTUALIZAÇÃO
+        btn_contexto = tk.Button(self.tela10, text="Contextualização da formula", command=self.ir_para_tela27)
+        btn_contexto.pack(pady=15)
+
+        #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
+        frame2 = tk.Frame(self.tela10)
+        frame2.pack()
+        #CRIANDO BOTOES
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela28)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela29)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela30)
+        botao_tela20.pack(side=tk.LEFT,padx=10, pady=20)
+        botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela22.pack(side=tk.LEFT,padx=10)
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela10, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=40)
+        btn_tela_anterior.pack(side='bottom',pady=15)
 
 
     #CRIA A TELA 11 (Energia Potencial Gravitacional)
@@ -1453,12 +1484,81 @@ class Software:
         self.tela23 = tk.Frame(self.root)
         self.tela23.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela23, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 24 (EXEMPLO PRATICO 1 - Lei da gravitação Universal de Newton))
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela23, text="F = G * (m1 * m2) / d²")
+        label6_1.pack(pady=5)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+            O princípio Lei da Gravitação Universal foi formulada por Isaac Newton em 1687 em seu
+        livro "Principia Mathematica". Ela representou uma revolução na compreensão da
+        física, pois unificou os movimentos celestes e terrestres sob um único conjunto de leis.
+        A fórmula descreve a força de atração gravitacional entre duas massas, m1 e m2, separadas
+        por uma distância d. Essa força é representada por F. 
+        
+            A constante G é uma constante fundamental da física e, na época de Newton, sua precisão
+        experimental não era conhecida com detalhes, com o desenvolvimento da ciência, o valor de
+        G foi determinado com alta precisão.
+
+            A parte mais notável da Lei da Gravitação Universal é que a força gravitacional entre duas
+        massas é inversamente proporcional ao quadrado da distância entre elas (d²). Isso significa
+        que, se você dobrar a distância entre as massas, a força gravitacional se tornará um quarto
+        do valor original. Destaca-se, a importância da massa na atração gravitacional. Quanto maior
+        a massa dos objetos, maior será a força gravitacional entre eles. Isso é especialmente
+        evidente em sistemas como o sistema solar, onde a massa do Sol exerce uma atração
+        gravitacional sobre os planetas, mantendo-os em órbita. Com a fórmula, se pode descrever
+        com precisão os movimentos de corpos celestes, permitindo a previsão de eclipses, trajetórias
+        de satélites e o comportamento dos planetas.
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela23, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela23, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=10)
+
+
+    #CRIA A TELA 24 (EXEMPLO PRATICO 1 - Lei da gravitação Universal de Newton)
     def criar_tela24(self):
 
         self.tela24 = tk.Frame(self.root)
         self.tela24.pack()
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela24, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela24, text="F = G * (m1 * m2) / d²")
+        label6_1.pack(pady=25)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Qual é a força gravitacional entre a Terra (massa = 5,972 x 10^24 kg) e
+        uma maçã (massa = 0,1kg) quando a maçã está a 1 metro da superfície da Terra?
+
+        Resolução:
+
+        F = 6,67430x10^-11 m³/kgs² * (5,972 x 10^24 kg * 0,1 kg) / (1 m)²
+
+        Calculando o resultado:
+
+        F ≈ 0,981 N
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela24, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela24, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=40)
 
 
     #CRIA A TELA 25 (EXEMPLO PRATICO 2 - Lei da gravitação Universal de Newton))
@@ -1467,6 +1567,32 @@ class Software:
         self.tela25 = tk.Frame(self.root)
         self.tela25.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela25, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Qual é a força gravitacional entre a Lua (massa = 7,342x10^22 kg) e uma nave
+        espacial (massa = 1000 kg) quando estão a 384,400,000 m de distância?
+
+        Resolução:
+
+        F = 6,67430x10^-11 m³/kgs² * (7,342x10^22 kg * 1000 kg) / (384.400.000m)²
+
+        Calculando o resultado:
+
+        F ≈ 1,993x10^5 N
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela25, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela25, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=40)
+
 
     #CRIA A TELA 26 (EXEMPLO PRATICO 3 - Lei da gravitação Universal de Newton))
     def criar_tela26(self):
@@ -1474,33 +1600,178 @@ class Software:
         self.tela26 = tk.Frame(self.root)
         self.tela26.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela26, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
 
-    #CRIA A TELA 27 ()
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Qual é a força gravitacional entre dois carros de 1500 kg cada um, estacionados
+        a uma distância de 2 metros um do outro?
+
+        Solução:
+
+        F = 6,67430x10^-11 m³/kgs² * (1500kg * 1500kg) / (2m)²
+
+        Calculando o resultado:
+
+        F ≈ 0.0000375429 N
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela26, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela26, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=40)
+
+
+    #CRIA A TELA 27 (CONTEXTUALIZAÇÃO - Energia cinética)
     def criar_tela27(self):
 
         self.tela27 = tk.Frame(self.root)
         self.tela27.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela27, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 28 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela27, text="Ec = m . v² / 2")
+        label6_1.pack(pady=5)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+            A cinética de energia é um conceito essencial na física que descreve a energia relacionada ao 
+        movimento de um objeto. Essa forma de energia é extremamente importante em várias áreas da ciência e
+        da engenharia, especialmente quando se trata de calcular e compreender o comportamento de sistemas em
+        movimento. Em termos simples, a energia cinética depende diretamente da massa do objeto e de sua 
+        velocidade. Isso significa que quanto mais pesado e mais rápido um objeto estiver se movendo, maior
+        será sua energia cinética. Esse princípio é amplamente aplicado em campos como a mecânica, onde é
+        utilizado para calcular a energia dos veículos em movimento, resolver problemas de colisão e até
+        mesmo no funcionamento diário de veículos e máquinas.
+
+            Além disso, a energia cinética também desempenha um papel crucial na compreensão da transferência de
+        energia em sistemas físicos. Ela está intimamente relacionada à Lei da Conservação de Energia, que
+        afirma que a quantidade total de energia em um sistema isolado permanece constante. Isso implica que
+        a energia cinética pode ser transformada em outras formas de energia, como a potencial gravitacional
+        associada à posição do objeto num campo gravitacional. Portanto, a energia em movimento desempenha um
+        papel crucial ao examinar situações complicadas, abrangendo desde o funcionamento de máquinas e
+        veículos até a explicação do comportamento de partículas em níveis subatômicos. Ela estabelece uma
+        base primordial para compreender o mundo físico que nos cerca.
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela27, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela27, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=20)
+
+
+    #CRIA A TELA 28 (EXEMPLO PRATICO 1 - Energia cinética)
     def criar_tela28(self):
 
         self.tela28 = tk.Frame(self.root)
         self.tela28.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela28, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
 
-    #CRIA A TELA 29 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela28, text="Ec = m . v² / 2")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Imagine um corredor com uma massa de 70 kg correndo a uma velocidade constante de 8 m/s em
+        um parque. Calcule a energia cinética do corredor.
+
+        Resolução:
+
+        Ec = 70 kg * (8 m/s)^2 / 2
+
+        Ec = 2240.00J
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela28, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela28, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=25)        
+
+
+    #CRIA A TELA 29 (EXEMPLO PRATICO 2 - Energia cinética)
     def criar_tela29(self):
 
         self.tela29 = tk.Frame(self.root)
         self.tela29.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela29, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
 
-    #CRIA A TELA 30 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela29, text="Ec = m . v² / 2")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Um carro com uma massa de 1000 kg está viajando a uma velocidade de 25 m/s em
+        uma estrada. Calcule a energia cinética do carro.
+
+        Resolução:
+
+        Ec = 1000 kg * (25 m/s)^2 / 2
+        Ec = 31250.00J
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela29, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela29, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=25) 
+
+
+    #CRIA A TELA 30 (EXEMPLO PRATICO 3 - Energia cinética)
     def criar_tela30(self):
 
         self.tela30 = tk.Frame(self.root)
         self.tela30.pack()
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela30, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela30, text="Ec = m . v² / 2")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Um carro com uma massa de 1000 kg está viajando a uma velocidade de 25 m/s em
+        uma estrada. Calcule a energia cinética do carro.
+
+        Resolução:
+
+        Ec = 1000 kg * (25 m/s)^2 / 2
+        Ec = 31250.00J
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela30, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela30, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=25) 
 
 
     #CRIA A TELA 31 ()
@@ -1776,59 +2047,59 @@ class Software:
         self.criar_tela22()
         self.tela_atual = 22
 
-    #FUNÇÃO IR PARA TELA 23 ()
+    #FUNÇÃO IR PARA TELA 23 (CONTEXUALIZAÇÃO - Lei da gravitação Universal de Newton)
     def ir_para_tela23(self):
 
-        self.tela2.destroy()
+        self.tela8.destroy()
         self.criar_tela23()
         self.tela_atual = 23
 
-    #FUNÇÃO IR PARA TELA 24 ()
+    #FUNÇÃO IR PARA TELA 24 (EXEMPLO PRATICO 1 - Lei da gravitação Universal de Newton)
     def ir_para_tela24(self):
 
-        self.tela2.destroy()
+        self.tela8.destroy()
         self.criar_tela24()
         self.tela_atual = 24
 
-    #FUNÇÃO IR PARA TELA 25 ()
+    #FUNÇÃO IR PARA TELA 25 (EXEMPLO PRATICO 2 - Lei da gravitação Universal de Newton)
     def ir_para_tela25(self):
 
-        self.tela2.destroy()
+        self.tela8.destroy()
         self.criar_tela25()
         self.tela_atual = 25
 
-    #FUNÇÃO IR PARA TELA 26 ()
+    #FUNÇÃO IR PARA TELA 26 (EXEMPLO PRATICO 3 - Lei da gravitação Universal de Newton)
     def ir_para_tela26(self):
 
-        self.tela2.destroy()
+        self.tela8.destroy()
         self.criar_tela26()
         self.tela_atual = 26
 
-    #FUNÇÃO IR PARA TELA 27 ()
+    #FUNÇÃO IR PARA TELA 27 (CONTEXUALIZAÇÃO - Energia cinética)
     def ir_para_tela27(self):
 
-        self.tela2.destroy()
+        self.tela10.destroy()
         self.criar_tela27()
         self.tela_atual = 27
 
-    #FUNÇÃO IR PARA TELA 28 ()
+    #FUNÇÃO IR PARA TELA 28 (EXEMPLO PRATICO 1 - Energia cinética)
     def ir_para_tela28(self):
 
-        self.tela2.destroy()
+        self.tela10.destroy()
         self.criar_tela28()
         self.tela_atual = 28
 
-    #FUNÇÃO IR PARA TELA 29 ()
+    #FUNÇÃO IR PARA TELA 29 (EXEMPLO PRATICO 2 - Energia cinética)
     def ir_para_tela29(self):
 
-        self.tela2.destroy()
+        self.tela10.destroy()
         self.criar_tela29()
         self.tela_atual = 29
 
-    #FUNÇÃO IR PARA TELA 30 ()
+    #FUNÇÃO IR PARA TELA 30 (EXEMPLO PRATICO 3 - Energia cinética)
     def ir_para_tela30(self):
 
-        self.tela2.destroy()
+        self.tela10.destroy()
         self.criar_tela30()
         self.tela_atual = 30
 
@@ -2085,14 +2356,63 @@ class Software:
             self.criar_tela7()
             self.tela_atual = 7
 
-        #SE ESTIVER NA TELA 21, VOLTA PARA 7 (Lei de Movimento de Newton)
+        #SE ESTIVER NA TELA 22, VOLTA PARA 7 (Lei de Movimento de Newton)
         elif self.tela_atual == 22:
             self.tela22.destroy()
             self.criar_tela7()
             self.tela_atual = 7
 
+        #SE ESTIVER NA TELA 23, VOLTA PARA 8 (Lei da gravitação Universal de Newton)
+        elif self.tela_atual == 23:
+            self.tela23.destroy()
+            self.criar_tela8()
+            self.tela_atual = 8
+
+        #SE ESTIVER NA TELA 24, VOLTA PARA 8 (Lei da gravitação Universal de Newton)
+        elif self.tela_atual == 24:
+            self.tela24.destroy()
+            self.criar_tela8()
+            self.tela_atual = 8
+
+        #SE ESTIVER NA TELA 25, VOLTA PARA 8 (Lei da gravitação Universal de Newton)
+        elif self.tela_atual == 25:
+            self.tela25.destroy()
+            self.criar_tela8()
+            self.tela_atual = 8
+
+        #SE ESTIVER NA TELA 26, VOLTA PARA 8 (Lei da gravitação Universal de Newton)
+        elif self.tela_atual == 26:
+            self.tela26.destroy()
+            self.criar_tela8()
+            self.tela_atual = 8
+
+        #SE ESTIVER NA TELA 27, VOLTA PARA 10 (Energia cinética)
+        elif self.tela_atual == 27:
+            self.tela27.destroy()
+            self.criar_tela10()
+            self.tela_atual = 10
+
+        #SE ESTIVER NA TELA 28, VOLTA PARA 10 (Energia cinética)
+        elif self.tela_atual == 28:
+            self.tela28.destroy()
+            self.criar_tela10()
+            self.tela_atual = 10
+
+        #SE ESTIVER NA TELA 29, VOLTA PARA 10 (Energia cinética)
+        elif self.tela_atual == 29:
+            self.tela29.destroy()
+            self.criar_tela10()
+            self.tela_atual = 10
+
+        #SE ESTIVER NA TELA 30, VOLTA PARA 10 (Energia cinética)
+        elif self.tela_atual == 30:
+            self.tela30.destroy()
+            self.criar_tela10()
+            self.tela_atual = 10
+
 ####################################################################################################################################################################################################################################################################################################################################
 
+#INICIALIZAÇÃO DA PRIMEIRA JANELA
 if __name__ == "__main__":
     root = tk.Tk()
     app = Software(root)
