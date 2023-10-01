@@ -69,18 +69,18 @@ class Software:
         botao.pack(pady=30, side='bottom')
 
 
-    #CRIA A TELA 2 (OPÇÕES)
+    #CRIA A TELA 2 (MENU OPÇÕES)
     def criar_tela2(self):
 
         self.tela2 = tk.Frame(self.root)
         self.tela2.pack()
 
         #MENSAGEM DE TEXTO TELA 2
-        label2 = tk.Label(self.tela2, text="Escolha uma opção",font=('Arial', 14, 'bold'))
+        label2 = tk.Label(self.tela2, text="ESCOLHA UMA OPÇÃO",font=('Arial', 16, 'bold'))
         label2.pack(pady=70)
         
         #BOTÃO IR PARA AS PRINCIPAIS FORMULAS
-        btn_proxima_tela2 = tk.Button(self.tela2, text='Principais formulas Física 1', command=self.ir_para_tela3)
+        btn_proxima_tela2 = tk.Button(self.tela2, text='PRINCIPAIS FORMULAS FÍSICA 1', command=self.ir_para_tela3)
         btn_proxima_tela2.pack()
 
         #BOTÃO VOLTAR TELA
@@ -91,14 +91,13 @@ class Software:
         botao2 = tk.Button(self.tela2, text="Objetivo do projeto", command=self.ir_para_tela4)
         botao3 = tk.Button(self.tela2, text="Agradecimentos e referencias", command=self.ir_para_tela5)
         botao4 = tk.Button(self.tela2, text="GitHub do projeto", command=self.ir_para_tela6)
-
         #ALINHANDO NA HORIZONTAL OS BOTÕES
         botao2.pack(side="left")
         botao3.pack(side="left",padx=10)
         botao4.pack(side="left", pady=50)
 
 
-    #CRIA A TELA 3 (PRINCIPAIS FORMULAS)
+    #CRIA A TELA 3 (MENU PRINCIPAIS FORMULAS)
     def criar_tela3(self):
 
         self.tela3 = tk.Frame(self.root)
@@ -318,7 +317,7 @@ class Software:
         label_massa.pack()
 
         entry_massa = ttk.Entry(self.tela7)
-        entry_massa.placeholder = "Insira a massa"
+        entry_massa.placeholder = "Insira a massa [kg]"
         entry_massa.insert(0, entry_massa.placeholder)
         entry_massa.bind("<FocusIn>", remover_placeholder)
         entry_massa.bind("<FocusOut>", restaurar_placeholder)
@@ -329,7 +328,7 @@ class Software:
         label_aceleracao.pack()
 
         entry_aceleracao = ttk.Entry(self.tela7)
-        entry_aceleracao.placeholder = "Insira a aceleração"
+        entry_aceleracao.placeholder = "Insira a aceleração [m/s²]"
         entry_aceleracao.insert(0, entry_aceleracao.placeholder)
         entry_aceleracao.bind("<FocusIn>", remover_placeholder)
         entry_aceleracao.bind("<FocusOut>", restaurar_placeholder)
@@ -398,7 +397,7 @@ class Software:
         self.tela8.pack()
 
         #TEXTO INFORMATIVO DE TELA
-        label6 = tk.Label(self.tela8, text="Lei da gravitação Universal de Newton" ,font=('Arial', 14, 'bold'))
+        label6 = tk.Label(self.tela8, text="Lei da Gravitação Universal de Newton" ,font=('Arial', 14, 'bold'))
         label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
@@ -422,7 +421,7 @@ class Software:
         label_massa1.pack()
 
         entry_massa1 = ttk.Entry(self.tela8, width=12)
-        entry_massa1.placeholder = "Insira a Massa 1"
+        entry_massa1.placeholder = "Insira a Massa 1 [kg]"
         entry_massa1.insert(0, entry_massa1.placeholder)
         entry_massa1.bind("<FocusIn>", remover_placeholder)
         entry_massa1.bind("<FocusOut>", restaurar_placeholder)
@@ -433,7 +432,7 @@ class Software:
         label_massa2.pack()
 
         entry_massa2 = ttk.Entry(self.tela8, width=12)
-        entry_massa2.placeholder = "Insira a Massa 2"
+        entry_massa2.placeholder = "Insira a Massa 2 [kg]"
         entry_massa2.insert(0, entry_massa2.placeholder)
         entry_massa2.bind("<FocusIn>", remover_placeholder)
         entry_massa2.bind("<FocusOut>", restaurar_placeholder)
@@ -444,7 +443,7 @@ class Software:
         label_distancia.pack()
 
         entry_distancia = ttk.Entry(self.tela8, width=12)
-        entry_distancia.placeholder = "Insira a distância"
+        entry_distancia.placeholder = "Insira a distância [m]"
         entry_distancia.insert(0, entry_distancia.placeholder)
         entry_distancia.bind("<FocusIn>", remover_placeholder)
         entry_distancia.bind("<FocusOut>", restaurar_placeholder)
@@ -555,7 +554,7 @@ class Software:
         label_massa.pack()
 
         entry_massa = ttk.Entry(self.tela10)
-        entry_massa.placeholder = "Insira a massa"
+        entry_massa.placeholder = "Insira a massa [kg]"
         entry_massa.insert(0, entry_massa.placeholder)
         entry_massa.bind("<FocusIn>", remover_placeholder)
         entry_massa.bind("<FocusOut>", restaurar_placeholder)
@@ -566,7 +565,7 @@ class Software:
         entry_velocidade.pack()
 
         entry_velocidade = ttk.Entry(self.tela10)
-        entry_velocidade.placeholder = "Insira a força"
+        entry_velocidade.placeholder = "Insira a velocidade [m/s]"
         entry_velocidade.insert(0, entry_velocidade.placeholder)
         entry_velocidade.bind("<FocusIn>", remover_placeholder)
         entry_velocidade.bind("<FocusOut>", restaurar_placeholder)
@@ -736,7 +735,7 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=35)
 
 
-    #CRIA A TELA 12 (Lei da conservação de Energia Mecânica   ALTERAR)
+    #CRIA A TELA 12 (Lei da conservação de Energia Mecânica - REMOVIDO)
     def criar_tela12(self):
 
         self.tela12 = tk.Frame(self.root)
@@ -1663,12 +1662,12 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela27, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1 = tk.Label(self.tela27, text=texto, justify="left", font=('Arial', 12))
         label4_1.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela27, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=20)
+        btn_tela_anterior.pack(side='bottom',pady=10)
 
 
     #CRIA A TELA 28 (EXEMPLO PRATICO 1 - Energia cinética)
