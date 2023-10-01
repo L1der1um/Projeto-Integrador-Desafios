@@ -1917,11 +1917,11 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela34, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela34, text="EPG = m * g * h")
-        label6_1.pack(pady=20)
+        label6_1.pack(pady=15)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
@@ -1950,7 +1950,7 @@ class Software:
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela34, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=25)
+        btn_tela_anterior.pack(side='bottom',pady=15)
 
 
     #CRIA A TELA 35 ()
