@@ -181,12 +181,12 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela4, text=texto, justify="center", padx=10, pady=10, font=('Arial', 14))
-        label4_1.pack(pady=35)
+        label4_1 = tk.Label(self.tela4, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela4, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom')
+        btn_tela_anterior.pack(pady=10)
 
 
     #CRIA A TELA 5 (Agradecimentos e Refêrencias)
