@@ -636,15 +636,15 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela11, text="Energia Potencial Gravitacional" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela11, text='EPG = m * g * h')
-        label6_1.pack(pady=15)
+        label6_1.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela11, text='Sendo que g pode variar entre 9.8, 9.81 e 10 m/s²')
-        label6_1.pack(pady=15)
+        label6_1.pack(pady=10)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -730,9 +730,24 @@ class Software:
         label_resultado = tk.Label(self.tela11, textvariable=resultado)
         label_resultado.pack()
 
+        #BOTÃO CONTEXTUALIZAÇÃO
+        btn_contexto = tk.Button(self.tela11, text="Contextualização da formula", command=self.ir_para_tela27)
+        btn_contexto.pack(pady=15)
+
+        #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
+        frame2 = tk.Frame(self.tela11)
+        frame2.pack()
+        #CRIANDO BOTOES
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela28)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela29)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela30)
+        botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela22.pack(side=tk.LEFT,padx=10)
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela11, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=35)
+        btn_tela_anterior.pack(side='bottom',pady=10)
 
 
     #CRIA A TELA 12 (Lei da conservação de Energia Mecânica - REMOVIDO)
