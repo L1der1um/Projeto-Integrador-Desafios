@@ -1836,11 +1836,11 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela32, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela32, text="EPG = m * g * h")
-        label6_1.pack(pady=20)
+        label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
@@ -1863,12 +1863,12 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela32, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1 = tk.Label(self.tela32, text=texto, justify="left", font=('Arial', 12))
         label4_1.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela32, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=25)
+        btn_tela_anterior.pack(side='bottom',pady=5)
 
 
     #CRIA A TELA 33 (EXEMPLO PRATICO 2 - Energia Potencial Gravitacional)
@@ -1917,11 +1917,11 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela34, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=15)
+        label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela34, text="EPG = m * g * h")
-        label6_1.pack(pady=15)
+        label6_1.pack(pady=5)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
@@ -1945,7 +1945,7 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela34, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1 = tk.Label(self.tela34, text=texto, justify="left", font=('Arial', 12))
         label4_1.pack()
 
         #BOTÃO VOLTAR TELA
