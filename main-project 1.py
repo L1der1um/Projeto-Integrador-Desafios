@@ -171,7 +171,7 @@ class Software:
         A opção escolhida se deve ao fato de que ao desenvolver este software um calouro pode ter um
         melhor desenvolvimento em suas aulas práticas.
         
-        Atualmente um novo aluno deve pesquisar por horas em livros ou na internet como resolver um
+            Atualmente um novo aluno deve pesquisar por horas em livros ou na internet como resolver um
         determinado problema em Física 1, portanto, o software permitirá ao aluno ter um melhor
         desenvolvimento em suas aulas possibilitando-o compreender melhor o contexto das aulas.
         Espera-se que o software contenha uma tela ao qual o usuário deve, no entanto, selecionar as
@@ -1516,12 +1516,12 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela23, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label4_1 = tk.Label(self.tela23, text=texto, justify="center", font=('Arial', 12))
         label4_1.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela23, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=10)
+        btn_tela_anterior.pack(side='bottom',pady=5)
 
 
     #CRIA A TELA 24 (EXEMPLO PRATICO 1 - Lei da gravitação Universal de Newton)
