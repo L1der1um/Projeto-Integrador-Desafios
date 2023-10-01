@@ -8,7 +8,7 @@ import webbrowser
 import math
 #IMPORTANDO BIBLITOECA QRCODE PARA GERAR O QRCODE DO GITHUB
 import qrcode
-#IMPORTANDO BIBLIOTECA PIL PARA AUXILAR NA ABERTURA DO QRCODE NA TELA
+##IMPORTANDO BIBLIOTECA PIL PARA AUXILAR NA ABERTURA DO QRCODE NA TELA
 from PIL import ImageTk
 
 #CRIANDO A CLASSE SOFTWARE
@@ -1303,13 +1303,13 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela19, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=20)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela19, text="F = m . a")
-        label6_1.pack(pady=25)
+        label6_1.pack(pady=10)
 
-        #TEXTO TELA OBJETIVO PRINCIPAL
+        #TEXTO TELA CONTEXTUALIZAÇÃO
         texto = """
             A Lei do Movimento de Newton, formulada por Isaac Newton no século XVII, é uma 
         fórmula fundamental na física clássica pois descreve a relação entre a força aplicada 
@@ -1417,11 +1417,11 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela22, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=20)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela22, text="F = m . a")
-        label6_1.pack(pady=25)
+        label6_1.pack(pady=15)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
@@ -1444,7 +1444,7 @@ class Software:
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela22, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=40)
+        btn_tela_anterior.pack(side='bottom',pady=30)
 
 
     #CRIA A TELA  23(CONTEXTUALIZAÇÃO - Lei da gravitação Universal de Newton)
