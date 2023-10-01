@@ -791,7 +791,7 @@ class Software:
         label_constante_elastica = tk.Label(self.tela13, text="[k] Constante Elástica (N/m):")
         label_constante_elastica.pack()
 
-        entry_constante_elastica = ttk.Entry(self.tela13, width=20)
+        entry_constante_elastica = ttk.Entry(self.tela13, width=25)
         entry_constante_elastica.placeholder = "Insira a Constante Elástica"
         entry_constante_elastica.insert(0, entry_constante_elastica.placeholder)
         entry_constante_elastica.bind("<FocusIn>", remover_placeholder)
@@ -1944,7 +1944,8 @@ class Software:
         sabendo que a aceleração gravitacional da terra é de aproximadamente 10 m/s², qual a altura
         da qual o celular caiu?
 
-        Primeiramente devemos converter as unidades de medida do exemplo para o sistema internacional de medidas kg para massa.
+        Primeiramente devemos converter as unidades de medida do exemplo para o sistema internacional
+        de medidas kg para massa.
 
         Dado:
 
