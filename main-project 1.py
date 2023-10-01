@@ -703,7 +703,7 @@ class Software:
                 energia_potencial = massa * gravidade * altura
 
                 # Exibir o resultado na label de resultado
-                resultado.set(f"Energia Potencial Gravitacional: {energia_potencial:.2f} Joules")
+                resultado.set(f"Energia Potencial Gravitacional: {energia_potencial:.4f} Joules")
 
             except ValueError:
                 resultado.set("Por favor, insira valores válidos.")
@@ -731,16 +731,16 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela11, text="Contextualização da formula", command=self.ir_para_tela27)
+        btn_contexto = tk.Button(self.tela11, text="Contextualização da formula", command=self.ir_para_tela31)
         btn_contexto.pack(pady=15)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela11)
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela28)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela29)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela30)
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela32)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela33)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela34)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10)
@@ -1372,7 +1372,7 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela19, text=texto, justify="center", font=('Arial', 12))
+        label4_1 = tk.Label(self.tela19, text=texto, justify="left", font=('Arial', 12))
         label4_1.pack()
 
         #BOTÃO VOLTAR TELA
@@ -1530,7 +1530,7 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela23, text=texto, justify="center", font=('Arial', 12))
+        label4_1 = tk.Label(self.tela23, text=texto, justify="left", font=('Arial', 12))
         label4_1.pack()
 
         #BOTÃO VOLTAR TELA
@@ -1788,32 +1788,169 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=25) 
 
 
-    #CRIA A TELA 31 ()
+    #CRIA A TELA 31 (CONTEXTUALIZAÇÃO - Energia Potencial Gravitacional)
     def criar_tela31(self):
 
         self.tela31 = tk.Frame(self.root)
         self.tela31.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela31, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
 
-    #CRIA A TELA 32 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela31, text="EPG = m * g * h")
+        label6_1.pack(pady=5)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+            O calculo da Energia Potencial Gravitacional define a energia associada à um objeto que
+        viaja de uma determinada altura até seu destino final, levando em consideração a gravidade
+        do ambiente na qual este objeto se encontra. O conceito foi primeiramente estudado por
+        Galileu Galilei que concluiu que objetos caiam em aceleração constante, e, mais tarde, Isaac
+        Newton teorizou que essa aceleração constante seria devido ao campo gravitacional da Terra 
+        agindo sob os objetos que cai de uma altura.
+
+            Já no cotidiano moderno, podemos observa-lá em todos em objetos que estão distantes do
+        solo, já que a aceleração gravitacional sempre estará em ação sob corpos que estão dentro do
+        campo gravitacional da Terra, como por exemplo uma caneta que cai de uma mesa, ao perder o
+        contato com a mesa que a sustentava a caneta sofre uma aceleração constante devido a
+        gravidade, e, dependendo da massa da mesma e da altura da mesa, podemos definir a sua energia
+        potencial gravitacional através do calculo. 
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela31, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela31, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=10)
+
+
+    #CRIA A TELA 32 (EXEMPLO PRATICO 1 - Energia Potencial Gravitacional)
     def criar_tela32(self):
 
         self.tela32 = tk.Frame(self.root)
         self.tela32.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela32, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
 
-    #CRIA A TELA 33 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela32, text="EPG = m * g * h")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Uma caneta que pesa 6 gramas cai de uma mesa de 110cm, sabendo que a aceleração gravitacional
+        da terra é de aproximadamente 10 m/s², qual sua energia potencial gravitacional?
+
+        Primeiramente devemos converter as unidades de medida do exemplo para o sistema internacional
+        de medidas, kg para massa, m para altura.
+
+        Dados:
+
+        6 g = 0.006 kg 
+        110 cm = 1.1 m
+
+        Resolução:
+
+        U = 0.006 kg * 10 m/s² * 1.1 m 
+
+        U = 0.066 J
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela32, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela32, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=25)
+
+
+    #CRIA A TELA 33 (EXEMPLO PRATICO 2 - Energia Potencial Gravitacional)
     def criar_tela33(self):
 
         self.tela33 = tk.Frame(self.root)
         self.tela33.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela33, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
 
-    #CRIA A TELA 34  ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela33, text="EPG = m * g * h")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Uma maçã cai de uma árvore de 3 metros de altura, com uma energia potencial gravitacional
+        de 3.9 J, sabendo que a aceleração gravitacional da terra é de aproximadamente 10 m/s², qual
+        a massa da maçã em kg?
+
+        Resolução:
+
+        3.9 J = m * 10 m/s² * 3 m
+
+        m = 3.9 J / (10m/s² * 3 m)
+
+        m = 0.13 kg
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela33, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela33, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=25)
+
+
+    #CRIA A TELA 34  (EXEMPLO PRATICO 3 - Energia Potencial Gravitacional)
     def criar_tela34(self):
 
         self.tela34 = tk.Frame(self.root)
         self.tela34.pack()
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela34, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=30)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela34, text="EPG = m * g * h")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Um celular de 234 gramas cai de uma janela com a energia potencial gravitacional de 16 J,
+        sabendo que a aceleração gravitacional da terra é de aproximadamente 10 m/s², qual a altura
+        da qual o celular caiu?
+
+        Primeiramente devemos converter as unidades de medida do exemplo para o sistema internacional de medidas kg para massa.
+
+        Dado:
+
+        234 g = 0.234 kg 
+
+        Resolução:
+
+        16 J = 0.234 kg * 10 m/s² * h
+
+        h = 16 J / (0.234 kg * 10 m/s²)
+
+        h = 6.837 m
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela34, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela34, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=25)
 
 
     #CRIA A TELA 35 ()
@@ -2117,31 +2254,31 @@ class Software:
         self.criar_tela30()
         self.tela_atual = 30
 
-    #FUNÇÃO IR PARA TELA 31 ()
+    #FUNÇÃO IR PARA TELA 31 (CONTEXUALIZAÇÃO - Energia Potencial Gravitacional)
     def ir_para_tela31(self):
 
-        self.tela2.destroy()
+        self.tela11.destroy()
         self.criar_tela31()
         self.tela_atual = 31
 
-    #FUNÇÃO IR PARA TELA 32 ()
+    #FUNÇÃO IR PARA TELA 32 (EXEMPLO PRATICO 1 - Energia Potencial Gravitacional)
     def ir_para_tela32(self):
 
-        self.tela2.destroy()
+        self.tela11.destroy()
         self.criar_tela32()
         self.tela_atual = 32
 
-    #FUNÇÃO IR PARA TELA 33 ()
+    #FUNÇÃO IR PARA TELA 33 (EXEMPLO PRATICO 2 - Energia Potencial Gravitacional)
     def ir_para_tela33(self):
 
-        self.tela2.destroy()
+        self.tela11.destroy()
         self.criar_tela33()
         self.tela_atual = 33
 
-    #FUNÇÃO IR PARA TELA 34 ()
+    #FUNÇÃO IR PARA TELA 34 (EXEMPLO PRATICO 3 - Energia Potencial Gravitacional)
     def ir_para_tela34(self):
 
-        self.tela2.destroy()
+        self.tela11.destroy()
         self.criar_tela34()
         self.tela_atual = 34
 
@@ -2423,6 +2560,30 @@ class Software:
             self.tela30.destroy()
             self.criar_tela10()
             self.tela_atual = 10
+
+        #SE ESTIVER NA TELA 31, VOLTA PARA 11 (Energia Potencial Gravitacional)
+        elif self.tela_atual == 31:
+            self.tela31.destroy()
+            self.criar_tela11()
+            self.tela_atual = 11
+
+        #SE ESTIVER NA TELA 32, VOLTA PARA 11 (Energia Potencial Gravitacional)
+        elif self.tela_atual == 32:
+            self.tela32.destroy()
+            self.criar_tela11()
+            self.tela_atual = 11
+
+        #SE ESTIVER NA TELA 33, VOLTA PARA 11 (Energia Potencial Gravitacional)
+        elif self.tela_atual == 33:
+            self.tela33.destroy()
+            self.criar_tela11()
+            self.tela_atual = 11
+
+        #SE ESTIVER NA TELA 34, VOLTA PARA 11 (Energia Potencial Gravitacional)
+        elif self.tela_atual == 34:
+            self.tela34.destroy()
+            self.criar_tela11()
+            self.tela_atual = 11
 
 ####################################################################################################################################################################################################################################################################################################################################
 
