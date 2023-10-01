@@ -125,11 +125,11 @@ class Software:
         frame2.pack()
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
         button5 = tk.Button(frame2, text="Energia Potencial\n Gravitacional\nEPG = m * g * h",command=self.ir_para_tela11)
-        button6 = tk.Button(frame2, text="Lei da conservação\n de Energia Mecânica\nE = K + U",command=self.ir_para_tela12)
+        #button6 = tk.Button(frame2, text="Lei da conservação\n de Energia Mecânica\nE = K + U",command=self.ir_para_tela12)
         button7 = tk.Button(frame2, text="Lei de Hooke\n (Lei da Elasticidade)\nF = -k * x",command=self.ir_para_tela13)
         #button8 = tk.Button(frame2, text="Lei de Snell\n (Lei da Refração)\nn1.sen(i) = n2.sen(r)",command=self.ir_para_tela14)
         button5.pack(side=tk.LEFT,padx=10, pady=40)
-        button6.pack(side=tk.LEFT,padx=10, pady=40)
+        #button6.pack(side=tk.LEFT,padx=10, pady=40)
         button7.pack(side=tk.LEFT,padx=10, pady=40)
         #button8.pack(side=tk.LEFT,padx=10, pady=40)
 
@@ -420,7 +420,7 @@ class Software:
         label_massa1 = tk.Label(self.tela8, text="Massa 1 (kg):")
         label_massa1.pack()
 
-        entry_massa1 = ttk.Entry(self.tela8, width=12)
+        entry_massa1 = ttk.Entry(self.tela8, width=20)
         entry_massa1.placeholder = "Insira a Massa 1 [kg]"
         entry_massa1.insert(0, entry_massa1.placeholder)
         entry_massa1.bind("<FocusIn>", remover_placeholder)
@@ -431,7 +431,7 @@ class Software:
         label_massa2 = tk.Label(self.tela8, text="Massa 2 (kg):")
         label_massa2.pack()
 
-        entry_massa2 = ttk.Entry(self.tela8, width=12)
+        entry_massa2 = ttk.Entry(self.tela8, width=20)
         entry_massa2.placeholder = "Insira a Massa 2 [kg]"
         entry_massa2.insert(0, entry_massa2.placeholder)
         entry_massa2.bind("<FocusIn>", remover_placeholder)
@@ -442,7 +442,7 @@ class Software:
         label_distancia = tk.Label(self.tela8, text="Distância (m):")
         label_distancia.pack()
 
-        entry_distancia = ttk.Entry(self.tela8, width=12)
+        entry_distancia = ttk.Entry(self.tela8, width=20)
         entry_distancia.placeholder = "Insira a distância [m]"
         entry_distancia.insert(0, entry_distancia.placeholder)
         entry_distancia.bind("<FocusIn>", remover_placeholder)
@@ -769,11 +769,11 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela13, text="Lei de Hooke" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela13, text='F = -k * x')
-        label6_1.pack(pady=15)
+        label6_1.pack(pady=20)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -791,7 +791,7 @@ class Software:
         label_constante_elastica = tk.Label(self.tela13, text="[k] Constante Elástica (N/m):")
         label_constante_elastica.pack()
 
-        entry_constante_elastica = ttk.Entry(self.tela13)
+        entry_constante_elastica = ttk.Entry(self.tela13, width=20)
         entry_constante_elastica.placeholder = "Insira a Constante Elástica"
         entry_constante_elastica.insert(0, entry_constante_elastica.placeholder)
         entry_constante_elastica.bind("<FocusIn>", remover_placeholder)
@@ -809,7 +809,7 @@ class Software:
         entry_deformacao.bind("<FocusOut>", restaurar_placeholder)
         entry_deformacao.pack()
 
-        # Função para calcular a força de acordo com a Lei de Hooke
+        #Função para calcular a força de acordo com a Lei de Hooke
         def calcular():
             try:
                 # Obter valores inseridos pelo usuário
@@ -845,9 +845,24 @@ class Software:
         label_resultado = tk.Label(self.tela13, textvariable=resultado)
         label_resultado.pack()
 
+        #BOTÃO CONTEXTUALIZAÇÃO
+        btn_contexto = tk.Button(self.tela13, text="Contextualização da formula", command=self.ir_para_tela35)
+        btn_contexto.pack(pady=15)
+
+        #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
+        frame2 = tk.Frame(self.tela13)
+        frame2.pack()
+        #CRIANDO BOTOES
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela36)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela37)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela38)
+        botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela22.pack(side=tk.LEFT,padx=10)
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela13, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=45)
+        btn_tela_anterior.pack(side='bottom',pady=10)
 
 
     #CRIA A TELA 14 (Lei de Snell)
@@ -1953,32 +1968,160 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
-    #CRIA A TELA 35 ()
+    #CRIA A TELA 35 (CONTEXTUALIZAÇÃO - Lei de Hooke)
     def criar_tela35(self):
 
         self.tela35 = tk.Frame(self.root)
         self.tela35.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela35, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 36 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela35, text="F = -k * x")
+        label6_1.pack(pady=5)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+            A Lei de Hooke (ou Lei da Elasticidade) é uma equação que descreve o comportamento
+        elástico de determinados matériais levando em consideração a força aplicada e a deformação
+        final do material. Criada em 1660 pelo ciêntista inglês Robert Hooke que, após observar o
+        comportamento mecânico de um mola, notou que quanto maior é o peso de um corpo atrelado a
+        uma extremidade de uma mola, maior seria a deformação resultante.
+
+            Facilmente observada em diversos objetos no nosso cotidiano, a Lei de Hooke pode
+        determinar por exemplo a deformação de amortecedores de carros para determinar qual deverá
+        ser a resistência da mola para que ela retorne o carro a sua posição natural sem que a
+        mesma deforme de forma irreversível. Podemos também ver a Lei de Hooke sendo aplicada em
+        elásticos de acadêmia, utilizados para criar resistência no movimento de um ponto inicial
+        até o final do movimento, a deformação é igualmente proporcional a força aplicada pelo
+        aluno no movimento, e após a recessão a força o elástico voltará a sua forma natural.
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela35, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela35, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=10)
+
+
+    #CRIA A TELA 36 (EXEMPLO PRATICO 1 - Lei de Hooke)
     def criar_tela36(self):
 
         self.tela36 = tk.Frame(self.root)
         self.tela36.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela36, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 37 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela36, text="F = -k . x")
+        label6_1.pack(pady=5)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Sabendo que a constante elástica de uma mola é igual a 300 N/m, determine qual é a força
+        necessária para que essa mola sofra uma deformação de 5 cm?
+
+        Primeiramente precisamos converter a unidade de medida de cm para m, respeitando as unidades de medida do exercício. 
+
+        Dados:
+        Logo 5 cm = 0.05 m
+
+        Resolução:
+        F = -300 N/m * 0.05 m
+
+        F = -15 N
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela36, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela36, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
+
+
+    #CRIA A TELA 37 (EXEMPLO PRATICO 2 - Lei de Hooke)
     def criar_tela37(self):
 
         self.tela37 = tk.Frame(self.root)
         self.tela37.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela37, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 38 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela37, text="F = -k . x")
+        label6_1.pack(pady=5)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Dada uma mola de tamanho original de 20 cm, e, quando aplicada uma força elástica de
+        570N o tamanho da mola é alterado para 23 cm. Qual a constante elástica da mola?
+
+        A deformação da mola foi de 3 cm, logo, convertendo para metros, temos 0,03 m.
+
+        Dados:
+        570 N = k * 0,03 m
+
+        Resolução:
+        k = 570 N / 0,03 m 
+
+        k = -19000 N/m
+        ou
+        k = -19 kN/m
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela37, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela37, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
+
+
+    #CRIA A TELA 38 (EXEMPLO PRATICO 3 - Lei de Hooke)
     def criar_tela38(self):
 
         self.tela38 = tk.Frame(self.root)
         self.tela38.pack()
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela38, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela38, text="F = -k . x")
+        label6_1.pack(pady=5)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Um elástico de constante elástica 17,5 kN/m é puxado com uma força de 8 kN. Qual será
+        a deformação resultante em metros?
+
+        Resolução:
+        8000 N = 17500 N/m * x
+
+        x = 8000 N / 17500 N/m
+
+        x = 0,4571 m 
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela38, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela38, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
 
 
     #CRIA A TELA 39 ()
@@ -2282,31 +2425,31 @@ class Software:
         self.criar_tela34()
         self.tela_atual = 34
 
-    #FUNÇÃO IR PARA TELA 35 ()
+    #FUNÇÃO IR PARA TELA 35 (CONTEXUALIZAÇÃO - Lei de Hooke)
     def ir_para_tela35(self):
 
-        self.tela2.destroy()
+        self.tela13.destroy()
         self.criar_tela35()
         self.tela_atual = 35
 
-    #FUNÇÃO IR PARA TELA 36 ()
+    #FUNÇÃO IR PARA TELA 36 (EXEMPLO PRATICO 1 - Lei de Hooke)
     def ir_para_tela36(self):
 
-        self.tela2.destroy()
+        self.tela13.destroy()
         self.criar_tela36()
         self.tela_atual = 36
 
-    #FUNÇÃO IR PARA TELA 37 ()
+    #FUNÇÃO IR PARA TELA 37 (EXEMPLO PRATICO 2 - Lei de Hooke)
     def ir_para_tela37(self):
 
-        self.tela2.destroy()
+        self.tela13.destroy()
         self.criar_tela37()
         self.tela_atual = 37
 
-    #FUNÇÃO IR PARA TELA 38 ()
+    #FUNÇÃO IR PARA TELA 38 (EXEMPLO PRATICO 3 - Lei de Hooke)
     def ir_para_tela38(self):
 
-        self.tela2.destroy()
+        self.tela13.destroy()
         self.criar_tela38()
         self.tela_atual = 38
 
@@ -2584,6 +2727,30 @@ class Software:
             self.tela34.destroy()
             self.criar_tela11()
             self.tela_atual = 11
+
+        #SE ESTIVER NA TELA 35, VOLTA PARA 13 (Lei de Hooke)
+        elif self.tela_atual == 35:
+            self.tela35.destroy()
+            self.criar_tela13()
+            self.tela_atual = 13
+
+        #SE ESTIVER NA TELA 36, VOLTA PARA 13 (Lei de Hooke)
+        elif self.tela_atual == 36:
+            self.tela36.destroy()
+            self.criar_tela13()
+            self.tela_atual = 13
+
+        #SE ESTIVER NA TELA 37, VOLTA PARA 13 (Lei de Hooke)
+        elif self.tela_atual == 37:
+            self.tela37.destroy()
+            self.criar_tela13()
+            self.tela_atual = 13
+
+        #SE ESTIVER NA TELA 38, VOLTA PARA 13 (Lei de Hooke)
+        elif self.tela_atual == 38:
+            self.tela38.destroy()
+            self.criar_tela13()
+            self.tela_atual = 13
 
 ####################################################################################################################################################################################################################################################################################################################################
 
