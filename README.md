@@ -4,6 +4,7 @@ Para executar o código você deve instalar a bibliotecas abaixo:
 #####################################################
 
 #INSTALAR BIBLIOTECA QRCODE:
+
 Windows & Linux:
 pip install qrcode
 
@@ -15,6 +16,7 @@ Fonte: https://pypi.org/project/qrcode/
 #####################################################
 
 #INSTALAR BIBLIOTECLA PILLOW:
+
 Windows & Linux:
 pip install Pillow
 
