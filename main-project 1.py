@@ -327,7 +327,7 @@ class Software:
         label_aceleracao = tk.Label(self.tela7, text="Aceleração (m/s²):")
         label_aceleracao.pack()
 
-        entry_aceleracao = ttk.Entry(self.tela7)
+        entry_aceleracao = ttk.Entry(self.tela7, width=25)
         entry_aceleracao.placeholder = "Insira a aceleração [m/s²]"
         entry_aceleracao.insert(0, entry_aceleracao.placeholder)
         entry_aceleracao.bind("<FocusIn>", remover_placeholder)
@@ -564,7 +564,7 @@ class Software:
         entry_velocidade = tk.Label(self.tela10, text="Velocidade (m/s):")
         entry_velocidade.pack()
 
-        entry_velocidade = ttk.Entry(self.tela10)
+        entry_velocidade = ttk.Entry(self.tela10, width=25)
         entry_velocidade.placeholder = "Insira a velocidade [m/s]"
         entry_velocidade.insert(0, entry_velocidade.placeholder)
         entry_velocidade.bind("<FocusIn>", remover_placeholder)
@@ -673,7 +673,7 @@ class Software:
         label_gravidade = tk.Label(self.tela11, text="[g] Aceleração da gravidade (m/s²):")
         label_gravidade.pack()
 
-        entry_gravidade = ttk.Entry(self.tela11)
+        entry_gravidade = ttk.Entry(self.tela11, width=25)
         entry_gravidade.placeholder = "Insira a gravidade (m/s²)"
         entry_gravidade.insert(0, entry_gravidade.placeholder)
         entry_gravidade.bind("<FocusIn>", remover_placeholder)
@@ -847,7 +847,7 @@ class Software:
 
         #BOTÃO CONTEXTUALIZAÇÃO
         btn_contexto = tk.Button(self.tela13, text="Contextualização da formula", command=self.ir_para_tela35)
-        btn_contexto.pack(pady=15)
+        btn_contexto.pack(pady=20)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela13)
@@ -2101,7 +2101,7 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela38, text="F = -k . x")
-        label6_1.pack(pady=5)
+        label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
@@ -2139,21 +2139,21 @@ class Software:
         self.tela40.pack()
 
 
-    #CRIA A TELA  ()
+    #CRIA A TELA 41 ()
     def criar_tela41(self):
 
         self.tela41 = tk.Frame(self.root)
         self.tela41.pack()
 
 
-    #CRIA A TELA  ()
+    #CRIA A TELA 42 ()
     def criar_tela42(self):
 
         self.tela42 = tk.Frame(self.root)
         self.tela42.pack()
 
 
-    #CRIA A TELA  ()
+    #CRIA A TELA 43 ()
     def criar_tela43(self):
 
         self.tela43 = tk.Frame(self.root)
@@ -2753,7 +2753,7 @@ class Software:
             self.criar_tela13()
             self.tela_atual = 13
 
-####################################################################################################################################################################################################################################################################################################################################
+##################################### INICIALIZADOR ######################################################################################################################################################################################################################################################################################
 
 #INICIALIZAÇÃO DA PRIMEIRA JANELA
 if __name__ == "__main__":
