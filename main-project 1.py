@@ -865,7 +865,7 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
-    #CRIA A TELA 14 (Lei de Snell)
+    #CRIA A TELA 14 (Lei de Snell - REMOVIDO)
     def criar_tela14(self):
 
         self.tela14 = tk.Frame(self.root)
@@ -985,7 +985,7 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela15, text="Lei de Ohm" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela15, text='V = I x R')
@@ -1004,22 +1004,22 @@ class Software:
                 widget.insert(0, widget.placeholder)
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
-        label_corrente = tk.Label(self.tela15, text="Corrente (A):")
+        label_corrente = tk.Label(self.tela15, text="[I] Corrente (A):")
         label_corrente.pack()
 
         entry_corrente = ttk.Entry(self.tela15)
-        entry_corrente.placeholder = "Insira a Corrente"
+        entry_corrente.placeholder = "Insira a Corrente (A)"
         entry_corrente.insert(0, entry_corrente.placeholder)
         entry_corrente.bind("<FocusIn>", remover_placeholder)
         entry_corrente.bind("<FocusOut>", restaurar_placeholder)
         entry_corrente.pack()
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
-        label_resistencia = tk.Label(self.tela15, text="Resistência (Ω):")
+        label_resistencia = tk.Label(self.tela15, text="[R] Resistência (Ω):")
         label_resistencia.pack()
 
         entry_resistencia = ttk.Entry(self.tela15)
-        entry_resistencia.placeholder = "Insira a Resistência"
+        entry_resistencia.placeholder = "Insira a Resistência (Ω)"
         entry_resistencia.insert(0, entry_resistencia.placeholder)
         entry_resistencia.bind("<FocusIn>", remover_placeholder)
         entry_resistencia.bind("<FocusOut>", restaurar_placeholder)
@@ -1061,9 +1061,24 @@ class Software:
         label_resultado = tk.Label(self.tela15, textvariable=resultado)
         label_resultado.pack()
 
+        #BOTÃO CONTEXTUALIZAÇÃO
+        btn_contexto = tk.Button(self.tela15, text="Contextualização da formula", command=self.ir_para_tela39)
+        btn_contexto.pack(pady=20)
+
+        #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
+        frame2 = tk.Frame(self.tela15)
+        frame2.pack()
+        #CRIANDO BOTOES
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela40)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela41)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela42)
+        botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela22.pack(side=tk.LEFT,padx=10)
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela15, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=45)
+        btn_tela_anterior.pack(side='bottom',pady=30)
 
 
     #CRIA A TELA 16 (Movimento Retilíneo Uniforme)
@@ -2125,32 +2140,159 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
-    #CRIA A TELA 39 ()
+    #CRIA A TELA 39 (CONTEXTUALIZAÇÃO - Lei de Ohm)
     def criar_tela39(self):
 
         self.tela39 = tk.Frame(self.root)
         self.tela39.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela39, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 40 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela39, text="V = I x R")
+        label6_1.pack(pady=15)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+            A lei de Ohm, criada por Georg Simon Ohm em 1827 é uma das mais importantes descrições de
+        interação dos elementos em um circuito elétrico, sendo a base para começar a entender e estudar
+        como a eletricidade é aplicada.
+
+            Ela é utilizada para calcular a relação entre a diferença de potencial, a corrente e a resistência
+        de um material em um circuito elétrico. Como a resistência não pode ser medida em um circuito
+        ligado e funcionando, a fórmula é frequentemente usada para se determinar a resistência sem desligar
+        o circuito.
+
+            Na prática é usada sempre que é necessário dimensionar algo para um circuito elétrico, como
+        determinar a bitola de cabos, quais resistências devem ser usadas e a tensão de trabalho. Um exemplo
+        de aplicação no dia a dia é como ela é utilizada em potenciômetros, um componente que é usado para
+        regular a velocidade de operação em algumas máquinas e eletrodomésticos, como em ventiladores, máquinas
+        de medição e motores. O potenciômetro ao ser girado, varia a resistência no circuito o que acaba mudando
+        sua corrente e então alterando a velocidade de funcionamento da máquina.
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela39, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela39, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
+
+
+    #CRIA A TELA 40 (EXEMPLO PRATICO 1 - Lei de Ohm)
     def criar_tela40(self):
 
         self.tela40 = tk.Frame(self.root)
         self.tela40.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela40, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 41 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela40, text="V = I * R")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Em um circuito elétrico simples que possui uma corrente de 8 amperes e uma lâmpada com
+        uma resistência de 10 Ohms, qual será a tensão gerada no circuito?
+
+        Resolução:
+
+        Dados:
+        I = 8
+        R = 10
+
+        Resolução:
+        V = 8 * 10
+        V = 80 Volts
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela40, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela40, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
+
+
+    #CRIA A TELA 41 (EXEMPLO PRATICO 2 - Lei de Ohm)
     def criar_tela41(self):
 
         self.tela41 = tk.Frame(self.root)
         self.tela41.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela41, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 42 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela41, text="V = I * R")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Um resistor de 20 Ohms é atravessado por uma corrente de 2 amperes. Determine a diferença
+        de potencial nesse circuito.
+
+        Dados:
+        I = 2
+        R = 20
+
+        Resolução:
+        V = 2 * 20
+        V = 40 Volts
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela41, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela41, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
+
+
+    #CRIA A TELA 42 (EXEMPLO PRATICO 3 - Lei de Ohm)
     def criar_tela42(self):
 
         self.tela42 = tk.Frame(self.root)
         self.tela42.pack()
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela42, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
+
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela42, text="V = I * R")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Em um circuito dimensionado para usar lâmpadas LED, a corrente elétrica é de
+        0,9 amperes e a sua resistência é de 28Ohms. Calcule a voltagem na lâmpada.
+        
+        Dados:    
+        I = 0,9
+        R = 28
+
+        Resolução:
+        V = 0,9 * 28
+        V = 25,2 Volts
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela42, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela42, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
 
 
     #CRIA A TELA 43 ()
@@ -2454,31 +2596,31 @@ class Software:
         self.criar_tela38()
         self.tela_atual = 38
 
-    #FUNÇÃO IR PARA TELA 39 ()
+    #FUNÇÃO IR PARA TELA 39 (CONTEXUALIZAÇÃO - Lei de Ohm)
     def ir_para_tela39(self):
 
-        self.tela2.destroy()
+        self.tela15.destroy()
         self.criar_tela39()
         self.tela_atual = 39
 
-    #FUNÇÃO IR PARA TELA 40 ()
+    #FUNÇÃO IR PARA TELA 40 (EXEMPLO PRATICO 1 - Lei de Ohm)
     def ir_para_tela40(self):
 
-        self.tela2.destroy()
+        self.tela15.destroy()
         self.criar_tela40()
         self.tela_atual = 40
 
-    #FUNÇÃO IR PARA TELA 41 ()
+    #FUNÇÃO IR PARA TELA 41 (EXEMPLO PRATICO 2 - Lei de Ohm)
     def ir_para_tela41(self):
 
-        self.tela2.destroy()
+        self.tela15.destroy()
         self.criar_tela41()
         self.tela_atual = 41
 
-    #FUNÇÃO IR PARA TELA 42 ()
+    #FUNÇÃO IR PARA TELA 42 (EXEMPLO PRATICO 3 - Lei de Ohm)
     def ir_para_tela42(self):
 
-        self.tela2.destroy()
+        self.tela15.destroy()
         self.criar_tela42()
         self.tela_atual = 42
 
@@ -2752,6 +2894,30 @@ class Software:
             self.tela38.destroy()
             self.criar_tela13()
             self.tela_atual = 13
+
+        #SE ESTIVER NA TELA 39, VOLTA PARA 15 ()
+        elif self.tela_atual == 39:
+            self.tela39.destroy()
+            self.criar_tela15()
+            self.tela_atual = 15
+
+        #SE ESTIVER NA TELA 40, VOLTA PARA 15 (Lei de Ohm)
+        elif self.tela_atual == 40:
+            self.tela40.destroy()
+            self.criar_tela15()
+            self.tela_atual = 15
+
+        #SE ESTIVER NA TELA 41, VOLTA PARA 15 (Lei de Ohm)
+        elif self.tela_atual == 41:
+            self.tela41.destroy()
+            self.criar_tela15()
+            self.tela_atual = 15
+
+        #SE ESTIVER NA TELA 42, VOLTA PARA 15 (Lei de Ohm)
+        elif self.tela_atual == 42:
+            self.tela42.destroy()
+            self.criar_tela15()
+            self.tela_atual = 15
 
 ##################################### INICIALIZADOR ######################################################################################################################################################################################################################################################################################
 
