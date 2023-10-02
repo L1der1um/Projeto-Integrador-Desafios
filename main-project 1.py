@@ -139,7 +139,7 @@ class Software:
         frame3.pack()
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
         button9 = tk.Button(frame3, text="Lei de Ohm\n (Primeira lei)\nV = I * R",command=self.ir_para_tela15)
-        button10 = tk.Button(frame3, text="Movimento Retilíneo\nUniforme\nS(t) = S₀ + v * t",command=self.ir_para_tela16)
+        button10 = tk.Button(frame3, text="Trabalho de uma força\nW = F * d * cos(θ)",command=self.ir_para_tela16)
         button11 = tk.Button(frame3, text="Velocidade média\nVm = ΔS / Δt",command=self.ir_para_tela17)
         button12 = tk.Button(frame3, text="Densidade\nd = m / v",command=self.ir_para_tela18)
         button9.pack(side=tk.LEFT,padx=10, pady=10)
@@ -1081,19 +1081,23 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=30)
 
 
-    #CRIA A TELA 16 (Movimento Retilíneo Uniforme)
+    #CRIA A TELA 16 (Trabalho de uma força)
     def criar_tela16(self):
 
         self.tela16 = tk.Frame(self.root)
         self.tela16.pack()
 
         #TEXTO INFORMATIVO DE TELA
-        label6 = tk.Label(self.tela16, text="Movimento Retilíneo Uniforme" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6 = tk.Label(self.tela16, text="Trabalho de uma força" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=15)
+
+        #TEXTO INFORMATIVO DE TELA 2
+        label6 = tk.Label(self.tela16, text="Caso não houver um ângulo (cos(θ), digitar 0" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=5)
 
         #TEXTO INFORMATIVO DE TELA
-        label6_1 = tk.Label(self.tela16, text='S(t) = S₀ + v . t')
-        label6_1.pack(pady=15)
+        label6_1 = tk.Label(self.tela16, text='W = F * d * cos(θ)')
+        label6_1.pack(pady=10)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -1108,59 +1112,59 @@ class Software:
                 widget.insert(0, widget.placeholder)
                 
         #TEXTO MASSA DO CAMPO DE ENTRADA
-        label_S0 = tk.Label(self.tela16, text="[S₀] Posição Inicial ():")
-        label_S0.pack()
+        label_forca = tk.Label(self.tela16, text="[F] Força aplicada (N):")
+        label_forca.pack()
 
-        entry_S0 = ttk.Entry(self.tela16)
-        entry_S0.placeholder = "Insira a Posição Inicial ()"
-        entry_S0.insert(0, entry_S0.placeholder)
-        entry_S0.bind("<FocusIn>", remover_placeholder)
-        entry_S0.bind("<FocusOut>", restaurar_placeholder)
-        entry_S0.pack()
+        entry_forca = ttk.Entry(self.tela16)
+        entry_forca.placeholder = "Insira a Força aplicada (N)"
+        entry_forca.insert(0, entry_forca.placeholder)
+        entry_forca.bind("<FocusIn>", remover_placeholder)
+        entry_forca.bind("<FocusOut>", restaurar_placeholder)
+        entry_forca.pack()
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
-        label_v = tk.Label(self.tela16, text="[] Velocidade (v):")
-        label_v.pack()
+        label_d = tk.Label(self.tela16, text="[d] Distância (m):")
+        label_d.pack()
 
-        entry_v = ttk.Entry(self.tela16)
-        entry_v.placeholder = "Insira a Velocidade ()"
-        entry_v.insert(0, entry_v.placeholder)
-        entry_v.bind("<FocusIn>", remover_placeholder)
-        entry_v.bind("<FocusOut>", restaurar_placeholder)
-        entry_v.pack()
+        entry_distancia = ttk.Entry(self.tela16)
+        entry_distancia.placeholder = "Insira a Distância (m)"
+        entry_distancia.insert(0, entry_distancia.placeholder)
+        entry_distancia.bind("<FocusIn>", remover_placeholder)
+        entry_distancia.bind("<FocusOut>", restaurar_placeholder)
+        entry_distancia.pack()
 
         #TEXTO FORÇA DO CAMPO DE ENTRADA
-        label_t = tk.Label(self.tela16, text="[] Tempo (t):")
-        label_t.pack()
+        label_a = tk.Label(self.tela16, text="[θ] Ângulo (x°):")
+        label_a.pack()
 
-        entry_t = ttk.Entry(self.tela16)
-        entry_t.placeholder = "Insira o Tempo ()"
-        entry_t.insert(0, entry_t.placeholder)
-        entry_t.bind("<FocusIn>", remover_placeholder)
-        entry_t.bind("<FocusOut>", restaurar_placeholder)
-        entry_t.pack()
+        entry_angulo = ttk.Entry(self.tela16)
+        entry_angulo.placeholder = "Insira o Ângulo aplicado (x°)"
+        entry_angulo.insert(0, entry_angulo.placeholder)
+        entry_angulo.bind("<FocusIn>", remover_placeholder)
+        entry_angulo.bind("<FocusOut>", restaurar_placeholder)
+        entry_angulo.pack()
 
         def calcular():
             try:
-                # Obtenha os valores inseridos pelo usuário
-                S0 = float(entry_S0.get())
-                v = float(entry_v.get())
-                t = float(entry_t.get())
+                # Obter os valores inseridos pelo usuário
+                forca = float(entry_forca.get())
+                distancia = float(entry_distancia.get())
+                angulo = float(entry_angulo.get())
 
-                # Calcule a posição final S(t)
-                St = S0 + v * t
+                # Calcular o trabalho
+                trabalho = forca * distancia * (math.cos(math.radians(angulo)))
 
-                # Atualize as variáveis de resultado
-                resultado.set(f"Posição Final (S(t)): {St:.2f} unidades")
+                # Exibir o resultado na janela
+                resultado.set(f"Trabalho: {trabalho:.2f} J")
 
             except ValueError:
                 resultado.set("Insira valores válidos em todas as entradas / Preencha todos os campos")
 
         #FUNÇÃO LIMPAR OS CAMPOS
         def limpar_campos():
-            entry_S0.delete(0, tk.END)
-            entry_v.delete(0, tk.END)
-            entry_t.delete(0, tk.END)
+            entry_forca.delete(0, tk.END)
+            entry_distancia.delete(0, tk.END)
+            entry_angulo.delete(0, tk.END)
             resultado.set("")  #RESETA OS CAMPOS
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
@@ -1176,6 +1180,21 @@ class Software:
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela16, textvariable=resultado)
         label_resultado.pack()
+
+        #BOTÃO CONTEXTUALIZAÇÃO
+        btn_contexto = tk.Button(self.tela16, text="Contextualização da formula", command=self.ir_para_tela43)
+        btn_contexto.pack(pady=20)
+
+        #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
+        frame2 = tk.Frame(self.tela16)
+        frame2.pack()
+        #CRIANDO BOTOES
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela44)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela45)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela46)
+        botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela22.pack(side=tk.LEFT,padx=10)
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela16, text="Voltar", command=self.voltar_tela)
@@ -2201,8 +2220,6 @@ class Software:
         Em um circuito elétrico simples que possui uma corrente de 8 amperes e uma lâmpada com
         uma resistência de 10 Ohms, qual será a tensão gerada no circuito?
 
-        Resolução:
-
         Dados:
         I = 8
         R = 10
@@ -2295,31 +2312,173 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
-    #CRIA A TELA 43 ()
+    #CRIA A TELA 43 (CONTEXTUALIZAÇÃO - Trabalho de uma força)
     def criar_tela43(self):
 
         self.tela43 = tk.Frame(self.root)
         self.tela43.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela43, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 44 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela43, text="W = F ⋅ d ⋅ cos(θ)")
+        label6_1.pack(pady=15)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+            A fórmula do trabalho tem um papel fundamental na física e engenharia, sendo usada para
+        medir a quantidade de energia transferida ou transformada em diferentes contextos. Em sua
+        essência, o trabalho representa a energia realizada ou gasta ao aplicar uma força em um objeto
+        e movê-lo por uma certa distância no sentido da força aplicada. Isso é essencial em áreas como
+        a mecânica, onde é importante compreender como as forças afetam o movimento dos objetos.
+        Por exemplo, ao levantar um objeto pesado do chão, estamos realizando trabalho ao aplicar uma
+        força vertical contra a gravidade e elevando o objeto até uma determinada altura. A fórmula
+        também desempenha um papel crucial na análise de máquinas e motores, permitindo calcular a
+        transferência de energia mecânica e a eficiência das máquinas.
+
+            Além disso, a fórmula do trabalho é relevante em campos como a termodinâmica, onde desempenha
+        um papel fundamental na compreensão da transferência de calor e na execução de trabalho mecânico
+        nos processos termodinâmicos. Resumindo, a fórmula do trabalho é uma ferramenta poderosa que
+        permite aos cientistas, engenheiros e pesquisadores quantificar e compreender as interações entre
+        forças, movimento e energia em diversas áreas da física e engenharia. Ela desempenha um papel
+        crucial no desenvolvimento de tecnologias avançadas e sistemas que impulsionam o nosso mundo moderno.
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela43, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela43, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
+
+
+    #CRIA A TELA 44 (EXEMPLO PRATICO 1 - Trabalho de uma força)
     def criar_tela44(self):
 
         self.tela44 = tk.Frame(self.root)
         self.tela44.pack()
 
-    #CRIA A TELA 45 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela44, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
+
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela44, text="W = F ⋅ d ⋅ cos(θ)")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Suponha que você esteja levantando uma caixa de 10 kg a uma altura de 2 metros
+        verticalmente, aplicando uma força constante de 100 N. Qual é o trabalho realizado?
+
+        Dados:
+
+        Força (F) = 100 N
+        Distância (d) = 2 metros (altura)
+        Ângulo (θ) = 0 graus (porque a força e a distância são verticais, então o ângulo é 0)
+
+        Resolução:
+        
+        W = 100 N x 2 m x cos(0°)
+        W = 200 x 1
+        W = 200J
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela44, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela44, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
+
+
+    #CRIA A TELA 45 (EXEMPLO PRATICO 2 - Trabalho de uma força)
     def criar_tela45(self):
 
         self.tela45 = tk.Frame(self.root)
         self.tela45.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela45, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 46 ()
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela45, text="W = F ⋅ d ⋅ cos(θ)")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Imagine que você empurra um carro com uma força de 500 N ao longo de uma superfície
+        horizontal por uma distância de 10 metros. Qual é o trabalho realizado?
+
+        Dados:
+
+        Força (F) = 500 N
+        Distância (d) = 10 metros
+        Ângulo (θ) = 0 graus (porque a força e a distância são horizontais)
+
+        Resolução:
+
+        W = 500 N x 10 m x cos(0°)
+        W = 5000 x 1
+        W = 5000J
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela45, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela45, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
+
+
+    #CRIA A TELA 46 (EXEMPLO PRATICO 3 - Trabalho de uma força)
     def criar_tela46(self):
 
         self.tela46 = tk.Frame(self.root)
         self.tela46.pack()
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela46, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
+
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela46, text="W = F ⋅ d ⋅ cos(θ)")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Você aplica uma força de 150 N para puxar uma mala de 30 kg por uma rampa
+        inclinada a 30 graus em relação à horizontal. Qual é o trabalho realizado
+        ao subir a rampa de 5 metros?
+
+        Dados:
+
+        Força (F) = 150 N
+        Distância (d) = 5 metros
+        Ângulo (θ) = 30 graus
+
+        Resolução:
+        W = 150 N x 5 m x cos(30°)
+
+        Para calcular o valor de cos(30°), lembre-se de que cos(30°) = √3/2 ≈ 0,866.
+
+        W ≈ 150 N x 5 m x 0,866
+        W ≈ 649.5 J
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela46, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela46, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
 
 
     #CRIA A TELA 47 ()
@@ -2334,6 +2493,48 @@ class Software:
 
         self.tela48 = tk.Frame(self.root)
         self.tela48.pack()
+
+
+    #CRIA A TELA 49 ()
+    def criar_tela(self):
+
+        self.tela49 = tk.Frame(self.root)
+        self.tela49.pack()
+
+
+    #CRIA A TELA 50 ()
+    def criar_tela(self):
+
+        self.tela50 = tk.Frame(self.root)
+        self.tela50.pack()
+
+
+    #CRIA A TELA 51 ()
+    def criar_tela(self):
+
+        self.tela51 = tk.Frame(self.root)
+        self.tela51.pack()
+
+
+    #CRIA A TELA 52 ()
+    def criar_tela(self):
+
+        self.tela52 = tk.Frame(self.root)
+        self.tela52.pack()
+
+
+    #CRIA A TELA 53 ()
+    def criar_tela(self):
+
+        self.tela53 = tk.Frame(self.root)
+        self.tela53.pack()
+
+
+    #CRIA A TELA 54 ()
+    def criar_tela(self):
+
+        self.tela54 = tk.Frame(self.root)
+        self.tela54.pack()
 
 ########################################## FUNÇÕES IR PARA OUTRA TELA ################################################################
     
@@ -2624,31 +2825,31 @@ class Software:
         self.criar_tela42()
         self.tela_atual = 42
 
-    #FUNÇÃO IR PARA TELA 43 ()
+    #FUNÇÃO IR PARA TELA 43 (CONTEXUALIZAÇÃO - Trabalho de uma força)
     def ir_para_tela43(self):
 
-        self.tela2.destroy()
+        self.tela16.destroy()
         self.criar_tela43()
         self.tela_atual = 43
 
-    #FUNÇÃO IR PARA TELA 44 ()
+    #FUNÇÃO IR PARA TELA 44 (EXEMPLO PRATICO 1 - Trabalho de uma força)
     def ir_para_tela44(self):
 
-        self.tela2.destroy()
+        self.tela16.destroy()
         self.criar_tela44()
         self.tela_atual = 44
 
-    #FUNÇÃO IR PARA TELA 45 ()
+    #FUNÇÃO IR PARA TELA 45 (EXEMPLO PRATICO 2 - Trabalho de uma força)
     def ir_para_tela45(self):
 
-        self.tela2.destroy()
+        self.tela16.destroy()
         self.criar_tela45()
         self.tela_atual = 45
 
-    #FUNÇÃO IR PARA TELA 46 ()
+    #FUNÇÃO IR PARA TELA 46 (EXEMPLO PRATICO 3 - Trabalho de uma força)
     def ir_para_tela46(self):
 
-        self.tela2.destroy()
+        self.tela16.destroy()
         self.criar_tela46()
         self.tela_atual = 46
 
@@ -2919,9 +3120,33 @@ class Software:
             self.criar_tela15()
             self.tela_atual = 15
 
+        #SE ESTIVER NA TELA 43, VOLTA PARA 15 (Trabalho de uma força)
+        elif self.tela_atual == 43:
+            self.tela43.destroy()
+            self.criar_tela16()
+            self.tela_atual = 16
+
+        #SE ESTIVER NA TELA 44, VOLTA PARA 15 (Trabalho de uma força)
+        elif self.tela_atual == 44:
+            self.tela44.destroy()
+            self.criar_tela16()
+            self.tela_atual = 16
+
+        #SE ESTIVER NA TELA 45, VOLTA PARA 15 (Trabalho de uma força)
+        elif self.tela_atual == 45:
+            self.tela45.destroy()
+            self.criar_tela16()
+            self.tela_atual = 16
+
+        #SE ESTIVER NA TELA 46, VOLTA PARA 15 (Trabalho de uma força)
+        elif self.tela_atual == 46:
+            self.tela46.destroy()
+            self.criar_tela16()
+            self.tela_atual = 16
+
 ##################################### INICIALIZADOR ######################################################################################################################################################################################################################################################################################
 
-#INICIALIZAÇÃO DA PRIMEIRA JANELA
+#INCIALIZADOR DA PRIMEIRA JANELA
 if __name__ == "__main__":
     root = tk.Tk()
     app = Software(root)
