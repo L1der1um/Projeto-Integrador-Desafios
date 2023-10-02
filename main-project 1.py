@@ -1161,7 +1161,7 @@ class Software:
         label_a = tk.Label(self.tela16, text="[θ] Ângulo (x°):")
         label_a.pack()
 
-        entry_angulo = ttk.Entry(self.tela16)
+        entry_angulo = ttk.Entry(self.tela16, width=25)
         entry_angulo.placeholder = "Insira o Ângulo aplicado (x°)"
         entry_angulo.insert(0, entry_angulo.placeholder)
         entry_angulo.bind("<FocusIn>", remover_placeholder)
@@ -1255,7 +1255,7 @@ class Software:
         label_delta_s = tk.Label(self.tela17, text="[ΔS] Variação de Posição (m):")
         label_delta_s.pack()
 
-        entry_delta_s = ttk.Entry(self.tela17)
+        entry_delta_s = ttk.Entry(self.tela17, width=25)
         entry_delta_s.placeholder = "Insira a Variação de Posição (m)"
         entry_delta_s.insert(0, entry_delta_s.placeholder)
         entry_delta_s.bind("<FocusIn>", remover_placeholder)
@@ -1266,7 +1266,7 @@ class Software:
         label_delta_t = tk.Label(self.tela17, text="[Δt] Variação de Tempo (s):")
         label_delta_t.pack()
 
-        entry_delta_t = ttk.Entry(self.tela17)
+        entry_delta_t = ttk.Entry(self.tela17, width=25)
         entry_delta_t.placeholder = "Insira a Variação de Tempo (s)"
         entry_delta_t.insert(0, entry_delta_t.placeholder)
         entry_delta_t.bind("<FocusIn>", remover_placeholder)
@@ -2654,7 +2654,7 @@ class Software:
         
         Dados:
 
-        Δd = 20 km
+        Δs = 20 km
         Δt = 2 horas
 
         Resolução:
