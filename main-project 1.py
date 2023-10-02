@@ -1089,15 +1089,15 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela16, text="Trabalho de uma força" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=15)
+        label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
-        label6 = tk.Label(self.tela16, text="Caso não houver um ângulo (cos(θ), digitar 0" ,font=('Arial', 14, 'bold'))
+        label6 = tk.Label(self.tela16, text="Caso não houver um ângulo cos(θ), digitar 0" ,font=('Arial', 12))
         label6.pack(pady=5)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela16, text='W = F * d * cos(θ)')
-        label6_1.pack(pady=10)
+        label6_1.pack(pady=5)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -1198,7 +1198,7 @@ class Software:
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela16, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=40)
+        btn_tela_anterior.pack(side='bottom',pady=10)
 
 
     #CRIA A TELA 17 (Velocidade média)
