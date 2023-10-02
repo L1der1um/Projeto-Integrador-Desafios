@@ -1161,7 +1161,7 @@ class Software:
         label_a = tk.Label(self.tela16, text="[θ] Ângulo (x°):")
         label_a.pack()
 
-        entry_angulo = ttk.Entry(self.tela16, width=25)
+        entry_angulo = ttk.Entry(self.tela16, width=30)
         entry_angulo.placeholder = "Insira o Ângulo aplicado (x°)"
         entry_angulo.insert(0, entry_angulo.placeholder)
         entry_angulo.bind("<FocusIn>", remover_placeholder)
@@ -2116,14 +2116,16 @@ class Software:
         Sabendo que a constante elástica de uma mola é igual a 300 N/m, determine qual é a força
         necessária para que essa mola sofra uma deformação de 5 cm?
 
-        Primeiramente precisamos converter a unidade de medida de cm para m, respeitando as unidades de medida do exercício. 
+        Primeiramente precisamos converter a unidade de medida de cm para m, respeitando as unidades
+        de medida do exercício. 
 
         Dados:
+
         Logo 5 cm = 0.05 m
 
         Resolução:
-        F = -300 N/m * 0.05 m
 
+        F = -300 N/m * 0.05 m
         F = -15 N
         """
 
@@ -2158,9 +2160,11 @@ class Software:
         A deformação da mola foi de 3 cm, logo, convertendo para metros, temos 0,03 m.
 
         Dados:
+
         570 N = k * 0,03 m
 
         Resolução:
+
         k = 570 N / 0,03 m 
 
         k = -19000 N/m
@@ -2197,6 +2201,7 @@ class Software:
         a deformação resultante em metros?
 
         Resolução:
+
         8000 N = 17500 N/m * x
 
         x = 8000 N / 17500 N/m
@@ -2275,10 +2280,12 @@ class Software:
         uma resistência de 10 Ohms, qual será a tensão gerada no circuito?
 
         Dados:
+
         I = 8
         R = 10
 
         Resolução:
+
         V = 8 * 10
         V = 80 Volts
         """
@@ -2312,10 +2319,12 @@ class Software:
         de potencial nesse circuito.
 
         Dados:
+
         I = 2
         R = 20
 
         Resolução:
+
         V = 2 * 20
         V = 40 Volts
         """
@@ -2348,11 +2357,13 @@ class Software:
         Em um circuito dimensionado para usar lâmpadas LED, a corrente elétrica é de
         0,9 amperes e a sua resistência é de 28Ohms. Calcule a voltagem na lâmpada.
         
-        Dados:    
+        Dados:
+
         I = 0,9
         R = 28
 
         Resolução:
+
         V = 0,9 * 28
         V = 25,2 Volts
         """
