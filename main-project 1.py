@@ -1421,6 +1421,21 @@ class Software:
         label_resultado = tk.Label(self.tela18, textvariable=resultado)
         label_resultado.pack()
 
+        #BOTÃO CONTEXTUALIZAÇÃO
+        btn_contexto = tk.Button(self.tela18, text="Contextualização da formula", command=self.ir_para_tela51)
+        btn_contexto.pack(pady=10)
+
+        #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
+        frame2 = tk.Frame(self.tela18)
+        frame2.pack()
+        #CRIANDO BOTOES
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela52)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela53)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela54)
+        botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela22.pack(side=tk.LEFT,padx=10)
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela18, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=40)
@@ -2672,32 +2687,158 @@ class Software:
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
-    #CRIA A TELA 51 ()
+    #CRIA A TELA 51 (CONTEXTUALIZAÇÃO - Densidade)
     def criar_tela51(self):
 
         self.tela51 = tk.Frame(self.root)
         self.tela51.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela51, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=25)
 
-    #CRIA A TELA 52 ()
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela51, text="d = m / v")
+        label6_1.pack(pady=20)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+            A fórmula da densidade é uma equação fundamental na física que descreve a concentração
+        de massa em um determinado volume. A densidade é uma propriedade física única para cada
+        substância, o que significa que diferentes substâncias têm densidades diferentes. Portanto,
+        medir a densidade de uma substância pode ser uma maneira eficaz de identificá-la.
+
+            Saber a densidade também é importante para entender se um objeto ou substância irá 
+        flutuar ou afundar em um líquido. Um objeto flutua quando sua densidade é menor do que a do
+        líquido em que está imerso, e afunda quando a densidade é maior. É, também, uma propriedade
+        importante que afeta as propriedades mecânicas, térmicas e elétricas dos materiais.
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela51, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela51, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=30)
+
+
+    #CRIA A TELA 52 (EXEMPLO PRATICO 1 - Densidade)
     def criar_tela52(self):
 
         self.tela52 = tk.Frame(self.root)
         self.tela52.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela52, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 53 ()
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela52, text="d = m / v")
+        label6_1.pack(pady=10)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Uma substância desconhecida tem uma massa de 50 gramas e ocupa um volume de 25 cm³. Qual
+        é a densidade dessa substância?
+        
+        Dados:
+
+        m = 50 gramas (convertido para quilogramas: 50 g÷1000 = 0,05 kg)
+        v = 25 cm³ (convertido para metros cúbicos: 25 cm³ ÷ 1000000 = 0,000025m³)
+
+        Resolução:
+
+        d = 0,05kg / 0,000025m³ 
+        d = 2000kg/m³
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela52, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela52, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=10)
+
+
+    #CRIA A TELA 53 (EXEMPLO PRATICO 2 - Densidade)
     def criar_tela53(self):
 
         self.tela53 = tk.Frame(self.root)
         self.tela53.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela53, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 54 ()
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela53, text="d = m / v")
+        label6_1.pack(pady=10)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Uma peça de metal tem uma massa de 500 gramas e ocupa um volume de 250 cm³. Qual é a
+        densidade desse metal?
+
+        Dados:
+
+        m = 500 gramas (convertido para quilogramas: 500g ÷ 1000 = 0,5 kg)
+        v = 250 cm³ (convertido para metros cúbicos: 250cm³ ÷ 1000000 = 0.00025m³)
+
+        Resolução:
+
+        d = 0,5 kg / 0,00025m³ 
+        d = 2000kg/m³
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela53, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela53, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=25)
+
+
+    #CRIA A TELA 54 (EXEMPLO PRATICO 3 - Densidade)
     def criar_tela54(self):
 
         self.tela54 = tk.Frame(self.root)
         self.tela54.pack()
+
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela54, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
+
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela54, text="d = m / v")
+        label6_1.pack(pady=10)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Um pesquisador tem uma pequena amostra de material e quer identificar o que é. A amostra
+        tem uma massa de 15 gramas e um volume de 5 cm³. Qual é a densidade do material e qual é
+        a substância provável com base na densidade? (Use a tabela de densidades para identificação.)
+        
+        Dados:
+
+        m = 15 gramas (convertido para quilogramas: 15g ÷ 1000 = 0,015kg)
+        v = 5 cm³ (convertido para metros cúbicos: 5cm³ ÷ 1000000 = 0,000005m³)
+
+        Resolução:
+
+        d = 0,015kg / 0,000005m³ 
+        d = 3000kg/m³
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela54, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela54, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=25)
 
 ########################################## FUNÇÕES IR PARA OUTRA TELA ################################################################
     
@@ -3044,26 +3185,33 @@ class Software:
         self.criar_tela50()
         self.tela_atual = 50
 
-    #FUNÇÃO IR PARA TELA 51 ()
+    #FUNÇÃO IR PARA TELA 51 (CONTEXUALIZAÇÃO - Densidade)
     def ir_para_tela51(self):
 
-        self.tela2.destroy()
+        self.tela18.destroy()
         self.criar_tela51()
         self.tela_atual = 51
 
-    #FUNÇÃO IR PARA TELA 52 ()
+    #FUNÇÃO IR PARA TELA 52 (EXEMPLO PRATICO 1 - Densidade)
     def ir_para_tela52(self):
 
-        self.tela2.destroy()
+        self.tela18.destroy()
         self.criar_tela52()
         self.tela_atual = 52
 
-    #FUNÇÃO IR PARA TELA 53 ()
+    #FUNÇÃO IR PARA TELA 53 (EXEMPLO PRATICO 2 - Densidade)
     def ir_para_tela53(self):
 
-        self.tela2.destroy()
+        self.tela18.destroy()
         self.criar_tela53()
         self.tela_atual = 53
+
+    #FUNÇÃO IR PARA TELA 54 (EXEMPLO PRATICO 3 - Densidade)
+    def ir_para_tela54(self):
+
+        self.tela18.destroy()
+        self.criar_tela54()
+        self.tela_atual = 54
     
 
 ########################################## FUNÇÕES VOLTAR TELA ##############################################################
@@ -3366,6 +3514,30 @@ class Software:
             self.tela50.destroy()
             self.criar_tela17()
             self.tela_atual = 17
+
+        #SE ESTIVER NA TELA 51, VOLTA PARA 18 (Densidade)
+        elif self.tela_atual == 51:
+            self.tela51.destroy()
+            self.criar_tela18()
+            self.tela_atual = 18
+
+        #SE ESTIVER NA TELA 52, VOLTA PARA 18 (Densidade)
+        elif self.tela_atual == 52:
+            self.tela52.destroy()
+            self.criar_tela18()
+            self.tela_atual = 18
+
+        #SE ESTIVER NA TELA 53, VOLTA PARA 18 (Densidade)
+        elif self.tela_atual == 53:
+            self.tela53.destroy()
+            self.criar_tela18()
+            self.tela_atual = 18
+
+        #SE ESTIVER NA TELA 54, VOLTA PARA 18 (Densidade)
+        elif self.tela_atual == 54:
+            self.tela54.destroy()
+            self.criar_tela18()
+            self.tela_atual = 18
 
 ##################################### INICIALIZADOR ######################################################################################################################################################################################################################################################################################
 
