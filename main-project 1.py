@@ -105,7 +105,7 @@ class Software:
 
         #MENSAGEM DE TEXTO TELA 3
         label3 = tk.Label(self.tela3, text="SELECIONE UMA FORMULA",font=('Arial', 14, 'bold'))
-        label3.pack(pady=10)
+        label3.pack(pady=20)
 
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
         frame1 = tk.Frame(self.tela3)
@@ -128,9 +128,11 @@ class Software:
         #button6 = tk.Button(frame2, text="Lei da conservação\n de Energia Mecânica\nE = K + U",command=self.ir_para_tela12)
         button7 = tk.Button(frame2, text="Lei de Hooke\n (Lei da Elasticidade)\nF = -k * x",command=self.ir_para_tela13)
         #button8 = tk.Button(frame2, text="Lei de Snell\n (Lei da Refração)\nn1.sen(i) = n2.sen(r)",command=self.ir_para_tela14)
+        button9 = tk.Button(frame2, text="Lei de Ohm\n (Primeira lei)\nV = I * R",command=self.ir_para_tela15)
         button5.pack(side=tk.LEFT,padx=10, pady=40)
         #button6.pack(side=tk.LEFT,padx=10, pady=40)
         button7.pack(side=tk.LEFT,padx=10, pady=40)
+        button9.pack(side=tk.LEFT,padx=10, pady=10)
         #button8.pack(side=tk.LEFT,padx=10, pady=40)
 
 
@@ -138,11 +140,9 @@ class Software:
         frame3 = tk.Frame(self.tela3)
         frame3.pack()
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
-        button9 = tk.Button(frame3, text="Lei de Ohm\n (Primeira lei)\nV = I * R",command=self.ir_para_tela15)
         button10 = tk.Button(frame3, text="Trabalho de uma força\nW = F * d * cos(θ)",command=self.ir_para_tela16)
         button11 = tk.Button(frame3, text="Velocidade média\nVm = ΔS / Δt",command=self.ir_para_tela17)
         button12 = tk.Button(frame3, text="Densidade\nd = m / v",command=self.ir_para_tela18)
-        button9.pack(side=tk.LEFT,padx=10, pady=10)
         button10.pack(side=tk.LEFT,padx=10, pady=10)
         button11.pack(side=tk.LEFT,padx=10, pady=10)
         button12.pack(side=tk.LEFT,padx=10, pady=10)
@@ -219,7 +219,7 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label5_1 = tk.Label(self.tela5, text=texto, justify="center", padx=10, pady=10)
+        label5_1 = tk.Label(self.tela5, text=texto, justify="left", padx=10, pady=10)
         label5_1.pack(anchor='n')
 
         #BOTÃO VOLTAR TELA
@@ -348,7 +348,7 @@ class Software:
             except ValueError:
 
                 #INFORMA ERRO DE VALOR NÃO RECONHECIDO
-                resultado.set("Insira valores numéricos válidos / Preencha todos os valores")
+                resultado.set("Insira valores numéricos válidos / Preencha todos os valores.")
 
         #FUNÇÃO LIMPAR OS CAMPOS
         def limpar_campos():
@@ -514,6 +514,14 @@ class Software:
 
     #CRIA A TELA 9 (Lei de Coulomb - REMOVIDO)
     def criar_tela9(self):
+
+        ##     ##
+         ##   ##
+          ## ##
+           ###
+          ## ##
+         ##   ##
+        ##     ##
 
         self.tela9 = tk.Frame(self.root)
         self.tela9.pack()
@@ -706,7 +714,7 @@ class Software:
                 resultado.set(f"Energia Potencial Gravitacional: {energia_potencial:.4f} Joules")
 
             except ValueError:
-                resultado.set("Por favor, insira valores válidos.")
+                resultado.set("Por favor, insira valores válidos / Preencha todos os campos.")
 
 
         #FUNÇÃO LIMPAR OS CAMPOS
@@ -752,6 +760,14 @@ class Software:
 
     #CRIA A TELA 12 (Lei da conservação de Energia Mecânica - REMOVIDO)
     def criar_tela12(self):
+
+        ##     ##
+         ##   ##
+          ## ##
+           ###
+          ## ##
+         ##   ##
+        ##     ##
 
         self.tela12 = tk.Frame(self.root)
         self.tela12.pack()
@@ -823,7 +839,7 @@ class Software:
                 resultado.set(f"Força: {forca:.2f} N")
 
             except ValueError:
-                resultado.set("Por favor, insira valores válidos.")
+                resultado.set("Por favor, insira valores válidos / Preencha todos os campos.")
 
         #FUNÇÃO LIMPAR OS CAMPOS
         def limpar_campos():
@@ -867,6 +883,14 @@ class Software:
 
     #CRIA A TELA 14 (Lei de Snell - REMOVIDO)
     def criar_tela14(self):
+
+        ##     ##
+         ##   ##
+          ## ##
+           ###
+          ## ##
+         ##   ##
+        ##     ##
 
         self.tela14 = tk.Frame(self.root)
         self.tela14.pack()
@@ -949,7 +973,7 @@ class Software:
 
             except ValueError:
 
-                resultado.set("Por favor, insira valores válidos.")
+                resultado.set("Por favor, insira valores válidos / Preencha todos os campos.")
 
         #FUNÇÃO LIMPAR OS CAMPOS
         def limpar_campos():
@@ -1039,7 +1063,7 @@ class Software:
                 resultado.set(f"Tensão Elétrica (V): {tensao:.2f} V")
 
             except ValueError:
-                resultado.set("Por favor, insira valores válidos.")
+                resultado.set("Por favor, insira valores válidos / Preencha todos os campos.")
 
         # Função para limpar os campos
         def limpar_campos():
@@ -1209,11 +1233,11 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela17, text="Velocidade média" ,font=('Arial', 14, 'bold'))
-        label6.pack(pady=30)
+        label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela17, text='Vm = ΔS / Δt')
-        label6_1.pack(pady=15)
+        label6_1.pack(pady=20)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -1288,9 +1312,24 @@ class Software:
         label_resultado = tk.Label(self.tela17, textvariable=resultado)
         label_resultado.pack()
 
+        #BOTÃO CONTEXTUALIZAÇÃO
+        btn_contexto = tk.Button(self.tela17, text="Contextualização da formula", command=self.ir_para_tela47)
+        btn_contexto.pack(pady=10)
+
+        #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
+        frame2 = tk.Frame(self.tela17)
+        frame2.pack()
+        #CRIANDO BOTOES
+        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela48)
+        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela49)
+        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela50)
+        botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
+        botao_tela22.pack(side=tk.LEFT,padx=10)
+
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela17, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=40)
+        btn_tela_anterior.pack(side='bottom',pady=25)
 
 
     #CRIA A TELA 18 (Densidade)
@@ -2449,7 +2488,7 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela46, text="W = F ⋅ d ⋅ cos(θ)")
-        label6_1.pack(pady=20)
+        label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
@@ -2478,60 +2517,184 @@ class Software:
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela46, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=15)
+        btn_tela_anterior.pack(side='bottom',pady=10)
 
 
-    #CRIA A TELA 47 ()
+    #CRIA A TELA 47 (CONTEXTUALIZAÇÃO - Velocidade média)
     def criar_tela47(self):
 
         self.tela47 = tk.Frame(self.root)
         self.tela47.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela47, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 48 ()
+        #TEXTO INFORMATIVO DE TELA
+        label6_1 = tk.Label(self.tela47, text="Vm = ΔS / Δt")
+        label6_1.pack(pady=15)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+            A fórmula da velocidade média é usada para determinar a velocidade média de um
+        objeto em movimento. Ela descreve o quanto a posição de um objeto mudou em relação
+        ao tempo decorrido.
+
+            A fórmula pode ser usada em situações cotidianas, como medir a velocidade média
+        de um veículo em uma viagem de carro, de um esportista durante uma corrida, ou de um
+        avião durante um voo, ou em análises científicas, como a velocidade média de um
+        planeta ao longo de sua órbita ou a velocidade média de uma partícula em uma
+        experiência de física de partículas.
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela47, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela47, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=15)
+
+
+    #CRIA A TELA 48 (EXEMPLO PRATICO 1 - Velocidade média)
     def criar_tela48(self):
 
         self.tela48 = tk.Frame(self.root)
         self.tela48.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela48, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 49 ()
-    def criar_tela(self):
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela48, text="Vm = ΔS / Δt")
+        label6_1.pack(pady=10)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Se um carro percorreu uma distância de 300 km em 4 horas, qual foi a velocidade
+        média do carro durante a viagem?
+        
+        Dados:
+
+        Δs = 300 km
+        Δt = 4 horas
+
+        Resolução:
+
+        V = 300km / 4h
+        V = 75km/h
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela48, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela48, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=10)
+
+
+    #CRIA A TELA 49 (EXEMPLO PRATICO 2 - Velocidade média)
+    def criar_tela49(self):
 
         self.tela49 = tk.Frame(self.root)
         self.tela49.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela49, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
 
-    #CRIA A TELA 50 ()
-    def criar_tela(self):
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela49, text="Vm = ΔS / Δt")
+        label6_1.pack(pady=10)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Se um esportista percorreu uma distância de 1.500 metros em 5 minutos, qual foi a velocidade média do corredor?
+        
+        Dados:
+
+        Δs = 1.500 metros
+        Δt = 5 minutos (convertido para segundos: 5min x 60 = 300s)
+
+        Resolução:
+
+        V = 1.500m / 300s
+        V = 5m/s
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela49, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela49, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=10)
+
+
+    #CRIA A TELA 50 (EXEMPLO PRATICO 3 - Velocidade média)
+    def criar_tela50(self):
 
         self.tela50 = tk.Frame(self.root)
         self.tela50.pack()
 
+        #TEXTO INFORMATIVO DE TELA
+        label6 = tk.Label(self.tela50, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.pack(pady=10)
+
+        #TEXTO INFORMATIVO DE TELA 2
+        label6_1 = tk.Label(self.tela50, text="Vm = ΔS / Δt")
+        label6_1.pack(pady=10)
+
+        #TEXTO TELA OBJETIVO PRINCIPAL
+        texto = """
+        Se um ciclista percorreu uma distância de 20 km em 2 horas, qual foi
+        a velocidade média do ciclista?
+        
+        Dados:
+
+        Δd = 20 km
+        Δt = 2 horas
+
+        Resolução:
+
+        V = 20km / 2 horas 
+        V = 10 km/h 
+        """
+
+        #RÓTULO DO TEXTO
+        label4_1 = tk.Label(self.tela50, text=texto, justify="left", font=('Arial', 12))
+        label4_1.pack()
+
+        #BOTÃO VOLTAR TELA
+        btn_tela_anterior = tk.Button(self.tela50, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=10)
+
 
     #CRIA A TELA 51 ()
-    def criar_tela(self):
+    def criar_tela51(self):
 
         self.tela51 = tk.Frame(self.root)
         self.tela51.pack()
 
 
     #CRIA A TELA 52 ()
-    def criar_tela(self):
+    def criar_tela52(self):
 
         self.tela52 = tk.Frame(self.root)
         self.tela52.pack()
 
 
     #CRIA A TELA 53 ()
-    def criar_tela(self):
+    def criar_tela53(self):
 
         self.tela53 = tk.Frame(self.root)
         self.tela53.pack()
 
 
     #CRIA A TELA 54 ()
-    def criar_tela(self):
+    def criar_tela54(self):
 
         self.tela54 = tk.Frame(self.root)
         self.tela54.pack()
@@ -2853,19 +3016,55 @@ class Software:
         self.criar_tela46()
         self.tela_atual = 46
 
-    #FUNÇÃO IR PARA TELA 47 ()
+    #FUNÇÃO IR PARA TELA 47 (CONTEXUALIZAÇÃO - Velocidade média)
     def ir_para_tela47(self):
 
-        self.tela2.destroy()
+        self.tela17.destroy()
         self.criar_tela47()
         self.tela_atual = 47
 
-    #FUNÇÃO IR PARA TELA 48 ()
+    #FUNÇÃO IR PARA TELA 48 (EXEMPLO PRATICO 1 - Velocidade média)
     def ir_para_tela48(self):
 
-        self.tela2.destroy()
+        self.tela17.destroy()
         self.criar_tela48()
         self.tela_atual = 48
+
+    #FUNÇÃO IR PARA TELA 49 (EXEMPLO PRATICO 2 - Velocidade média)
+    def ir_para_tela49(self):
+
+        self.tela17.destroy()
+        self.criar_tela49()
+        self.tela_atual = 49
+
+    #FUNÇÃO IR PARA TELA 50 (EXEMPLO PRATICO 3 - Velocidade média)
+    def ir_para_tela50(self):
+
+        self.tela17.destroy()
+        self.criar_tela50()
+        self.tela_atual = 50
+
+    #FUNÇÃO IR PARA TELA 51 ()
+    def ir_para_tela51(self):
+
+        self.tela2.destroy()
+        self.criar_tela51()
+        self.tela_atual = 51
+
+    #FUNÇÃO IR PARA TELA 52 ()
+    def ir_para_tela52(self):
+
+        self.tela2.destroy()
+        self.criar_tela52()
+        self.tela_atual = 52
+
+    #FUNÇÃO IR PARA TELA 53 ()
+    def ir_para_tela53(self):
+
+        self.tela2.destroy()
+        self.criar_tela53()
+        self.tela_atual = 53
+    
 
 ########################################## FUNÇÕES VOLTAR TELA ##############################################################
 
@@ -3096,7 +3295,7 @@ class Software:
             self.criar_tela13()
             self.tela_atual = 13
 
-        #SE ESTIVER NA TELA 39, VOLTA PARA 15 ()
+        #SE ESTIVER NA TELA 39, VOLTA PARA 15 (Lei de Ohm)
         elif self.tela_atual == 39:
             self.tela39.destroy()
             self.criar_tela15()
@@ -3120,29 +3319,53 @@ class Software:
             self.criar_tela15()
             self.tela_atual = 15
 
-        #SE ESTIVER NA TELA 43, VOLTA PARA 15 (Trabalho de uma força)
+        #SE ESTIVER NA TELA 43, VOLTA PARA 16 (Trabalho de uma força)
         elif self.tela_atual == 43:
             self.tela43.destroy()
             self.criar_tela16()
             self.tela_atual = 16
 
-        #SE ESTIVER NA TELA 44, VOLTA PARA 15 (Trabalho de uma força)
+        #SE ESTIVER NA TELA 44, VOLTA PARA 16 (Trabalho de uma força)
         elif self.tela_atual == 44:
             self.tela44.destroy()
             self.criar_tela16()
             self.tela_atual = 16
 
-        #SE ESTIVER NA TELA 45, VOLTA PARA 15 (Trabalho de uma força)
+        #SE ESTIVER NA TELA 45, VOLTA PARA 16 (Trabalho de uma força)
         elif self.tela_atual == 45:
             self.tela45.destroy()
             self.criar_tela16()
             self.tela_atual = 16
 
-        #SE ESTIVER NA TELA 46, VOLTA PARA 15 (Trabalho de uma força)
+        #SE ESTIVER NA TELA 46, VOLTA PARA 16 (Trabalho de uma força)
         elif self.tela_atual == 46:
             self.tela46.destroy()
             self.criar_tela16()
             self.tela_atual = 16
+
+        #SE ESTIVER NA TELA 47, VOLTA PARA 17 (Velocidade média)
+        elif self.tela_atual == 47:
+            self.tela47.destroy()
+            self.criar_tela17()
+            self.tela_atual = 17
+
+        #SE ESTIVER NA TELA 48, VOLTA PARA 17 (Velocidade média)
+        elif self.tela_atual == 48:
+            self.tela48.destroy()
+            self.criar_tela17()
+            self.tela_atual = 17
+
+        #SE ESTIVER NA TELA 49, VOLTA PARA 17 (Velocidade média)
+        elif self.tela_atual == 49:
+            self.tela49.destroy()
+            self.criar_tela17()
+            self.tela_atual = 17
+
+        #SE ESTIVER NA TELA 50, VOLTA PARA 17 (Velocidade média)
+        elif self.tela_atual == 50:
+            self.tela50.destroy()
+            self.criar_tela17()
+            self.tela_atual = 17
 
 ##################################### INICIALIZADOR ######################################################################################################################################################################################################################################################################################
 
