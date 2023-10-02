@@ -1255,7 +1255,7 @@ class Software:
         label_delta_s = tk.Label(self.tela17, text="[ΔS] Variação de Posição (m):")
         label_delta_s.pack()
 
-        entry_delta_s = ttk.Entry(self.tela17, width=25)
+        entry_delta_s = ttk.Entry(self.tela17, width=30)
         entry_delta_s.placeholder = "Insira a Variação de Posição (m)"
         entry_delta_s.insert(0, entry_delta_s.placeholder)
         entry_delta_s.bind("<FocusIn>", remover_placeholder)
@@ -1266,7 +1266,7 @@ class Software:
         label_delta_t = tk.Label(self.tela17, text="[Δt] Variação de Tempo (s):")
         label_delta_t.pack()
 
-        entry_delta_t = ttk.Entry(self.tela17, width=25)
+        entry_delta_t = ttk.Entry(self.tela17, width=30)
         entry_delta_t.placeholder = "Insira a Variação de Tempo (s)"
         entry_delta_t.insert(0, entry_delta_t.placeholder)
         entry_delta_t.bind("<FocusIn>", remover_placeholder)
