@@ -40,6 +40,7 @@ class Software:
         
         #PRIMEIRA TELA (INICIO)
         self.tela1 = tk.Frame(self.root)
+        self.tela1.configure(bg='#e6e0c4')
         self.tela1.pack()
 
         #FUNÇÃO ENCERRAR PROGRAMA
@@ -49,20 +50,23 @@ class Software:
 
         #MENSAGEM DE TEXTO TELA 1
         label1 = tk.Label(self.tela1, text="PROJETO INTEGRADOR - DESAFIOS DE PROGRAMAÇÃO", font=('Arial', 16, 'bold'))
+        label1.configure(bg="#e6e0c4")
         label1.pack(pady=40)
 
         #BOTAO INICIAR VAI PARA A PROXIMA TELA
         btn_proxima_tela1 = tk.Button(self.tela1, text="INICIAR", command=self.ir_para_tela2, bg='blue', fg='white')
         btn_proxima_tela1.pack(fill="both", expand=True, pady=80)
 
-        #MENSAGEM DE TEXTO TELA 1
-        label1 = tk.Label(self.tela1, text="Projeto realizado por:")
-        label1.pack(pady=10)
+        #MENSAGEM DE TEXTO TELA 2
+        label2 = tk.Label(self.tela1, text="Projeto realizado por:")
+        label2.configure(bg="#e6e0c4")
+        label2.pack(pady=10)
 
         #LISTAGEM ALUNOS
         alunos = "Matheus Henrique de Oliveira \n Peterson dos Santos Ferreira \n Lenin Misquevis Pellizzoni \n Felipe Albino Rafaldini Oliveira"
-        label2 = tk.Label(self.tela1, text=alunos)
-        label2.pack()
+        label3 = tk.Label(self.tela1, text=alunos)
+        label3.configure(bg="#e6e0c4")
+        label3.pack()
 
         #BOTAO ENCERRAR O SOFTWARE
         botao = tk.Button(self.tela1, text="Encerrar", command=encerrar_programa, bg='red', fg='white')
@@ -73,6 +77,7 @@ class Software:
     def criar_tela2(self):
 
         self.tela2 = tk.Frame(self.root)
+        self.tela2.configure(bg='#e6e0c4')
         self.tela2.pack()
 
         #MENSAGEM DE TEXTO TELA 2
@@ -3555,5 +3560,7 @@ class Software:
 #INCIALIZADOR DA PRIMEIRA JANELA
 if __name__ == "__main__":
     root = tk.Tk()
+    root.iconbitmap('icone-projeto.ico')
+    root.configure(bg='#e6e0c4')
     app = Software(root)
     root.mainloop()
