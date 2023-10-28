@@ -23,7 +23,7 @@ class Software:
 
         self.root = root
         #DEFINE O TITULO DO PROGRAMA
-        root.title("PROJETO INTEGRADOR")
+        root.title("PROJETO INTEGRADOR - DESAFIOS DE PROGRAMAÇÃO")
         #DEFINE A ESCALA DO PROGRAMA
         root.geometry("900x500")
         #IMPOSIBILITA A REDIMENÇÃO DO PROGRAMA
@@ -82,6 +82,7 @@ class Software:
 
         #MENSAGEM DE TEXTO TELA 2
         label2 = tk.Label(self.tela2, text="ESCOLHA UMA OPÇÃO",font=('Arial', 16, 'bold'))
+        label2.configure(bg="#e6e0c4")
         label2.pack(pady=70)
         
         #BOTÃO IR PARA AS PRINCIPAIS FORMULAS
@@ -106,14 +107,17 @@ class Software:
     def criar_tela3(self):
 
         self.tela3 = tk.Frame(self.root)
+        self.tela3.configure(bg='#e6e0c4')
         self.tela3.pack()
 
         #MENSAGEM DE TEXTO TELA 3
         label3 = tk.Label(self.tela3, text="SELECIONE UMA FORMULA",font=('Arial', 14, 'bold'))
+        label3.configure(bg="#e6e0c4")
         label3.pack(pady=20)
 
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
         frame1 = tk.Frame(self.tela3)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO A PRIMEIRA FILEIRA DE BOTOES
         button1 = tk.Button(frame1, text="Lei de movimento de Newton\n(Segunda lei)\nF = m * a",command=self.ir_para_tela7)
@@ -127,6 +131,7 @@ class Software:
 
         #CRIANDO O FRAME DA SEGUNDA LINHA DE BOTOES
         frame2 = tk.Frame(self.tela3)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
         button5 = tk.Button(frame2, text="Energia Potencial\n Gravitacional\nEPG = m * g * h",command=self.ir_para_tela11)
@@ -134,23 +139,24 @@ class Software:
         button7 = tk.Button(frame2, text="Lei de Hooke\n (Lei da Elasticidade)\nF = -k * x",command=self.ir_para_tela13)
         #button8 = tk.Button(frame2, text="Lei de Snell\n (Lei da Refração)\nn1.sen(i) = n2.sen(r)",command=self.ir_para_tela14)
         button9 = tk.Button(frame2, text="Lei de Ohm\n (Primeira lei)\nV = I * R",command=self.ir_para_tela15)
-        button5.pack(side=tk.LEFT,padx=10, pady=40)
+        button5.pack(side=tk.LEFT,padx=30, pady=40)
         #button6.pack(side=tk.LEFT,padx=10, pady=40)
-        button7.pack(side=tk.LEFT,padx=10, pady=40)
-        button9.pack(side=tk.LEFT,padx=10, pady=10)
+        button7.pack(side=tk.LEFT,padx=30, pady=40)
+        button9.pack(side=tk.LEFT,padx=30, pady=10)
         #button8.pack(side=tk.LEFT,padx=10, pady=40)
 
 
         #CRIANDO O FRAME DA TERCEIRA LINHA DE BOTOES
         frame3 = tk.Frame(self.tela3)
+        frame3.configure(bg='#e6e0c4')
         frame3.pack()
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
         button10 = tk.Button(frame3, text="Trabalho de uma força\nW = F * d * cos(θ)",command=self.ir_para_tela16)
         button11 = tk.Button(frame3, text="Velocidade média\nVm = ΔS / Δt",command=self.ir_para_tela17)
         button12 = tk.Button(frame3, text="Densidade\nd = m / v",command=self.ir_para_tela18)
-        button10.pack(side=tk.LEFT,padx=10, pady=10)
-        button11.pack(side=tk.LEFT,padx=10, pady=10)
-        button12.pack(side=tk.LEFT,padx=10, pady=10)
+        button10.pack(side=tk.LEFT,padx=30, pady=10)
+        button11.pack(side=tk.LEFT,padx=30, pady=10)
+        button12.pack(side=tk.LEFT,padx=30, pady=10)
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela3, text="Voltar", command=self.voltar_tela)
@@ -161,10 +167,12 @@ class Software:
     def criar_tela4(self):
 
         self.tela4 = tk.Frame(self.root)
+        self.tela4.configure(bg='#e6e0c4')
         self.tela4.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label4 = tk.Label(self.tela4, text="OBJETIVO DO PROJETO",font=('Arial', 14, 'bold'))
+        label4.configure(bg="#e6e0c4")
         label4.pack(pady=30)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -186,6 +194,7 @@ class Software:
 
         #RÓTULO DO TEXTO
         label4_1 = tk.Label(self.tela4, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label4_1.configure(bg="#e6e0c4")
         label4_1.pack()
 
         #BOTÃO VOLTAR TELA
@@ -197,10 +206,12 @@ class Software:
     def criar_tela5(self):
 
         self.tela5 = tk.Frame(self.root)
+        self.tela5.configure(bg='#e6e0c4')
         self.tela5.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label5 = tk.Label(self.tela5, text="AGRADECIMENTOS E REFERÊNCIAS" ,font=('Arial', 14, 'bold'))
+        label5.configure(bg="#e6e0c4")
         label5.pack(pady=30, side='top', anchor='n')
 
         #TEXTO TELA AGRADECIMENTOS
@@ -225,6 +236,7 @@ class Software:
 
         #RÓTULO DO TEXTO
         label5_1 = tk.Label(self.tela5, text=texto, justify="left", padx=10, pady=10)
+        label5_1.configure(bg="#e6e0c4")
         label5_1.pack(anchor='n')
 
         #BOTÃO VOLTAR TELA
@@ -236,6 +248,7 @@ class Software:
     def criar_tela6(self):
 
         self.tela6 = tk.Frame(self.root)
+        self.tela6.configure(bg='#e6e0c4')
         self.tela6.pack()
 
         #FUNÇÃO ABRIR LINK DO GITHUB
@@ -262,6 +275,7 @@ class Software:
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela6, text="GITHUB DO PROJETO" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg="#e6e0c4")
         label6.pack(pady=30)
 
         #BOTÃO PARA ABRIR O GITHUB
@@ -270,6 +284,7 @@ class Software:
 
         #CAMPO DE TEXTO PARA INFORMAR O USUARIO PARA COPIAR O LINK
         label6_1 = tk.Label(self.tela6, text="Não consegue abrir o link? Copie ele abaixo e cole em seu navegador!",font=('Arial', 14, 'bold'))
+        label6_1.configure(bg="#e6e0c4")
         label6_1.pack(pady=5)
 
         #DEFINE O CAMPO DO TEXTO
@@ -295,14 +310,17 @@ class Software:
     def criar_tela7(self):
 
         self.tela7 = tk.Frame(self.root)
+        self.tela7.configure(bg='#e6e0c4')
         self.tela7.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela7, text="Lei de Movimento de Newton (Segunda Lei)" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg="#e6e0c4")
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela7, text="F = m . a")
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=5)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
@@ -319,6 +337,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_massa = tk.Label(self.tela7, text="Massa (kg):")
+        label_massa.configure(bg='#e6e0c4')
         label_massa.pack()
 
         entry_massa = ttk.Entry(self.tela7)
@@ -330,6 +349,7 @@ class Software:
 
         #TEXTO ACELERAÇÃO DO CAMPO DE ENTRADA
         label_aceleracao = tk.Label(self.tela7, text="Aceleração (m/s²):")
+        label_aceleracao.configure(bg='#e6e0c4')
         label_aceleracao.pack()
 
         entry_aceleracao = ttk.Entry(self.tela7, width=25)
@@ -363,6 +383,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela7)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
@@ -373,6 +394,7 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela7, textvariable=resultado)
+        label_resultado.configure(bg='#e6e0c4')
         label_resultado.pack(pady=10)
 
         #BOTÃO CONTEXTUALIZAÇÃO
@@ -381,6 +403,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela7)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
         botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela20)
@@ -399,14 +422,17 @@ class Software:
     def criar_tela8(self):
 
         self.tela8 = tk.Frame(self.root)
+        self.tela8.configure(bg='#e6e0c4')
         self.tela8.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela8, text="Lei da Gravitação Universal de Newton" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg="#e6e0c4")
         label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela8, text="F = G * (m1 * m2) / d^2")
+        label6_1.configure(bg="#e6e0c4")
         label6_1.pack(pady=10)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
@@ -423,6 +449,7 @@ class Software:
 
         #TEXTO MASSA 1 CAMPO DE ENTRADA
         label_massa1 = tk.Label(self.tela8, text="Massa 1 (kg):")
+        label_massa1.configure(bg='#e6e0c4')
         label_massa1.pack()
 
         entry_massa1 = ttk.Entry(self.tela8, width=20)
@@ -434,6 +461,7 @@ class Software:
 
         #TEXTO MASSA 2 CAMPO DE ENTRADA
         label_massa2 = tk.Label(self.tela8, text="Massa 2 (kg):")
+        label_massa2.configure(bg='#e6e0c4')
         label_massa2.pack()
 
         entry_massa2 = ttk.Entry(self.tela8, width=20)
@@ -445,6 +473,7 @@ class Software:
 
         #TEXTO DISTANCIA CAMPO DE ENTRADA
         label_distancia = tk.Label(self.tela8, text="Distância (m):")
+        label_distancia.configure(bg='#e6e0c4')
         label_distancia.pack()
 
         entry_distancia = ttk.Entry(self.tela8, width=20)
@@ -485,6 +514,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela8)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
@@ -495,6 +525,7 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela8, textvariable=resultado, padx=10, pady=10)
+        label_resultado.configure(bg='#e6e0c4')
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
@@ -503,6 +534,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela8)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
         botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela24)
@@ -540,14 +572,17 @@ class Software:
     def criar_tela10(self):
 
         self.tela10 = tk.Frame(self.root)
+        self.tela10.configure(bg='#e6e0c4')
         self.tela10.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela10, text="Energia cinética" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg="#e6e0c4")
         label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela10, text="Ec = m . v² / 2")
+        label6_1.configure(bg="#e6e0c4")
         label6_1.pack(pady=10)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
@@ -564,6 +599,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_massa = tk.Label(self.tela10, text="Massa (kg):")
+        label_massa.configure(bg='#e6e0c4')
         label_massa.pack()
 
         entry_massa = ttk.Entry(self.tela10)
@@ -573,8 +609,9 @@ class Software:
         entry_massa.bind("<FocusOut>", restaurar_placeholder)
         entry_massa.pack()
 
-        #TEXTO FORÇA DO CAMPO DE ENTRADA
+        #TEXTO VELOCIDADE DO CAMPO DE ENTRADA
         entry_velocidade = tk.Label(self.tela10, text="Velocidade (m/s):")
+        entry_velocidade.configure(bg='#e6e0c4')
         entry_velocidade.pack()
 
         entry_velocidade = ttk.Entry(self.tela10, width=25)
@@ -609,6 +646,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela10)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
@@ -619,6 +657,7 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela10, textvariable=resultado)
+        label_resultado.configure(bg='#e6e0c4')
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
@@ -627,6 +666,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela10)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
         botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela28)
@@ -645,18 +685,22 @@ class Software:
     def criar_tela11(self):
 
         self.tela11 = tk.Frame(self.root)
+        self.tela11.configure(bg='#e6e0c4')
         self.tela11.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela11, text="Energia Potencial Gravitacional" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela11, text='EPG = m * g * h')
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela11, text='Sendo que g pode variar entre 9.8, 9.81 e 10 m/s²')
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
@@ -673,6 +717,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_massa = tk.Label(self.tela11, text="[m] Massa (kg):")
+        label_massa.configure(bg='#e6e0c4')
         label_massa.pack()
 
         entry_massa = ttk.Entry(self.tela11)
@@ -684,6 +729,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_gravidade = tk.Label(self.tela11, text="[g] Aceleração da gravidade (m/s²):")
+        label_gravidade.configure(bg='#e6e0c4')
         label_gravidade.pack()
 
         entry_gravidade = ttk.Entry(self.tela11, width=25)
@@ -695,6 +741,7 @@ class Software:
 
         #TEXTO FORÇA DO CAMPO DE ENTRADA
         label_altura = tk.Label(self.tela11, text="[h] Altura (m):")
+        label_altura.configure(bg='#e6e0c4')
         label_altura.pack()
 
         entry_altura = ttk.Entry(self.tela11)
@@ -731,6 +778,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela11)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
@@ -741,6 +789,7 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela11, textvariable=resultado)
+        label_resultado.configure(bg='#e6e0c4')
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
@@ -749,6 +798,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela11)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
         botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela32)
@@ -786,14 +836,17 @@ class Software:
     def criar_tela13(self):
 
         self.tela13 = tk.Frame(self.root)
+        self.tela13.configure(bg='#e6e0c4')
         self.tela13.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela13, text="Lei de Hooke" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela13, text='F = -k * x')
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
@@ -810,6 +863,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_constante_elastica = tk.Label(self.tela13, text="[k] Constante Elástica (N/m):")
+        label_constante_elastica.configure(bg='#e6e0c4')
         label_constante_elastica.pack()
 
         entry_constante_elastica = ttk.Entry(self.tela13, width=25)
@@ -821,6 +875,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_deformacao = tk.Label(self.tela13, text="[x] Deformação (m):")
+        label_deformacao.configure(bg='#e6e0c4')
         label_deformacao.pack()
 
         entry_deformacao = ttk.Entry(self.tela13)
@@ -854,6 +909,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela13)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
@@ -864,6 +920,7 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela13, textvariable=resultado)
+        label_resultado.configure(bg='#e6e0c4')
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
@@ -872,6 +929,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela13)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
         botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela36)
@@ -1010,14 +1068,17 @@ class Software:
     def criar_tela15(self):
 
         self.tela15 = tk.Frame(self.root)
+        self.tela15.configure(bg='#e6e0c4')
         self.tela15.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela15, text="Lei de Ohm" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela15, text='V = I x R')
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=15)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
@@ -1034,6 +1095,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_corrente = tk.Label(self.tela15, text="[I] Corrente (A):")
+        label_corrente.configure(bg='#e6e0c4')
         label_corrente.pack()
 
         entry_corrente = ttk.Entry(self.tela15)
@@ -1045,6 +1107,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_resistencia = tk.Label(self.tela15, text="[R] Resistência (Ω):")
+        label_resistencia.configure(bg='#e6e0c4')
         label_resistencia.pack()
 
         entry_resistencia = ttk.Entry(self.tela15)
@@ -1078,6 +1141,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela15)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
@@ -1088,6 +1152,7 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela15, textvariable=resultado)
+        label_resultado.configure(bg='#e6e0c4')
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
@@ -1096,6 +1161,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela15)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
         botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela40)
@@ -1114,19 +1180,23 @@ class Software:
     def criar_tela16(self):
 
         self.tela16 = tk.Frame(self.root)
+        self.tela16.configure(bg='#e6e0c4')
         self.tela16.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela16, text="Trabalho de uma força" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
-        label6 = tk.Label(self.tela16, text="Caso não houver um ângulo cos(θ), digitar 0" ,font=('Arial', 12))
-        label6.pack(pady=5)
+        label6_1 = tk.Label(self.tela16, text="Caso não houver um ângulo cos(θ), digitar 0" ,font=('Arial', 12))
+        label6_1.configure(bg='#e6e0c4')
+        label6_1.pack(pady=5)
 
         #TEXTO INFORMATIVO DE TELA
-        label6_1 = tk.Label(self.tela16, text='W = F * d * cos(θ)')
-        label6_1.pack(pady=5)
+        label6_2 = tk.Label(self.tela16, text='W = F * d * cos(θ)')
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack(pady=5)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
         def remover_placeholder(event):
@@ -1142,6 +1212,7 @@ class Software:
                 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_forca = tk.Label(self.tela16, text="[F] Força aplicada (N):")
+        label_forca.configure(bg='#e6e0c4')
         label_forca.pack()
 
         entry_forca = ttk.Entry(self.tela16)
@@ -1153,6 +1224,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_d = tk.Label(self.tela16, text="[d] Distância (m):")
+        label_d.configure(bg='#e6e0c4')
         label_d.pack()
 
         entry_distancia = ttk.Entry(self.tela16)
@@ -1164,6 +1236,7 @@ class Software:
 
         #TEXTO FORÇA DO CAMPO DE ENTRADA
         label_a = tk.Label(self.tela16, text="[θ] Ângulo (x°):")
+        label_a.configure(bg='#e6e0c4')
         label_a.pack()
 
         entry_angulo = ttk.Entry(self.tela16, width=30)
@@ -1175,15 +1248,15 @@ class Software:
 
         def calcular():
             try:
-                # Obter os valores inseridos pelo usuário
+                #SOLICITA OS VALORES PARA O USUARIO
                 forca = float(entry_forca.get())
                 distancia = float(entry_distancia.get())
                 angulo = float(entry_angulo.get())
 
-                # Calcular o trabalho
+                #CALCULANDO A FORMULA
                 trabalho = forca * distancia * (math.cos(math.radians(angulo)))
 
-                # Exibir o resultado na janela
+                #MOSTRAR O RESULTADO NA TELA
                 resultado.set(f"Trabalho: {trabalho:.2f} J")
 
             except ValueError:
@@ -1198,6 +1271,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela16)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
@@ -1208,6 +1282,7 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela16, textvariable=resultado)
+        label_resultado.configure(bg='#e6e0c4')
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
@@ -1216,6 +1291,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela16)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
         botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela44)
@@ -1234,14 +1310,17 @@ class Software:
     def criar_tela17(self):
 
         self.tela17 = tk.Frame(self.root)
+        self.tela17.configure(bg='#e6e0c4')
         self.tela17.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela17, text="Velocidade média" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela17, text='Vm = ΔS / Δt')
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
@@ -1258,6 +1337,7 @@ class Software:
                 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_delta_s = tk.Label(self.tela17, text="[ΔS] Variação de Posição (m):")
+        label_delta_s.configure(bg='#e6e0c4')
         label_delta_s.pack()
 
         entry_delta_s = ttk.Entry(self.tela17, width=30)
@@ -1269,6 +1349,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_delta_t = tk.Label(self.tela17, text="[Δt] Variação de Tempo (s):")
+        label_delta_t.configure(bg='#e6e0c4')
         label_delta_t.pack()
 
         entry_delta_t = ttk.Entry(self.tela17, width=30)
@@ -1305,6 +1386,7 @@ class Software:
             
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela17)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
@@ -1315,6 +1397,7 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela17, textvariable=resultado)
+        label_resultado.configure(bg='#e6e0c4')
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
@@ -1323,6 +1406,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela17)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
         botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela48)
@@ -1341,14 +1425,17 @@ class Software:
     def criar_tela18(self):
 
         self.tela18 = tk.Frame(self.root)
+        self.tela18.configure(bg='#e6e0c4')
         self.tela18.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela18, text="Densidade" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela18, text='d = m / v')
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=15)
 
         #FUNÇÃO PARA REMOVER O TEXTO DO PLACEHOLDER
@@ -1365,6 +1452,7 @@ class Software:
                 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_massa = tk.Label(self.tela18, text="[m] Massa (kg):")
+        label_massa.configure(bg='#e6e0c4')
         label_massa.pack()
 
         entry_massa = ttk.Entry(self.tela18)
@@ -1376,6 +1464,7 @@ class Software:
 
         #TEXTO MASSA DO CAMPO DE ENTRADA
         label_delta_t = tk.Label(self.tela18, text="[v] Volume (m³):")
+        label_delta_t.configure(bg='#e6e0c4')
         label_delta_t.pack()
 
         entry_volume = ttk.Entry(self.tela18)
@@ -1388,19 +1477,19 @@ class Software:
         # Função para calcular a densidade
         def calcular():
             try:
-                # Obtém os valores inseridos pelo usuário
+                #SOLICITA OS VALORES PARA O USUARIO
                 massa = float(entry_massa.get())
                 volume = float(entry_volume.get())
 
-                #Validar se o índice de refração 2 é zero
+                #SE O VALOR DO VOLUME FOR ZERO, MOSTRA UM ERRO
                 if volume == 0:
                     resultado.set("O volume não pode ser zero (0).")
                     return
 
-                # Calcula a densidade
+                #CALCULANDO A FORMULA
                 densidade = massa / volume
 
-                # Atualiza o valor da StringVar
+                #MOSTRA O VALOR NA TELA
                 resultado.set(f"Densidade: {densidade:.2f} kg/m³")
 
             except ValueError:
@@ -1414,6 +1503,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela18)
+        frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
         botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
@@ -1424,6 +1514,7 @@ class Software:
         #TEXTO PARA INFORMAR O RESULTADO DA OPERAÇÃO
         resultado = tk.StringVar()
         label_resultado = tk.Label(self.tela18, textvariable=resultado)
+        label_resultado.configure(bg='#e6e0c4')
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
@@ -1432,6 +1523,7 @@ class Software:
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
         frame2 = tk.Frame(self.tela18)
+        frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
         botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela52)
@@ -1452,14 +1544,17 @@ class Software:
     def criar_tela19(self):
 
         self.tela19 = tk.Frame(self.root)
+        self.tela19.configure(bg='#e6e0c4')
         self.tela19.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela19, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela19, text="F = m . a")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #TEXTO TELA CONTEXTUALIZAÇÃO
@@ -1480,8 +1575,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela19, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela19, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela19, text="Voltar", command=self.voltar_tela)
@@ -1492,14 +1588,17 @@ class Software:
     def criar_tela20(self):
 
         self.tela20 = tk.Frame(self.root)
+        self.tela20.configure(bg='#e6e0c4')
         self.tela20.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela20, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela20, text="F = m . a")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=25)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1517,8 +1616,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela20, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela20, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela20, text="Voltar", command=self.voltar_tela)
@@ -1529,14 +1629,17 @@ class Software:
     def criar_tela21(self):
 
         self.tela21 = tk.Frame(self.root)
+        self.tela21.configure(bg='#e6e0c4')
         self.tela21.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela21, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela21, text="F = m . a")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=25)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1554,8 +1657,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela21, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela21, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela21, text="Voltar", command=self.voltar_tela)
@@ -1566,14 +1670,17 @@ class Software:
     def criar_tela22(self):
 
         self.tela22 = tk.Frame(self.root)
+        self.tela22.configure(bg='#e6e0c4')
         self.tela22.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela22, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg="#e6e0c4")
         label6.pack(pady=20)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela22, text="F = m . a")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=15)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1592,8 +1699,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela22, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela22, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela22, text="Voltar", command=self.voltar_tela)
@@ -1604,14 +1712,17 @@ class Software:
     def criar_tela23(self):
 
         self.tela23 = tk.Frame(self.root)
+        self.tela23.configure(bg='#e6e0c4')
         self.tela23.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela23, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela23, text="F = G * (m1 * m2) / d²")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=5)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1638,8 +1749,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela23, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela23, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela23, text="Voltar", command=self.voltar_tela)
@@ -1650,14 +1762,17 @@ class Software:
     def criar_tela24(self):
 
         self.tela24 = tk.Frame(self.root)
+        self.tela24.configure(bg='#e6e0c4')
         self.tela24.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela24, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela24, text="F = G * (m1 * m2) / d²")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=25)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1675,8 +1790,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela24, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela24, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela24, text="Voltar", command=self.voltar_tela)
@@ -1687,10 +1803,12 @@ class Software:
     def criar_tela25(self):
 
         self.tela25 = tk.Frame(self.root)
+        self.tela25.configure(bg='#e6e0c4')
         self.tela25.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela25, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1708,8 +1826,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela25, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela25, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela25, text="Voltar", command=self.voltar_tela)
@@ -1720,10 +1839,12 @@ class Software:
     def criar_tela26(self):
 
         self.tela26 = tk.Frame(self.root)
+        self.tela26.configure(bg='#e6e0c4')
         self.tela26.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela26, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1741,8 +1862,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela26, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela26, text=texto, justify="center", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela26, text="Voltar", command=self.voltar_tela)
@@ -1753,14 +1875,17 @@ class Software:
     def criar_tela27(self):
 
         self.tela27 = tk.Frame(self.root)
+        self.tela27.configure(bg='#e6e0c4')
         self.tela27.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela27, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela27, text="Ec = m . v² / 2")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=5)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1785,8 +1910,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela27, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela27, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela27, text="Voltar", command=self.voltar_tela)
@@ -1797,14 +1923,17 @@ class Software:
     def criar_tela28(self):
 
         self.tela28 = tk.Frame(self.root)
+        self.tela28.configure(bg='#e6e0c4')
         self.tela28.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela28, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela28, text="Ec = m . v² / 2")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1820,8 +1949,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela28, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela28, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela28, text="Voltar", command=self.voltar_tela)
@@ -1832,14 +1962,17 @@ class Software:
     def criar_tela29(self):
 
         self.tela29 = tk.Frame(self.root)
+        self.tela29.configure(bg='#e6e0c4')
         self.tela29.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela29, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela29, text="Ec = m . v² / 2")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1854,8 +1987,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela29, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela29, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela29, text="Voltar", command=self.voltar_tela)
@@ -1866,14 +2000,17 @@ class Software:
     def criar_tela30(self):
 
         self.tela30 = tk.Frame(self.root)
+        self.tela30.configure(bg='#e6e0c4')
         self.tela30.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela30, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela30, text="Ec = m . v² / 2")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1888,8 +2025,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela30, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela30, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela30, text="Voltar", command=self.voltar_tela)
@@ -1900,14 +2038,17 @@ class Software:
     def criar_tela31(self):
 
         self.tela31 = tk.Frame(self.root)
+        self.tela31.configure(bg='#e6e0c4')
         self.tela31.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela31, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela31, text="EPG = m * g * h")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=5)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1928,8 +2069,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela31, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela31, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela31, text="Voltar", command=self.voltar_tela)
@@ -1940,14 +2082,17 @@ class Software:
     def criar_tela32(self):
 
         self.tela32 = tk.Frame(self.root)
+        self.tela32.configure(bg='#e6e0c4')
         self.tela32.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela32, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela32, text="EPG = m * g * h")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -1971,8 +2116,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela32, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela32, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela32, text="Voltar", command=self.voltar_tela)
@@ -1983,14 +2129,17 @@ class Software:
     def criar_tela33(self):
 
         self.tela33 = tk.Frame(self.root)
+        self.tela33.configure(bg='#e6e0c4')
         self.tela33.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela33, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=30)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela33, text="EPG = m * g * h")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2009,8 +2158,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela33, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela33, text=texto, justify="left", padx=10, pady=10, font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela33, text="Voltar", command=self.voltar_tela)
@@ -2021,14 +2171,17 @@ class Software:
     def criar_tela34(self):
 
         self.tela34 = tk.Frame(self.root)
+        self.tela34.configure(bg='#e6e0c4')
         self.tela34.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela34, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela34, text="EPG = m * g * h")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=5)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2054,8 +2207,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela34, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela34, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela34, text="Voltar", command=self.voltar_tela)
@@ -2066,14 +2220,17 @@ class Software:
     def criar_tela35(self):
 
         self.tela35 = tk.Frame(self.root)
+        self.tela35.configure(bg='#e6e0c4')
         self.tela35.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela35, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela35, text="F = -k * x")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=5)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2094,8 +2251,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela35, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela35, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela35, text="Voltar", command=self.voltar_tela)
@@ -2106,14 +2264,17 @@ class Software:
     def criar_tela36(self):
 
         self.tela36 = tk.Frame(self.root)
+        self.tela36.configure(bg='#e6e0c4')
         self.tela36.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela36, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela36, text="F = -k . x")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=5)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2135,8 +2296,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela36, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela36, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela36, text="Voltar", command=self.voltar_tela)
@@ -2147,14 +2309,17 @@ class Software:
     def criar_tela37(self):
 
         self.tela37 = tk.Frame(self.root)
+        self.tela37.configure(bg='#e6e0c4')
         self.tela37.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela37, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela37, text="F = -k . x")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=5)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2178,8 +2343,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela37, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela37, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela37, text="Voltar", command=self.voltar_tela)
@@ -2190,14 +2356,17 @@ class Software:
     def criar_tela38(self):
 
         self.tela38 = tk.Frame(self.root)
+        self.tela38.configure(bg='#e6e0c4')
         self.tela38.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela38, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela38, text="F = -k . x")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2215,8 +2384,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela38, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela38, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela38, text="Voltar", command=self.voltar_tela)
@@ -2227,14 +2397,17 @@ class Software:
     def criar_tela39(self):
 
         self.tela39 = tk.Frame(self.root)
+        self.tela39.configure(bg='#e6e0c4')
         self.tela39.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela39, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela39, text="V = I x R")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=15)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2257,8 +2430,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela39, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela39, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela39, text="Voltar", command=self.voltar_tela)
@@ -2269,14 +2443,17 @@ class Software:
     def criar_tela40(self):
 
         self.tela40 = tk.Frame(self.root)
+        self.tela40.configure(bg='#e6e0c4')
         self.tela40.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela40, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela40, text="V = I * R")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2296,8 +2473,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela40, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela40, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela40, text="Voltar", command=self.voltar_tela)
@@ -2308,14 +2486,17 @@ class Software:
     def criar_tela41(self):
 
         self.tela41 = tk.Frame(self.root)
+        self.tela41.configure(bg='#e6e0c4')
         self.tela41.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela41, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela41, text="V = I * R")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2335,8 +2516,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela41, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela41, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela41, text="Voltar", command=self.voltar_tela)
@@ -2347,14 +2529,17 @@ class Software:
     def criar_tela42(self):
 
         self.tela42 = tk.Frame(self.root)
+        self.tela42.configure(bg='#e6e0c4')
         self.tela42.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela42, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela42, text="V = I * R")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2374,8 +2559,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela42, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela42, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela42, text="Voltar", command=self.voltar_tela)
@@ -2386,14 +2572,17 @@ class Software:
     def criar_tela43(self):
 
         self.tela43 = tk.Frame(self.root)
+        self.tela43.configure(bg='#e6e0c4')
         self.tela43.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela43, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela43, text="W = F ⋅ d ⋅ cos(θ)")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=15)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2417,8 +2606,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela43, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela43, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela43, text="Voltar", command=self.voltar_tela)
@@ -2429,14 +2619,17 @@ class Software:
     def criar_tela44(self):
 
         self.tela44 = tk.Frame(self.root)
+        self.tela44.configure(bg='#e6e0c4')
         self.tela44.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela44, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela44, text="W = F ⋅ d ⋅ cos(θ)")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2458,8 +2651,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela44, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela44, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela44, text="Voltar", command=self.voltar_tela)
@@ -2470,14 +2664,17 @@ class Software:
     def criar_tela45(self):
 
         self.tela45 = tk.Frame(self.root)
+        self.tela45.configure(bg='#e6e0c4')
         self.tela45.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela45, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela45, text="W = F ⋅ d ⋅ cos(θ)")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2499,8 +2696,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela45, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela45, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela45, text="Voltar", command=self.voltar_tela)
@@ -2511,14 +2709,17 @@ class Software:
     def criar_tela46(self):
 
         self.tela46 = tk.Frame(self.root)
+        self.tela46.configure(bg='#e6e0c4')
         self.tela46.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela46, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela46, text="W = F ⋅ d ⋅ cos(θ)")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2543,8 +2744,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela46, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela46, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela46, text="Voltar", command=self.voltar_tela)
@@ -2555,14 +2757,17 @@ class Software:
     def criar_tela47(self):
 
         self.tela47 = tk.Frame(self.root)
+        self.tela47.configure(bg='#e6e0c4')
         self.tela47.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela47, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela47, text="Vm = ΔS / Δt")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=15)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2579,8 +2784,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela47, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela47, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela47, text="Voltar", command=self.voltar_tela)
@@ -2591,14 +2797,17 @@ class Software:
     def criar_tela48(self):
 
         self.tela48 = tk.Frame(self.root)
+        self.tela48.configure(bg='#e6e0c4')
         self.tela48.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela48, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela48, text="Vm = ΔS / Δt")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2618,8 +2827,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela48, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela48, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela48, text="Voltar", command=self.voltar_tela)
@@ -2630,14 +2840,17 @@ class Software:
     def criar_tela49(self):
 
         self.tela49 = tk.Frame(self.root)
+        self.tela49.configure(bg='#e6e0c4')
         self.tela49.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela49, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela49, text="Vm = ΔS / Δt")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2656,8 +2869,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela49, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela49, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela49, text="Voltar", command=self.voltar_tela)
@@ -2668,14 +2882,17 @@ class Software:
     def criar_tela50(self):
 
         self.tela50 = tk.Frame(self.root)
+        self.tela50.configure(bg='#e6e0c4')
         self.tela50.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela50, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela50, text="Vm = ΔS / Δt")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2695,8 +2912,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela50, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela50, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela50, text="Voltar", command=self.voltar_tela)
@@ -2707,14 +2925,17 @@ class Software:
     def criar_tela51(self):
 
         self.tela51 = tk.Frame(self.root)
+        self.tela51.configure(bg='#e6e0c4')
         self.tela51.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela51, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=25)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela51, text="d = m / v")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=20)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2731,8 +2952,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela51, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela51, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela51, text="Voltar", command=self.voltar_tela)
@@ -2743,14 +2965,17 @@ class Software:
     def criar_tela52(self):
 
         self.tela52 = tk.Frame(self.root)
+        self.tela52.configure(bg='#e6e0c4')
         self.tela52.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela52, text="EXEMPLO PRÁTICO 1" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela52, text="d = m / v")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2770,8 +2995,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela52, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela52, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela52, text="Voltar", command=self.voltar_tela)
@@ -2782,10 +3008,12 @@ class Software:
     def criar_tela53(self):
 
         self.tela53 = tk.Frame(self.root)
+        self.tela53.configure(bg='#e6e0c4')
         self.tela53.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela53, text="EXEMPLO PRÁTICO 2" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
@@ -2809,8 +3037,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela53, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela53, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela53, text="Voltar", command=self.voltar_tela)
@@ -2821,14 +3050,17 @@ class Software:
     def criar_tela54(self):
 
         self.tela54 = tk.Frame(self.root)
+        self.tela54.configure(bg='#e6e0c4')
         self.tela54.pack()
 
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela54, text="EXEMPLO PRÁTICO 3" ,font=('Arial', 14, 'bold'))
+        label6.configure(bg='#e6e0c4')
         label6.pack(pady=10)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela54, text="d = m / v")
+        label6_1.configure(bg='#e6e0c4')
         label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
@@ -2849,8 +3081,9 @@ class Software:
         """
 
         #RÓTULO DO TEXTO
-        label4_1 = tk.Label(self.tela54, text=texto, justify="left", font=('Arial', 12))
-        label4_1.pack()
+        label6_2 = tk.Label(self.tela54, text=texto, justify="left", font=('Arial', 12))
+        label6_2.configure(bg='#e6e0c4')
+        label6_2.pack()
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = tk.Button(self.tela54, text="Voltar", command=self.voltar_tela)
