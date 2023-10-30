@@ -1786,7 +1786,7 @@ class Software:
 
         Calculando o resultado:
 
-        F ≈ 0,981 N
+        F ≈ 3,980 x 10^12 N
         """
 
         #RÓTULO DO TEXTO
@@ -1822,7 +1822,7 @@ class Software:
 
         Calculando o resultado:
 
-        F ≈ 1,993x10^5 N
+        F ≈ 3,3086 x 10^-4
         """
 
         #RÓTULO DO TEXTO
@@ -1982,8 +1982,8 @@ class Software:
 
         Resolução:
 
-        Ec = 1000 kg * (25 m/s)^2 / 2
-        Ec = 31250.00J
+        Ec = 1000 kg * (25 m/s)² / 2
+        Ec = 312500.0J
         """
 
         #RÓTULO DO TEXTO
@@ -2015,13 +2015,13 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-        Um carro com uma massa de 1000 kg está viajando a uma velocidade de 25 m/s em
+        Um carro com uma massa de 1200 kg está viajando a uma velocidade de 20 m/s em
         uma estrada. Calcule a energia cinética do carro.
 
         Resolução:
 
-        Ec = 1000 kg * (25 m/s)^2 / 2
-        Ec = 31250.00J
+        Ec = 1200 kg * (20 m/s)² / 2
+        Ec = 240000.0J
         """
 
         #RÓTULO DO TEXTO
@@ -2044,7 +2044,7 @@ class Software:
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela31, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
         label6.configure(bg='#e6e0c4')
-        label6.pack(pady=30)
+        label6.pack(pady=20)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela31, text="EPG = m * g * h")
@@ -2053,23 +2053,28 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-            O calculo da Energia Potencial Gravitacional define a energia associada à um objeto que
+        O calculo da Energia Potencial Gravitacional define a energia associada à um objeto que
         viaja de uma determinada altura até seu destino final, levando em consideração a gravidade
         do ambiente na qual este objeto se encontra. O conceito foi primeiramente estudado por
         Galileu Galilei que concluiu que objetos caiam em aceleração constante, e, mais tarde, Isaac
         Newton teorizou que essa aceleração constante seria devido ao campo gravitacional da Terra 
         agindo sob os objetos que cai de uma altura.
 
-            Já no cotidiano moderno, podemos observa-lá em todos em objetos que estão distantes do
+        Já no cotidiano moderno, podemos observa-lá em todos em objetos que estão distantes do
         solo, já que a aceleração gravitacional sempre estará em ação sob corpos que estão dentro do
         campo gravitacional da Terra, como por exemplo uma caneta que cai de uma mesa, ao perder o
         contato com a mesa que a sustentava a caneta sofre uma aceleração constante devido a
         gravidade, e, dependendo da massa da mesma e da altura da mesa, podemos definir a sua energia
         potencial gravitacional através do calculo. 
+
+        U = m * g * h
+
+        Onde U é a Energia Potencial Gravitacional, m é a massa do objeto em kilogramas, g é a aceleração devido a gravidade dada em metros por segundo, 
+        e h é a altura em metros em relação a superficie que o objeto se encontra.
         """
 
         #RÓTULO DO TEXTO
-        label6_2 = tk.Label(self.tela31, text=texto, justify="left", font=('Arial', 12))
+        label6_2 = tk.Label(self.tela31, text=texto, justify="center", font=('Arial', 12))
         label6_2.configure(bg='#e6e0c4')
         label6_2.pack()
 
@@ -2144,17 +2149,20 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-        Uma maçã cai de uma árvore de 3 metros de altura, com uma energia potencial gravitacional
-        de 3.9 J, sabendo que a aceleração gravitacional da terra é de aproximadamente 10 m/s², qual
-        a massa da maçã em kg?
+        Uma maçã cai de uma árvore de 3 metros de altura, a maça pesa 130 gramas, sabendo que a aceleração gravitacional da terra é de 
+        aproximadamente 10 m/s², qual energia porencial gravitacional da maçã?
 
-        Resolução:
+        Resolução
 
-        3.9 J = m * 10 m/s² * 3 m
+        Primeiramente convertemos a massa da maça de gramas para kilogramas
 
-        m = 3.9 J / (10m/s² * 3 m)
+        Logo:
 
-        m = 0.13 kg
+        130 g = 0,13 kg
+
+        U = 0,13kg * 10 m/s² * 3 m
+
+        U = 3.9 J
         """
 
         #RÓTULO DO TEXTO
@@ -2186,24 +2194,17 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-        Um celular de 234 gramas cai de uma janela com a energia potencial gravitacional de 16 J,
-        sabendo que a aceleração gravitacional da terra é de aproximadamente 10 m/s², qual a altura
-        da qual o celular caiu?
-
-        Primeiramente devemos converter as unidades de medida do exemplo para o sistema internacional
-        de medidas kg para massa.
-
-        Dado:
-
-        234 g = 0.234 kg 
+        Um celular de 234 gramas cai de uma janela de 6,837m, sabendo que a aceleração gravitacional da terra é de 
+        aproximadamente 10 m/s², qual a energia potencial gravitacional do celular?
 
         Resolução:
 
-        16 J = 0.234 kg * 10 m/s² * h
+        Primeiramente devemos converter as unidades de medida do exemplo para o sistema internacional de medidas kg para massa.
 
-        h = 16 J / (0.234 kg * 10 m/s²)
 
-        h = 6.837 m
+        U = 0,234 kg * 10 m/s² * 6,837 m
+
+        U = 16 J
         """
 
         #RÓTULO DO TEXTO
@@ -2226,7 +2227,7 @@ class Software:
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela35, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
         label6.configure(bg='#e6e0c4')
-        label6.pack(pady=10)
+        label6.pack(pady=20)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela35, text="F = -k * x")
@@ -2236,8 +2237,8 @@ class Software:
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
             A Lei de Hooke (ou Lei da Elasticidade) é uma equação que descreve o comportamento
-        elástico de determinados matériais levando em consideração a força aplicada e a deformação
-        final do material. Criada em 1660 pelo ciêntista inglês Robert Hooke que, após observar o
+        elástico de determinados materiais levando em consideração a força aplicada e a deformação
+        final do material. Criada em 1660 pelo cientista inglês Robert Hooke que, após observar o
         comportamento mecânico de um mola, notou que quanto maior é o peso de um corpo atrelado a
         uma extremidade de uma mola, maior seria a deformação resultante.
 
@@ -2245,9 +2246,14 @@ class Software:
         determinar por exemplo a deformação de amortecedores de carros para determinar qual deverá
         ser a resistência da mola para que ela retorne o carro a sua posição natural sem que a
         mesma deforme de forma irreversível. Podemos também ver a Lei de Hooke sendo aplicada em
-        elásticos de acadêmia, utilizados para criar resistência no movimento de um ponto inicial
+        elásticos de academia, utilizados para criar resistência no movimento de um ponto inicial
         até o final do movimento, a deformação é igualmente proporcional a força aplicada pelo
         aluno no movimento, e após a recessão a força o elástico voltará a sua forma natural.
+
+        O calculo se dá por: F = -k * x 
+        Onde F é a força elástica, k é a constante da mola, e x é a deformação da mola
+
+        A constante da mola multiplicada pela deformação da mola resulta na força elástica do material.
         """
 
         #RÓTULO DO TEXTO
@@ -2324,22 +2330,17 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-        Dada uma mola de tamanho original de 20 cm, e, quando aplicada uma força elástica de
-        570N o tamanho da mola é alterado para 23 cm. Qual a constante elástica da mola?
-
-        A deformação da mola foi de 3 cm, logo, convertendo para metros, temos 0,03 m.
-
-        Dados:
-
-        570 N = k * 0,03 m
+        Dada uma mola de tamanho original de 20 cm que o tamanho é alterado para 23 cm quando e constante elástica de 19 kN/m qual a força aplicada?
 
         Resolução:
 
-        k = 570 N / 0,03 m 
+        A deformação da mola foi de 3 cm, logo, convertendo para metros, temos 0,03 m.
 
-        k = -19000 N/m
-        ou
-        k = -19 kN/m
+        F = k * 0,03 m
+
+        F = 19 kN/m / 0,03 m 
+
+        F = 570 N
         """
 
         #RÓTULO DO TEXTO
@@ -2371,16 +2372,11 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-        Um elástico de constante elástica 17,5 kN/m é puxado com uma força de 8 kN. Qual será
-        a deformação resultante em metros?
+        Um elástico sofre uma deformação de 0,4571 m e sua constante elástica é de 17,5 kN/m, qual o valor da força ele foi submetido?
 
-        Resolução:
+        F = 17500 N/m * 0,4571 m
 
-        8000 N = 17500 N/m * x
-
-        x = 8000 N / 17500 N/m
-
-        x = 0,4571 m 
+        F = 8000 N
         """
 
         #RÓTULO DO TEXTO
@@ -3022,18 +3018,18 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-        Uma peça de metal tem uma massa de 500 gramas e ocupa um volume de 250 cm³. Qual é a
+        Uma peça de metal tem uma massa de 800 gramas e ocupa um volume de 300 cm³. Qual é a
         densidade desse metal?
 
         Dados:
 
-        m = 500 gramas (convertido para quilogramas: 500g ÷ 1000 = 0,5 kg)
-        v = 250 cm³ (convertido para metros cúbicos: 250cm³ ÷ 1000000 = 0.00025m³)
+        m = 800 gramas (convertido para quilogramas: 800g ÷ 1000 = 0,8 kg)
+        v = 300 cm³ (convertido para metros cúbicos: 300cm³ ÷ 1000000 = 0.0003m³)
 
         Resolução:
 
-        d = 0,5 kg / 0,00025m³ 
-        d = 2000kg/m³
+        d = 0,8 kg / 0,00030m³ 
+        d = 1666,67 kg/m³
         """
 
         #RÓTULO DO TEXTO
