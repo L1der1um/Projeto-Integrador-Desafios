@@ -8,10 +8,12 @@ import webbrowser
 import math
 #IMPORTANDO BIBLITOECA QRCODE PARA GERAR O QRCODE DO GITHUB
 import qrcode
-##IMPORTANDO BIBLIOTECA PIL PARA AUXILAR NA ABERTURA DO QRCODE NA TELA
+#IMPORTANDO BIBLIOTECA PIL PARA AUXILAR NA ABERTURA DO QRCODE NA TELA
 from PIL import ImageTk
+#IMPORTANDO BIBLIOTECA TTKTHEMES PARA INSERIR UM TEMA NO PROGRAMA
+from ttkthemes import ThemedTk
 
-#CRIANDO A CLASSE SOFTWARE
+#INSTACIANDO CLASSE SOFTWARE
 class Software:
 
 #################################################### CONFIGURAÇÃO TKINTER ##########################################################
@@ -20,7 +22,8 @@ class Software:
 
     #FUNÇÃO INICIA TELA 1 E DEFINE CONFIGURAÇÕES DE TODAS AS TELAS
     def __init__(self, root):
-
+        
+        #INSTACIA AS TELAS COMO ROOT
         self.root = root
         #DEFINE O TITULO DO PROGRAMA
         root.title("PROJETO INTEGRADOR - DESAFIOS DE PROGRAMAÇÃO")
@@ -33,20 +36,17 @@ class Software:
         #EXECUTA A TELA PRINCIPAL
         self.criar_tela1()
 
-################################################ FUNÇÕES CRIAR TELA #############################################################
-
     #CRIA A TELA 1 (PRINCIPAL)
     def criar_tela1(self):
-        
-        #PRIMEIRA TELA (INICIO)
+
+        #CONFIG PRIMEIRA TELA (INICIO)
         self.tela1 = tk.Frame(self.root)
         self.tela1.configure(bg='#e6e0c4')
         self.tela1.pack()
 
         #FUNÇÃO ENCERRAR PROGRAMA
         def encerrar_programa():
-            
-            root.destroy()
+            self.root.destroy()
 
         #MENSAGEM DE TEXTO TELA 1
         label1 = tk.Label(self.tela1, text="PROJETO INTEGRADOR - DESAFIOS DE PROGRAMAÇÃO", font=('Arial', 16, 'bold'))
@@ -54,7 +54,7 @@ class Software:
         label1.pack(pady=40)
 
         #BOTAO INICIAR VAI PARA A PROXIMA TELA
-        btn_proxima_tela1 = tk.Button(self.tela1, text="INICIAR", command=self.ir_para_tela2, bg='blue', fg='white')
+        btn_proxima_tela1 = ttk.Button(self.tela1, text="INICIAR", command=self.ir_para_tela2)
         btn_proxima_tela1.pack(fill="both", expand=True, pady=80)
 
         #MENSAGEM DE TEXTO TELA 2
@@ -68,8 +68,8 @@ class Software:
         label3.configure(bg="#e6e0c4")
         label3.pack()
 
-        #BOTAO ENCERRAR O SOFTWARE
-        botao = tk.Button(self.tela1, text="Encerrar", command=encerrar_programa, bg='red', fg='white')
+        #BOTAO ENCERRAR O PROGRAMA
+        botao = ttk.Button(self.tela1, text="Encerrar", command=encerrar_programa)
         botao.pack(pady=30, side='bottom')
 
 
@@ -86,17 +86,17 @@ class Software:
         label2.pack(pady=70)
         
         #BOTÃO IR PARA AS PRINCIPAIS FORMULAS
-        btn_proxima_tela2 = tk.Button(self.tela2, text='PRINCIPAIS FORMULAS FÍSICA 1', command=self.ir_para_tela3)
+        btn_proxima_tela2 = ttk.Button(self.tela2, text='PRINCIPAIS FORMULAS FÍSICA 1', command=self.ir_para_tela3)
         btn_proxima_tela2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela2, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela2, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom')
 
         #BOTÕES CENTRO DA TELA
-        botao2 = tk.Button(self.tela2, text="Objetivo do projeto", command=self.ir_para_tela4)
-        botao3 = tk.Button(self.tela2, text="Agradecimentos e referencias", command=self.ir_para_tela5)
-        botao4 = tk.Button(self.tela2, text="GitHub do projeto", command=self.ir_para_tela6)
+        botao2 = ttk.Button(self.tela2, text="Objetivo do projeto", command=self.ir_para_tela4)
+        botao3 = ttk.Button(self.tela2, text="Agradecimentos e referencias", command=self.ir_para_tela5)
+        botao4 = ttk.Button(self.tela2, text="GitHub do projeto", command=self.ir_para_tela6)
         #ALINHANDO NA HORIZONTAL OS BOTÕES
         botao2.pack(side="left")
         botao3.pack(side="left",padx=10)
@@ -120,10 +120,10 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO A PRIMEIRA FILEIRA DE BOTOES
-        button1 = tk.Button(frame1, text="Lei de movimento de Newton\n(Segunda lei)\nF = m * a",command=self.ir_para_tela7)
-        button2 = tk.Button(frame1, text="Lei da gravitação\n Universal de Newton\nF = G * (m1 * m2) / d^2",command=self.ir_para_tela8)
-        #button3 = tk.Button(frame1, text="Lei de Coulomb\n (Lei de Eletrostatica)\nF = k * (|q1 * q2|) / d²",command=self.ir_para_tela9)
-        button4 = tk.Button(frame1, text="Energia cinética\nEc = m . v² / 2",command=self.ir_para_tela10)
+        button1 = ttk.Button(frame1, text="Lei de movimento de Newton\n(Segunda lei)\nF = m * a",command=self.ir_para_tela7)
+        button2 = ttk.Button(frame1, text="Lei da gravitação\nUniversal de Newton\nF = G * (m1 * m2) / d^2",command=self.ir_para_tela8)
+        #button3 = ttk.Button(frame1, text="Lei de Coulomb\n (Lei de Eletrostatica)\nF = k * (|q1 * q2|) / d²",command=self.ir_para_tela9)
+        button4 = ttk.Button(frame1, text="Energia cinética\nEc = m . v² / 2",command=self.ir_para_tela10)
         button1.pack(side=tk.LEFT,padx=10, pady=10)
         button2.pack(side=tk.LEFT,padx=10, pady=10)
         #button3.pack(side=tk.LEFT,padx=10, pady=10)
@@ -134,11 +134,11 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
-        button5 = tk.Button(frame2, text="Energia Potencial\n Gravitacional\nEPG = m * g * h",command=self.ir_para_tela11)
-        #button6 = tk.Button(frame2, text="Lei da conservação\n de Energia Mecânica\nE = K + U",command=self.ir_para_tela12)
-        button7 = tk.Button(frame2, text="Lei de Hooke\n (Lei da Elasticidade)\nF = -k * x",command=self.ir_para_tela13)
-        #button8 = tk.Button(frame2, text="Lei de Snell\n (Lei da Refração)\nn1.sen(i) = n2.sen(r)",command=self.ir_para_tela14)
-        button9 = tk.Button(frame2, text="Lei de Ohm\n (Primeira lei)\nV = I * R",command=self.ir_para_tela15)
+        button5 = ttk.Button(frame2, text="Energia Potencial\nGravitacional\nEPG = m * g * h",command=self.ir_para_tela11)
+        #button6 = ttk.Button(frame2, text="Lei da conservação\n de Energia Mecânica\nE = K + U",command=self.ir_para_tela12)
+        button7 = ttk.Button(frame2, text="Lei de Hooke\n(Lei da Elasticidade)\nF = -k * x",command=self.ir_para_tela13)
+        #button8 = ttk.Button(frame2, text="Lei de Snell\n (Lei da Refração)\nn1.sen(i) = n2.sen(r)",command=self.ir_para_tela14)
+        button9 = ttk.Button(frame2, text="Lei de Ohm\n(Primeira lei)\nV = I * R",command=self.ir_para_tela15)
         button5.pack(side=tk.LEFT,padx=30, pady=40)
         #button6.pack(side=tk.LEFT,padx=10, pady=40)
         button7.pack(side=tk.LEFT,padx=30, pady=40)
@@ -151,15 +151,15 @@ class Software:
         frame3.configure(bg='#e6e0c4')
         frame3.pack()
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
-        button10 = tk.Button(frame3, text="Trabalho de uma força\nW = F * d * cos(θ)",command=self.ir_para_tela16)
-        button11 = tk.Button(frame3, text="Velocidade média\nVm = ΔS / Δt",command=self.ir_para_tela17)
-        button12 = tk.Button(frame3, text="Densidade\nd = m / v",command=self.ir_para_tela18)
+        button10 = ttk.Button(frame3, text="Trabalho de uma força\nW = F * d * cos(θ)",command=self.ir_para_tela16)
+        button11 = ttk.Button(frame3, text="Velocidade média\nVm = ΔS / Δt",command=self.ir_para_tela17)
+        button12 = ttk.Button(frame3, text="Densidade\nd = m / v",command=self.ir_para_tela18)
         button10.pack(side=tk.LEFT,padx=30, pady=10)
         button11.pack(side=tk.LEFT,padx=30, pady=10)
         button12.pack(side=tk.LEFT,padx=30, pady=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela3, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela3, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(pady=40)
 
 
@@ -198,7 +198,7 @@ class Software:
         label4_1.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela4, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela4, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(pady=10)
 
 
@@ -240,7 +240,7 @@ class Software:
         label5_1.pack(anchor='n')
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela5, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela5, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom')
 
 
@@ -279,7 +279,7 @@ class Software:
         label6.pack(pady=30)
 
         #BOTÃO PARA ABRIR O GITHUB
-        button_github = tk.Button(self.tela6, text="Abrir GitHub", command=abrir_github)
+        button_github = ttk.Button(self.tela6, text="Abrir GitHub", command=abrir_github)
         button_github.pack(pady=30)
 
         #CAMPO DE TEXTO PARA INFORMAR O USUARIO PARA COPIAR O LINK
@@ -296,11 +296,11 @@ class Software:
         text.pack()
 
         #BOTÃO PARA EXIBIR O QRCODE NA TELA
-        gerar_qr = tk.Button(self.tela6, text="Gerar QR Code", command=mostrar_qr_code)
+        gerar_qr = ttk.Button(self.tela6, text="Gerar QR Code", command=mostrar_qr_code)
         gerar_qr.pack(pady=30)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela6, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela6, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=20)
 
 
@@ -386,8 +386,8 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
@@ -398,7 +398,7 @@ class Software:
         label_resultado.pack(pady=10)
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela7, text="Contextualização da formula", command=self.ir_para_tela19)
+        btn_contexto = ttk.Button(self.tela7, text="Contextualização da formula", command=self.ir_para_tela19)
         btn_contexto.pack(pady=10)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
@@ -406,15 +406,15 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela20)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela21)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela22)
+        botao_tela20 = ttk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela20)
+        botao_tela21 = ttk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela21)
+        botao_tela22 = ttk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela22)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10, pady=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela7, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela7, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom', pady=20)
 
 
@@ -517,8 +517,8 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
@@ -529,7 +529,7 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela8, text="Contextualização da formula", command=self.ir_para_tela23)
+        btn_contexto = ttk.Button(self.tela8, text="Contextualização da formula", command=self.ir_para_tela23)
         btn_contexto.pack(pady=10)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
@@ -537,15 +537,15 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela24)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela25)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela26)
+        botao_tela20 = ttk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela24)
+        botao_tela21 = ttk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela25)
+        botao_tela22 = ttk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela26)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela8, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela8, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom', pady=10)
 
 
@@ -564,7 +564,7 @@ class Software:
         self.tela9.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela9, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela9, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=90)
 
 
@@ -649,8 +649,8 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=15)
 
@@ -661,7 +661,7 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela10, text="Contextualização da formula", command=self.ir_para_tela27)
+        btn_contexto = ttk.Button(self.tela10, text="Contextualização da formula", command=self.ir_para_tela27)
         btn_contexto.pack(pady=15)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
@@ -669,15 +669,15 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela28)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela29)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela30)
+        botao_tela20 = ttk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela28)
+        botao_tela21 = ttk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela29)
+        botao_tela22 = ttk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela30)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=20)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela10, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela10, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -781,8 +781,8 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
@@ -793,7 +793,7 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela11, text="Contextualização da formula", command=self.ir_para_tela31)
+        btn_contexto = ttk.Button(self.tela11, text="Contextualização da formula", command=self.ir_para_tela31)
         btn_contexto.pack(pady=15)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
@@ -801,15 +801,15 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela32)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela33)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela34)
+        botao_tela20 = ttk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela32)
+        botao_tela21 = ttk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela33)
+        botao_tela22 = ttk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela34)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela11, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela11, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -828,7 +828,7 @@ class Software:
         self.tela12.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela12, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela12, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=90)
 
 
@@ -912,8 +912,8 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
@@ -924,7 +924,7 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela13, text="Contextualização da formula", command=self.ir_para_tela35)
+        btn_contexto = ttk.Button(self.tela13, text="Contextualização da formula", command=self.ir_para_tela35)
         btn_contexto.pack(pady=20)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
@@ -932,15 +932,15 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela36)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela37)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela38)
+        botao_tela20 = ttk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela36)
+        botao_tela21 = ttk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela37)
+        botao_tela22 = ttk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela38)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela13, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela13, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -1049,8 +1049,8 @@ class Software:
         frame1 = tk.Frame(self.tela14)
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
@@ -1060,7 +1060,7 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela14, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela14, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=35)
 
 
@@ -1144,8 +1144,8 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
@@ -1156,7 +1156,7 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela15, text="Contextualização da formula", command=self.ir_para_tela39)
+        btn_contexto = ttk.Button(self.tela15, text="Contextualização da formula", command=self.ir_para_tela39)
         btn_contexto.pack(pady=20)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
@@ -1164,15 +1164,15 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela40)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela41)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela42)
+        botao_tela20 = ttk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela40)
+        botao_tela21 = ttk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela41)
+        botao_tela22 = ttk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela42)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela15, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela15, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=30)
 
 
@@ -1274,8 +1274,8 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
@@ -1286,7 +1286,7 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela16, text="Contextualização da formula", command=self.ir_para_tela43)
+        btn_contexto = ttk.Button(self.tela16, text="Contextualização da formula", command=self.ir_para_tela43)
         btn_contexto.pack(pady=20)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
@@ -1294,15 +1294,15 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela44)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela45)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela46)
+        botao_tela20 = ttk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela44)
+        botao_tela21 = ttk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela45)
+        botao_tela22 = ttk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela46)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela16, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela16, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -1389,8 +1389,8 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
@@ -1401,7 +1401,7 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela17, text="Contextualização da formula", command=self.ir_para_tela47)
+        btn_contexto = ttk.Button(self.tela17, text="Contextualização da formula", command=self.ir_para_tela47)
         btn_contexto.pack(pady=10)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
@@ -1409,15 +1409,15 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela48)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela49)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela50)
+        botao_tela20 = ttk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela48)
+        botao_tela21 = ttk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela49)
+        botao_tela22 = ttk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela50)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela17, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela17, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=25)
 
 
@@ -1506,8 +1506,8 @@ class Software:
         frame1.configure(bg='#e6e0c4')
         frame1.pack()
         #CRIANDO BOTOES
-        botao_calcular = tk.Button(frame1, text="Calcular", command=calcular)
-        botao_limpar = tk.Button(frame1, text="Limpar", command=limpar_campos)
+        botao_calcular = ttk.Button(frame1, text="Calcular", command=calcular)
+        botao_limpar = ttk.Button(frame1, text="Limpar", command=limpar_campos)
         botao_calcular.pack(side=tk.LEFT,padx=10, pady=10)
         botao_limpar.pack(side=tk.LEFT,padx=10, pady=10)
 
@@ -1518,7 +1518,7 @@ class Software:
         label_resultado.pack()
 
         #BOTÃO CONTEXTUALIZAÇÃO
-        btn_contexto = tk.Button(self.tela18, text="Contextualização da formula", command=self.ir_para_tela51)
+        btn_contexto = ttk.Button(self.tela18, text="Contextualização da formula", command=self.ir_para_tela51)
         btn_contexto.pack(pady=10)
 
         #CRIANDO O FRAME PARA BOTOES DE EXEMPLOS PRATICOS
@@ -1526,15 +1526,15 @@ class Software:
         frame2.configure(bg='#e6e0c4')
         frame2.pack()
         #CRIANDO BOTOES
-        botao_tela20 = tk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela52)
-        botao_tela21 = tk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela53)
-        botao_tela22 = tk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela54)
+        botao_tela20 = ttk.Button(frame2, text="Exemplo Prático 1", command=self.ir_para_tela52)
+        botao_tela21 = ttk.Button(frame2, text="Exemplo Prático 2", command=self.ir_para_tela53)
+        botao_tela22 = ttk.Button(frame2, text="Exemplo Prático 3", command=self.ir_para_tela54)
         botao_tela20.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela21.pack(side=tk.LEFT,padx=10, pady=10)
         botao_tela22.pack(side=tk.LEFT,padx=10)
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela18, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela18, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=40)
 
 
@@ -1550,12 +1550,12 @@ class Software:
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela19, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
         label6.configure(bg='#e6e0c4')
-        label6.pack(pady=10)
+        label6.pack(pady=5)
 
         #TEXTO INFORMATIVO DE TELA
         label6_1 = tk.Label(self.tela19, text="F = m . a")
         label6_1.configure(bg='#e6e0c4')
-        label6_1.pack(pady=10)
+        label6_1.pack(pady=5)
 
         #TEXTO TELA CONTEXTUALIZAÇÃO
         texto = """
@@ -1572,6 +1572,12 @@ class Software:
         planetas e nas ciências biológicas para entender o movimento dos corpos e músculos humanos. 
         Portanto, a Lei do Movimento de Newton representa uma ferramenta indispensável para
         compreender e prever os movimentos em diversas áreas da ciência e engenharia.
+        
+        F = m * a
+
+        "F" representa a força aplicada ao objeto e é medida em newtons (N).
+        "m" representa a massa do objeto e é medida em quilogramas (kg).
+        "a" representa a aceleração do objeto e é medida em metros por segundo ao quadrado (m/s²).
         """
 
         #RÓTULO DO TEXTO
@@ -1580,8 +1586,8 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela19, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=10)
+        btn_tela_anterior = ttk.Button(self.tela19, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior.pack(side='bottom',pady=5)
 
 
     #CRIA A TELA 20 (EXEMPLO PRATICO 1 - Lei de Movimento de Newton (Segunda Lei))
@@ -1621,7 +1627,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela20, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela20, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=40)
 
 
@@ -1662,7 +1668,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela21, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela21, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=40)
 
 
@@ -1704,7 +1710,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela22, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela22, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=30)
 
 
@@ -1754,7 +1760,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela23, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela23, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=5)
 
 
@@ -1795,7 +1801,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela24, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela24, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=40)
 
 
@@ -1831,7 +1837,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela25, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela25, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=40)
 
 
@@ -1867,7 +1873,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela26, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela26, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=40)
 
 
@@ -1915,7 +1921,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela27, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela27, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -1954,7 +1960,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela28, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela28, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=25)        
 
 
@@ -1992,7 +1998,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela29, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela29, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=25) 
 
 
@@ -2030,7 +2036,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela30, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela30, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=25) 
 
 
@@ -2067,7 +2073,7 @@ class Software:
         gravidade, e, dependendo da massa da mesma e da altura da mesa, podemos definir a sua energia
         potencial gravitacional através do calculo. 
 
-        U = m * g * h
+        EPG = m * g * h
 
         Onde U é a Energia Potencial Gravitacional, m é a massa do objeto em kilogramas, g é a aceleração devido a gravidade dada em metros por segundo, 
         e h é a altura em metros em relação a superficie que o objeto se encontra.
@@ -2079,7 +2085,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela31, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela31, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -2126,7 +2132,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela32, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela32, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=5)
 
 
@@ -2171,7 +2177,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela33, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela33, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=25)
 
 
@@ -2213,7 +2219,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela34, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela34, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2262,7 +2268,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela35, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela35, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -2307,7 +2313,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela36, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela36, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2349,7 +2355,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela37, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela37, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2385,7 +2391,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela38, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela38, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2431,7 +2437,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela39, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela39, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2474,7 +2480,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela40, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela40, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2517,7 +2523,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela41, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela41, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2560,7 +2566,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela42, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela42, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2607,7 +2613,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela43, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela43, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2652,7 +2658,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela44, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela44, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2697,7 +2703,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela45, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela45, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2745,7 +2751,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela46, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela46, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -2785,7 +2791,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela47, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela47, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=15)
 
 
@@ -2828,7 +2834,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela48, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela48, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -2870,7 +2876,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela49, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela49, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -2913,7 +2919,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela50, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela50, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -2953,7 +2959,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela51, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela51, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=30)
 
 
@@ -2996,7 +3002,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela52, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela52, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=10)
 
 
@@ -3038,7 +3044,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela53, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela53, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=25)
 
 
@@ -3082,7 +3088,7 @@ class Software:
         label6_2.pack()
 
         #BOTÃO VOLTAR TELA
-        btn_tela_anterior = tk.Button(self.tela54, text="Voltar", command=self.voltar_tela)
+        btn_tela_anterior = ttk.Button(self.tela54, text="Voltar", command=self.voltar_tela)
         btn_tela_anterior.pack(side='bottom',pady=25)
 
 ########################################## FUNÇÕES IR PARA OUTRA TELA ################################################################
@@ -3786,10 +3792,15 @@ class Software:
 
 ##################################### INICIALIZADOR ######################################################################################################################################################################################################################################################################################
 
-#INCIALIZADOR DA PRIMEIRA JANELA
+#FUNÇÃO PARA INICIAR E DEFNIR PADRÕES DO PRAGRAMA
 if __name__ == "__main__":
-    root = tk.Tk()
+
+    #DEFINE O TEMA A SER UTILIZADO NO PROGRAMA
+    root = ThemedTk(theme="keramik")
+    #DEFINE O ICONE DO PROGRAMA
     root.iconbitmap('icone-projeto.ico')
+    #DEFINE A COR DE FUNDO DO PROGRAMA
     root.configure(bg='#e6e0c4')
+    #INICIALIZADOR PRGRAMA COMO ROOT
     app = Software(root)
     root.mainloop()
