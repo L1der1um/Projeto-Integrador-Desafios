@@ -28,7 +28,7 @@ class Software:
         #DEFINE O TITULO DO PROGRAMA
         root.title("PROJETO INTEGRADOR - DESAFIOS DE PROGRAMAÇÃO")
         #DEFINE A ESCALA DO PROGRAMA
-        root.geometry("900x500")
+        root.geometry("1080x600")
         #IMPOSIBILITA A REDIMENÇÃO DO PROGRAMA
         root.resizable(False, False)
         #DEFINE A TELA PRINCIAPL
@@ -258,6 +258,8 @@ class Software:
 
         #FUNÇÃO EXIBIR QRCODE NA TELA
         def mostrar_qr_code():
+
+            gerar_qr.config(state=tk.DISABLED)
 
             #DEFININDO A URL DO PROJETO
             url = "https://github.com/L1der1um/Projeto-Integrador-Desafios"
