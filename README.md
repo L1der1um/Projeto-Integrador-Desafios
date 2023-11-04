@@ -27,4 +27,4 @@ Fonte: https://pypi.org/project/Pillow/
 
 #####################################################
 
-Em último caso fechar e abrir novamente o VScode.
+Por último fechar e abrir novamente o VScode.
