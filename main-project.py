@@ -232,6 +232,9 @@ class Software:
         How to add placeholder to an Entry in tkinter? Disponível em:
         <https://stackoverflow.com/questions/27820178/how-to-add-placeholder-to-an-entry-in-tkinter>.
         Acesso em: 22 set. 2023.
+
+        ttkthemes v3.2.2 documentation. Disponível em: <https://ttkthemes.readthedocs.io/en/latest/example.html>.
+        Acesso em: 9 nov. 2023.
         """
 
         #RÓTULO DO TEXTO
@@ -499,7 +502,7 @@ class Software:
                 constante_gravitacional = 0.0000000000667430
                 forca = (constante_gravitacional * (massa1 * massa2)) / (distancia ** 2)
 
-                # Exibir o resultado usando a variável de controle resultado
+                #SETANDO O RESULTADO
                 resultado.set(f"Força ≈ {forca} N")
 
             except ValueError:
@@ -623,17 +626,18 @@ class Software:
         entry_velocidade.bind("<FocusOut>", restaurar_placeholder)
         entry_velocidade.pack()
 
-        # Função para calcular a energia cinética
+        #FUNÇÃO CALCULAR ENERGICA CINÉTICA
         def calcular():
             try:
-                # Obter valores inseridos pelo usuário
+        
+                #SOLICITAR VALORES A SEREM INCLUIDOS
                 massa = float(entry_massa.get())
                 velocidade = float(entry_velocidade.get())
 
-                # Calcular a energia cinética
+                #CALCUANDO FORMULA
                 energia_cinetica = 0.5 * massa * (velocidade ** 2)
 
-                # Exibir o resultado na label de resultado
+                #SETANDO RESULTADO
                 resultado.set(f"Energia Cinética (Ec): {energia_cinetica:.2f} Joules")
 
             except ValueError:
@@ -644,7 +648,7 @@ class Software:
         def limpar_campos():
             entry_massa.delete(0, tk.END)
             entry_velocidade.delete(0, tk.END)
-            resultado.set("")  # Limpa o resultado
+            resultado.set("") 
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela10)
@@ -753,18 +757,19 @@ class Software:
         entry_altura.bind("<FocusOut>", restaurar_placeholder)
         entry_altura.pack()
 
-        # Função para calcular a energia potencial gravitacional
+        #FUNÇÃO FORMULA ENERGIA POTENCIAL GRAVITACIONAL
         def calcular():
             try:
-                # Obter valores inseridos pelo usuário
+                
+                #SOLICITAR ENTRADA DE DADOS
                 massa = float(entry_massa.get())
                 altura = float(entry_altura.get())
                 gravidade = float(entry_gravidade.get())
 
-                # Calcular a energia potencial gravitacional
+                #CALCULANDO FORMULA
                 energia_potencial = massa * gravidade * altura
 
-                # Exibir o resultado na label de resultado
+                #SETANDO RESULTADO
                 resultado.set(f"Energia Potencial Gravitacional: {energia_potencial:.4f} Joules")
 
             except ValueError:
@@ -890,14 +895,15 @@ class Software:
         #Função para calcular a força de acordo com a Lei de Hooke
         def calcular():
             try:
-                # Obter valores inseridos pelo usuário
+                
+                #SOLICITAR ENTRADA DE DADOS
                 constante_elastica = float(entry_constante_elastica.get())
                 deformacao = float(entry_deformacao.get())
 
-                # Calcular a força usando a Lei de Hooke
+                #CALCULANDO FORMULA
                 forca = -constante_elastica * deformacao
 
-                # Exibir o resultado na label de resultado
+                #SETANDO RESULTADO
                 resultado.set(f"Força: {forca:.2f} N")
 
             except ValueError:
@@ -1013,27 +1019,28 @@ class Software:
         entry_angulo_incidencia.bind("<FocusOut>", restaurar_placeholder)
         entry_angulo_incidencia.pack()
 
-        # Função para calcular o ângulo de refração de acordo com a Lei de Snell
+        #FUNÇÃO CALCULAR LEI NE SNELL
         def calcular():
             try:
-                # Obter valores inseridos pelo usuário
+                
+                #SOLICITAR ENTRADA DE DADOS
                 indice_refracao1 = float(entry_indice_refracao1.get())
                 indice_refracao2 = float(entry_indice_refracao2.get())
                 angulo_incidencia = float(entry_angulo_incidencia.get())
 
-                # Validar se o índice de refração 2 é zero
+                #SE O INDICE FOR ZERO RETORNAR ERRO
                 if indice_refracao2 == 0:
                     resultado.set("O índice de refração 2 não pode ser zero.")
                     return
 
-                # Converter o ângulo de incidência para radianos (se estiver em graus)
+                #CONVERTER O ANGULA DE INCIDÊNCIA PARA RADIANOS
                 angulo_incidencia_rad = math.radians(angulo_incidencia)
 
-                # Calcular o ângulo de refração usando a Lei de Snell
+                #CALCULANDO FORMULA
                 angulo_refracao_rad = math.asin((indice_refracao1 / indice_refracao2) * math.sin(angulo_incidencia_rad))
                 angulo_refracao_deg = math.degrees(angulo_refracao_rad)
 
-                # Exibir o resultado na label de resultado
+                #SETANDO RESULTADO
                 resultado.set(f"Ângulo de Refração: {angulo_refracao_deg:.2f} graus")
 
             except ValueError:
@@ -1119,27 +1126,28 @@ class Software:
         entry_resistencia.bind("<FocusOut>", restaurar_placeholder)
         entry_resistencia.pack()
 
-        # Função para calcular a tensão elétrica de acordo com a Lei de Ohm
+        #CALCULANDO FORMULA
         def calcular():
             try:
-                # Obter valores inseridos pelo usuário
+        
+                #SOLICITAR ENTRADA DE DADOS
                 corrente = float(entry_corrente.get())
                 resistencia = float(entry_resistencia.get())
 
-                # Calcular a tensão elétrica usando a Lei de Ohm
+                #CALCULANDO FORMULA
                 tensao = corrente * resistencia
 
-                # Exibir o resultado na label de resultado
+                #SETANDO RESULTADO
                 resultado.set(f"Tensão Elétrica (V): {tensao:.2f} V")
 
             except ValueError:
                 resultado.set("Por favor, insira valores válidos / Preencha todos os campos.")
 
-        # Função para limpar os campos
+        #FUNÇÃO PARA LIMPAR TODOS OS CAMPOS
         def limpar_campos():
             entry_corrente.delete(0, tk.END)
             entry_resistencia.delete(0, tk.END)
-            resultado.set("")  # Resetar o campo de resultado
+            resultado.set("")
 
         #CRIANDO O FRAME PARA BOTOES CALCULAR E LIMPAR FICAREM ALINHADOS
         frame1 = tk.Frame(self.tela15)
@@ -1476,7 +1484,7 @@ class Software:
         entry_volume.bind("<FocusOut>", restaurar_placeholder)
         entry_volume.pack()
 
-        # Função para calcular a densidade
+        #FUNÇÃO CALCULAR FORMULA DENSIDADE
         def calcular():
             try:
                 #SOLICITA OS VALORES PARA O USUARIO
@@ -1735,25 +1743,24 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-            O princípio Lei da Gravitação Universal foi formulada por Isaac Newton em 1687 em seu
-        livro "Principia Mathematica". Ela representou uma revolução na compreensão da
-        física, pois unificou os movimentos celestes e terrestres sob um único conjunto de leis.
-        A fórmula descreve a força de atração gravitacional entre duas massas, m1 e m2, separadas
-        por uma distância d. Essa força é representada por F. 
-        
-            A constante G é uma constante fundamental da física e, na época de Newton, sua precisão
-        experimental não era conhecida com detalhes, com o desenvolvimento da ciência, o valor de
-        G foi determinado com alta precisão.
+            A Lei da Gravitação Universal, formulada por Isaac Newton em 1687, descreve a força de atração
+        gravitacional entre duas massas, m1 e m2, separadas por uma distância d. Essa força é representada
+        por F e é inversamente proporcional ao quadrado da distância entre as massas (d²). A constante G
+        é uma constante fundamental da física que determina a intensidade da força gravitacional. A lei
+        unificou os movimentos celestes e terrestres sob um único conjunto de leis, permitindo a previsão
+        de eclipses, trajetórias de satélites e o comportamento dos planetas. Quanto maior a massa dos
+        objetos, maior será a força gravitacional entre eles.
 
-            A parte mais notável da Lei da Gravitação Universal é que a força gravitacional entre duas
-        massas é inversamente proporcional ao quadrado da distância entre elas (d²). Isso significa
-        que, se você dobrar a distância entre as massas, a força gravitacional se tornará um quarto
-        do valor original. Destaca-se, a importância da massa na atração gravitacional. Quanto maior
-        a massa dos objetos, maior será a força gravitacional entre eles. Isso é especialmente
-        evidente em sistemas como o sistema solar, onde a massa do Sol exerce uma atração
-        gravitacional sobre os planetas, mantendo-os em órbita. Com a fórmula, se pode descrever
-        com precisão os movimentos de corpos celestes, permitindo a previsão de eclipses, trajetórias
-        de satélites e o comportamento dos planetas.
+        F = G * (m1 * m2) / d²
+
+        "F" = Força gravitacional é a força de atração entre dois objetos devido à sua massa, medida
+        em newtons (N).
+        "G" = Constante gravitacional é uma constante fundamental da natureza, portanto, é
+        medido em kg·s².
+        "m1, m2" = Massa dos Objetos representam as massas dos dois objetos que estão interagindo
+        gravitacionalmente. (kg)
+        "d" = Distância entre os Objetos que representa a distância entre os centros de massa dos
+        dois objetos, esta é medida em metros (m).
         """
 
         #RÓTULO DO TEXTO
@@ -1915,6 +1922,14 @@ class Software:
         papel crucial ao examinar situações complicadas, abrangendo desde o funcionamento de máquinas e
         veículos até a explicação do comportamento de partículas em níveis subatômicos. Ela estabelece uma
         base primordial para compreender o mundo físico que nos cerca.
+
+        Ec = m . v² / 2
+
+        "Ec" = Energia Cinética é a quantidade total de energia associada ao movimento de um objeto, medida
+        em joules (J)
+        "m" = Massa do Objeto representa a massa do objeto em movimento, sendo medida em quilogramas (kg).
+        "v" = Velocidade do Objeto é a velocidade do objeto em movimento, sendo medida em metros por
+        segundo (m/s).
         """
 
         #RÓTULO DO TEXTO
@@ -2077,8 +2092,10 @@ class Software:
 
         EPG = m * g * h
 
-        Onde U é a Energia Potencial Gravitacional, m é a massa do objeto em kilogramas, g é a aceleração devido a gravidade dada em metros por segundo, 
-        e h é a altura em metros em relação a superficie que o objeto se encontra.
+        "EPG" = Energia Potencial Gravitacional, m é a massa do objeto em kilogramas.
+        "m" =  é a massa do objeto em questão, medida em quilogramas (kg).
+        "g" = é a aceleração devido a gravidade dada em metros por segundo.
+        "h" = é a altura em metros em relação a superficie que o objeto se encontra.
         """
 
         #RÓTULO DO TEXTO
@@ -2258,10 +2275,11 @@ class Software:
         até o final do movimento, a deformação é igualmente proporcional a força aplicada pelo
         aluno no movimento, e após a recessão a força o elástico voltará a sua forma natural.
 
-        O calculo se dá por: F = -k * x 
-        Onde F é a força elástica, k é a constante da mola, e x é a deformação da mola
+        F = -k * x 
 
-        A constante da mola multiplicada pela deformação da mola resulta na força elástica do material.
+        "F" = É a força aplicada na mola, medida em newtons (N).
+        "k" = É a constante de elasticidade da mola, também conhecida como constante de mola, medida em newtons por metro (N/m).
+        "x" = É a deformação da mola, medida em metros (m).
         """
 
         #RÓTULO DO TEXTO
@@ -2431,6 +2449,13 @@ class Software:
         regular a velocidade de operação em algumas máquinas e eletrodomésticos, como em ventiladores, máquinas
         de medição e motores. O potenciômetro ao ser girado, varia a resistência no circuito o que acaba mudando
         sua corrente e então alterando a velocidade de funcionamento da máquina.
+
+        V = I x R
+
+        "V" = Voltagem é a diferença de potencial elétrico entre dois pontos em um circuito, sendo medida
+        em volts (V). 
+        "I" = Corrente Elétrica é a taxa de fluxo de carga elétrica em um circuito, é medida em amperes (A).
+        "R" = Resistência é a resistência elétrica em um circuito; esta é medida em ohms (Ω).
         """
 
         #RÓTULO DO TEXTO
@@ -2591,22 +2616,23 @@ class Software:
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
-            A fórmula do trabalho tem um papel fundamental na física e engenharia, sendo usada para
-        medir a quantidade de energia transferida ou transformada em diferentes contextos. Em sua
-        essência, o trabalho representa a energia realizada ou gasta ao aplicar uma força em um objeto
-        e movê-lo por uma certa distância no sentido da força aplicada. Isso é essencial em áreas como
-        a mecânica, onde é importante compreender como as forças afetam o movimento dos objetos.
-        Por exemplo, ao levantar um objeto pesado do chão, estamos realizando trabalho ao aplicar uma
-        força vertical contra a gravidade e elevando o objeto até uma determinada altura. A fórmula
-        também desempenha um papel crucial na análise de máquinas e motores, permitindo calcular a
-        transferência de energia mecânica e a eficiência das máquinas.
+            A fórmula do trabalho, que é o produto da força aplicada em um objeto pela distância percorrida na
+        direção da força, desempenha um papel fundamental na física e engenharia. Ela permite quantificar a
+        quantidade de energia transferida ou transformada em diferentes contextos, como levantar um objeto contra
+        a gravidade ou analisar a eficiência de máquinas. Além disso, a fórmula do trabalho é crucial na
+        termodinâmica, onde ajuda a compreender a transferência de calor e a realização de trabalho mecânico em
+        processos termodinâmicos. Em resumo, essa fórmula é uma ferramenta poderosa que nos permite entender e
+        aplicar conceitos fundamentais de energia e movimento em diversas áreas da ciência e engenharia.
+        
+        W = F ⋅ d ⋅ cos(θ)
 
-            Além disso, a fórmula do trabalho é relevante em campos como a termodinâmica, onde desempenha
-        um papel fundamental na compreensão da transferência de calor e na execução de trabalho mecânico
-        nos processos termodinâmicos. Resumindo, a fórmula do trabalho é uma ferramenta poderosa que
-        permite aos cientistas, engenheiros e pesquisadores quantificar e compreender as interações entre
-        forças, movimento e energia em diversas áreas da física e engenharia. Ela desempenha um papel
-        crucial no desenvolvimento de tecnologias avançadas e sistemas que impulsionam o nosso mundo moderno.
+        "W" = Trabalho é a quantidade de energia transferida ou convertida devido à ação de uma força. A
+        unidade do trabalho é o joule (J).
+        "F" = Força é a grandeza que causa a aceleração ou o movimento de um objeto, ela é medida em
+        newtons (N).
+        "d" = Deslocamento é a distância na direção da força sobre a qual a força atua, medido em metros (m).
+        "θ" = Representa o ângulo entre a direção da força e a direção do deslocamento, o valor do
+        cosseno desse ângulo é usado para levar em conta a componente da força na direção do deslocamento.
         """
 
         #RÓTULO DO TEXTO
@@ -2785,6 +2811,17 @@ class Software:
         avião durante um voo, ou em análises científicas, como a velocidade média de um
         planeta ao longo de sua órbita ou a velocidade média de uma partícula em uma
         experiência de física de partículas.
+
+        Vm = ΔS / Δt
+
+        "Vm" = Velocidade Média) é a taxa média de mudança na posição de um objeto durante
+        um intervalo de tempo. A unidade de velocidade média pode ser expressa em metros
+        por segundo (m/s).
+        "ΔS" = Variação de Posição) é a diferença entre a posição final e a posição inicial
+        do objeto. Ela é medida na mesma unidade de comprimento que o objeto
+        (metros, quilômetros, milhas, etc.)
+        "Δt" = Intervalo de Tempo) é o período de tempo durante o qual o deslocamento
+        ocorreu. Geralmente, é expresso em segundos (s).
         """
 
         #RÓTULO DO TEXTO
@@ -2935,12 +2972,12 @@ class Software:
         #TEXTO INFORMATIVO DE TELA
         label6 = tk.Label(self.tela51, text="CONTEXTUALIZAÇÃO DA FORMULA" ,font=('Arial', 14, 'bold'))
         label6.configure(bg='#e6e0c4')
-        label6.pack(pady=25)
+        label6.pack(pady=15)
 
         #TEXTO INFORMATIVO DE TELA 2
         label6_1 = tk.Label(self.tela51, text="d = m / v")
         label6_1.configure(bg='#e6e0c4')
-        label6_1.pack(pady=20)
+        label6_1.pack(pady=10)
 
         #TEXTO TELA OBJETIVO PRINCIPAL
         texto = """
@@ -2953,6 +2990,16 @@ class Software:
         flutuar ou afundar em um líquido. Um objeto flutua quando sua densidade é menor do que a do
         líquido em que está imerso, e afunda quando a densidade é maior. É, também, uma propriedade
         importante que afeta as propriedades mecânicas, térmicas e elétricas dos materiais.
+        
+        d = m / v
+
+        "d" = Densidade é a grandeza que descreve a quantidade de massa por unidade de volume de
+        uma substância. Ela é medida em quilogramas por metro cúbico (kg/m³).
+        "m" = Massa) representa a massa do objeto ou substância em questão. A massa é medida em
+        quilogramas (kg).
+        "V" = Volume representa o volume da substância. O volume é uma medida tridimensional do
+        espaço ocupado pela substância e é medido em metros cúbicos (m³) no SI, mas também pode
+        ser expresso em litros (L) ou outras unidades de volume, dependendo das circunstâncias.
         """
 
         #RÓTULO DO TEXTO
@@ -2962,7 +3009,7 @@ class Software:
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = ttk.Button(self.tela51, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(side='bottom',pady=30)
+        btn_tela_anterior.pack(side='bottom',pady=10)
 
 
     #CRIA A TELA 52 (EXEMPLO PRATICO 1 - Densidade)
