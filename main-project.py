@@ -83,7 +83,7 @@ class Software:
         #MENSAGEM DE TEXTO TELA 2
         label2 = tk.Label(self.tela2, text="ESCOLHA UMA OPÇÃO",font=('Arial', 16, 'bold'))
         label2.configure(bg="#e6e0c4")
-        label2.pack(pady=70)
+        label2.pack(pady=100)
         
         #BOTÃO IR PARA AS PRINCIPAIS FORMULAS
         btn_proxima_tela2 = ttk.Button(self.tela2, text='PRINCIPAIS FORMULAS FÍSICA 1', command=self.ir_para_tela3)
@@ -113,7 +113,7 @@ class Software:
         #MENSAGEM DE TEXTO TELA 3
         label3 = tk.Label(self.tela3, text="SELECIONE UMA FORMULA",font=('Arial', 14, 'bold'))
         label3.configure(bg="#e6e0c4")
-        label3.pack(pady=20)
+        label3.pack(pady=60)
 
         #CRIANDO O FRAME DA PRMEIRA LINHA DE BOTOES
         frame1 = tk.Frame(self.tela3)
@@ -160,7 +160,7 @@ class Software:
 
         #BOTÃO VOLTAR TELA
         btn_tela_anterior = ttk.Button(self.tela3, text="Voltar", command=self.voltar_tela)
-        btn_tela_anterior.pack(pady=40)
+        btn_tela_anterior.pack(pady=50)
 
 
     #CRIA A TELA 4 (Objetivo do projeto)
